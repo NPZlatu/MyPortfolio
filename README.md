@@ -44,6 +44,6 @@ If you wish to contribute or modify the website, follow these steps:
 
 ## Feedback
 
-If you have any feedback, suggestions, or issues regarding the website, please don't hesitate to [contact Niraj Paudel](mailto:your@email.com).
+If you have any feedback, suggestions, or issues regarding the website, please don't hesitate to [contact Niraj Paudel](mailto:itsmenirajpaudel@email.com).
 
 Thank you for visiting Niraj Paudel's portfolio website!

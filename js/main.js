@@ -23,10 +23,18 @@ AOS.init({
   };
   fullHeight();
 
-  $("#ftco-loader").removeClass("show");
+  // loader
+  var loader = function () {
+    setTimeout(function () {
+      if ($("#ftco-loader").length > 0) {
+        $("#ftco-loader").removeClass("show");
+      }
+    }, 1);
+  };
+  loader();
 
   // Scrollax
-  // $.Scrollax();
+  $.Scrollax();
 
   // Burger Menu
   var burgerMenu = function () {

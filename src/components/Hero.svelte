@@ -4,6 +4,44 @@
 
   let imageLoaded = false;
 
+  let typingTexts = [
+    "An Engineer",
+    "A Dishwasher",
+    "A Leader",
+    `And my wife's follower`,
+    "I do write sometimes",
+    "I follow Jordan Peterson",
+    "Clean your room 😁",
+  ];
+
+  let currentText = typingTexts[0];
+  let typingIndex = 0;
+  /**
+   * @type {number | undefined}
+   */
+  let typingInterval;
+  /**
+   * @type {string}
+   */
+  let typedText;
+
+  function startTypingAnimation() {
+    typingInterval = setInterval(() => {
+      if (typingIndex < currentText.length) {
+        typedText = currentText.substring(0, typingIndex + 1);
+        typingIndex++;
+      } else {
+        clearInterval(typingInterval);
+        typingIndex = 0;
+        startTypingAnimation();
+        currentText =
+          typingTexts[
+            (typingTexts.indexOf(currentText) + 1) % typingTexts.length
+          ];
+      }
+    }, 200);
+  }
+
   onMount(() => {
     const img = new Image();
     img.onload = () => {
@@ -11,19 +49,20 @@
     };
     img.src = bg1Img;
   });
+  startTypingAnimation();
 </script>
 
-{#if !imageLoaded}
-  <div class="loader-container">
-    <div class="loader"></div>
-  </div>
-{:else}
-  <div class="hero container-fluid" id="hero-section">
+<div class="hero container-fluid" id="hero-section">
+  {#if !imageLoaded}
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+  {:else}
     <div class="row">
       <div class="col-md-6 hero__content">
         <div class="small-text">HELLO!</div>
         <h1 class="name">I'm <span>Niraj Paudel</span></h1>
-        <div class="animated-text">An Engineer</div>
+        <div class="animated-text">{typedText}</div>
         <h2 class="role">Software Engineer</h2>
         <div class="buttons">
           <a
@@ -42,8 +81,8 @@
         <img src={bg1Img} alt="niraj background" />
       </div>
     </div>
-  </div>
-{/if}
+  {/if}
+</div>
 
 <style>
   /* Loader styles */

@@ -1,4 +1,4 @@
-# Portfolio Website README
+# Niraj Paudel's Portfolio Website
 
 Welcome to the README file for Niraj Paudel's portfolio website!
 
@@ -10,11 +10,12 @@ This portfolio website showcases the skills, experiences, and projects of Niraj 
 
 The website is built using the following technologies:
 
+- **Svelte.js**: Front-end framework for building reactive web applications.
+- **SvelteKit**: Framework for building Svelte applications with SSR, routing, and more.
 - **HTML**: For structuring the web pages.
 - **CSS**: For styling and layout.
 - **JavaScript**: For interactive elements and functionality.
 - **Bootstrap**: Front-end framework for design consistency.
-- **jQuery**: JavaScript library for DOM manipulation.
 
 ## Features
 

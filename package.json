@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "predeploy": "NODE_OPTIONS=\"--max-old-space-size=8192\" NODE_ENV=production npm run build",
+    "deploy": "NODE_OPTIONS=\"--max-old-space-size=8192\" npm run build && gh-pages -d build",
     "preview": "vite preview",
-    "deploy": "NODE_OPTIONS=\"--max-old-space-size=8192\" npm run build && npm run deploy-gh-pages",
-    "deploy-gh-pages": "gh-pages -d build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
   },
   "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.2.0",
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.2",

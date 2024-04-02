@@ -4,7 +4,7 @@ Welcome to the README file for Niraj Paudel's portfolio website!
 
 ## Overview
 
-This portfolio website showcases the skills, experiences, and projects of Niraj Paudel. It serves as a digital resume and a platform to demonstrate expertise to potential employers, clients, or collaborators. The website template is taken from [Colorlib](https://colorlib.com/), a platform offering free and premium HTML website templates.
+This portfolio website showcases the skills, experiences, and projects of Niraj Paudel. It serves as a digital resume and a platform to demonstrate expertise to potential employers, clients, or collaborators. The website template idea is taken from [Colorlib](https://colorlib.com/), a platform offering free and premium HTML website templates.
 
 ## Technologies Used
 

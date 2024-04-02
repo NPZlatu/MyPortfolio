@@ -41,7 +41,12 @@ If you wish to contribute or modify the website, follow these steps:
 
 ## Credits
 
-- **Colorlib**: Template source ([Colorlib website](https://colorlib.com/))
+- **Colorlib**: Template design inspiration source ([Colorlib website](https://colorlib.com/))
+
+## License
+
+This portfolio website is open source and available under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use and modify it as per your requirements.
+
 
 ## Feedback
 

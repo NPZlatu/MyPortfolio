@@ -47,13 +47,7 @@
     <div class="row justify-content-center mb-5 pb-5">
       <div class="col-md-12 heading-section text-center ftco-animate">
         <h1 class="big big-2">Contact Me</h1>
-        <p class="caption">
-          Below are some of the articles I have written, covering a range of
-          topics from technology and innovation to entrepreneurship and personal
-          development, each crafted to inform, inspire, and provoke thought
-          among readers seeking insights and ideas to navigate our rapidly
-          evolving world.
-        </p>
+        <p class="caption">Below are the details to reach out to me!</p>
       </div>
     </div>
 
@@ -145,16 +139,6 @@
     color: #fff; /* Content color */
   }
 
-  .btn-primary {
-    background-color: #ffbd39; /* Button background color */
-    border-color: #ffbd39; /* Button border color */
-    color: #000000; /* Button text color */
-    transition:
-      background-color 0.3s,
-      border-color 0.3s,
-      color 0.3s; /* Smooth transition */
-  }
-
   .btn-primary:hover {
     background-color: #ffbd39; /* Button background color on hover */
     border-color: #ffbd39; /* Button border color on hover */
@@ -205,8 +189,8 @@
 
   .btn-primary {
     cursor: pointer;
-    border-radius: 40px;
-    box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    box-shadow: 0px 12px 24px -8px rgba(0, 0, 0, 0.09);
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -214,6 +198,6 @@
     background: #ffbd39;
     border: 1px solid #ffbd39;
     color: #000000;
-    padding: 2rem 4.5rem;
+    padding: 1rem 2rem;
   }
 </style>

@@ -9,7 +9,7 @@
     "A Dishwasher",
     "A Leader",
     `And my wife's follower`,
-    "I do write sometimes",
+    "I write sometimes",
     "I follow Jordan Peterson",
     "Clean your room 😁",
   ];
@@ -139,7 +139,7 @@
   }
 
   .hero__content .name {
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 20px;
     line-height: 1.2;
     font-weight: 800;
@@ -150,14 +150,14 @@
   }
 
   .hero__content .animated-text {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     color: #fff;
     margin-bottom: 20px;
   }
 
   .hero__content .role {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
   }
@@ -207,6 +207,18 @@
 
     .hero__image {
       max-width: 50%;
+    }
+
+    .hero__content .name {
+      font-size: 50px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .hero__content .animated-text,
+    .hero__content .role {
+      font-size: 30px;
     }
   }
 

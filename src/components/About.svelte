@@ -15,12 +15,11 @@
   });
 
   const progress = {
-    "Backend Development": 70,
+    "Backend Development": 95,
     Leadership: 80,
     "Frontend Development": 60,
     Automation: 70,
-    "Project Management": 50,
-    Dishwashing: 80,
+    "Project Management": 60,
   };
 
   const technologies = {
@@ -56,7 +55,7 @@
 
       {#each Object.entries(progress) as [skill, percentage]}
         <div class="skill">
-          <p>{skill}</p>
+          <p>{`${skill} (${percentage}%)`}</p>
           <div class="progress">
             <div class="bar" style="width: {percentage}%;"></div>
           </div>

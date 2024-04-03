@@ -4,8 +4,16 @@
   import proj3Image from "$lib/images/proj_3.webp";
   import proj4Image from "$lib/images/proj_4.webp";
   import proj5Image from "$lib/images/proj_5.webp";
+  import proj6Image from "$lib/images/proj_6.webp";
 
   let articles = [
+    {
+      title: "Why and How to Create a Portfolio Website Using Svelte?",
+      imageUrl: proj6Image,
+      description:
+        "This article illustrates the process of building a high-performing portfolio website with Svelte.js, providing a step-by-step guide and practical insights. #Svelte #Portfolio #WebDev",
+      url: "https://medium.com/@nirajpaudel/why-and-how-to-create-a-portfolio-website-using-svelte-465daff4ebf3",
+    },
     {
       title:
         "Functional Programming for Beginners: Understanding the Core Principles",

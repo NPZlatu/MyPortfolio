@@ -6,7 +6,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "predeploy": "NODE_OPTIONS=\"--max-old-space-size=8192\" NODE_ENV=production npm run build",
-    "deploy": "NODE_OPTIONS=\"--max-old-space-size=8192\" npm run build && gh-pages -d build",
+    "deploy": "NODE_OPTIONS=\"--max-old-space-size=8192\" npm run build && gh-pages -d build --dotfiles",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"

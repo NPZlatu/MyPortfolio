@@ -47,6 +47,10 @@ If you wish to contribute or modify the website, follow these steps:
 
 This portfolio website is open source and available under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use and modify it as per your requirements.
 
+## Documentation
+
+Please go through the [Medium Article](https://medium.com/@nirajpaudel/why-and-how-to-create-a-portfolio-website-using-svelte-465daff4ebf3) for the detailed steps about how to create portfolio website using Svelte.
+
 
 ## Feedback
 

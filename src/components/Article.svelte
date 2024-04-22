@@ -46,11 +46,11 @@
       url: "https://bpazes.com/story/5-things-i-learned-from-elon-musk-884604d4-7468-4998-b90f-8fc7dfeec95c",
     },
     {
-      title: "Empowering Nepali Businesses: A Dive into Bpazes application",
+      title: "How JavaScript Directs the Flow of Electricity ?",
       imageUrl: proj5Image,
       description:
-        "This video serves as an instructional guide about Business Pazes and demonstrates the advantages that local businesses in Nepal can gain from using the BPazes app. The content is in Nepali language, and both the video and the audio are my own creation.",
-      url: "https://www.youtube.com/watch?v=Gqkg4ihUbVw",
+        "In this article, I delve into the fundamental connection between high-level programming languages like JavaScript and the underlying electronic principles learned in electronics and communication engineering. Specifically, I explore how seemingly abstract JavaScript instructions intricately manipulate the flow of electricity at the transistor level within a computer system.",
+      url: "https://www.linkedin.com/pulse/how-javascript-directs-flow-electricity-niraj-paudel-apfrc",
     },
   ];
 </script>

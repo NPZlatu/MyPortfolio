@@ -23,17 +23,17 @@
   };
 
   const technologies = {
-    Languages: `JavaScript, TypeScript, PHP, C#, Go, Rust`,
-    Frameworks: `Node.js (Express), PHP (Yii, CakePHP, Laravel), .Net MVC, Gin, Actix`,
+    Languages: `JavaScript, TypeScript, Rust, PHP, C#, Go`,
+    Frameworks: `Node.js (Express), PHP (Yii, CakePHP, Laravel), Rust (Axum), .Net Core`,
     Frontend: `React.js, Next.js, Vue.js, Svelte.js, Angular.js, Nuxt.js, Jquery`,
     Database: `MySQL, PostgreSQL, MongoDB, InfluxDB, ElasticSearch, Redis`,
     APIs: `REST, GraphQL`,
     "Unit Testing": `Jest, Mocha, Vitest, Entity Framework, Rust's testing framework`,
     Automation: `Protractor, Cucumber, Selenium, Jmeter, TestRail`,
     "CI/CD": `Jenkins, GitHub Actions, Octopus`,
-    DevOps: `GitHub, SVN, AWS, Docker, Kibana, Logstash`,
+    DevOps: `GitHub, SVN, AWS, Docker, Kibana`,
     Architecture: `Monolith, Microservice, Serverless`,
-    SDLC: `Jira, Agile, Scrum, Sportify, Kanban, Mob Programming, Peer Programming`,
+    SDLC: `Jira, Agile, Scrum, Sportify, Kanban, Mob Programming, TDD, Peer Programming`,
     Others: `RabbitMQ, Excel, Google Analytics & SEO`,
     Interests: `Philosophy, Writing, Travelling, Teaching`,
   };

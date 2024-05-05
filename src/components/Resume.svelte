@@ -132,6 +132,18 @@
       </div>
     </div>
 
+    <div class="row justify-content-center download">
+      <div class="col-md-12 text-center ftco-animate">
+        <p>
+          <a
+            href="https://drive.google.com/file/d/1OZuTkdFOfqu0SkekYuwIhj-jBz3Xvz2g/view?usp=sharing"
+            target="_blank"
+            class="btn btn-primary">Download CV</a
+          >
+        </p>
+      </div>
+    </div>
+
     <div class="row justify-content-center pb-4">
       <div class="col-md-10 heading-section text-center ftco-animate"></div>
     </div>
@@ -190,18 +202,6 @@
           </div>
         </div>
       {/each}
-    </div>
-
-    <div class="row justify-content-center download">
-      <div class="col-md-12 text-center ftco-animate">
-        <p>
-          <a
-            href="https://drive.google.com/file/d/1vfD2y60_sw_GPInqGb5aSykK0Y-rkM2z/view?usp=sharing"
-            target="_blank"
-            class="btn btn-primary">Download CV</a
-          >
-        </p>
-      </div>
     </div>
   </div>
 </section>

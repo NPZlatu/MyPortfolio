@@ -68,6 +68,15 @@
         Contact
       </a>
     </li>
+
+    <li>
+      <a
+        href="https://itsmenirajpaudel.github.io/theme-based-marksheet-conversion"
+        target="_blank"
+      >
+        Theme Marksheet
+      </a>
+    </li>
   </ul>
 </div>
 

@@ -71,7 +71,7 @@
             class="btn btn-primary">LinkedIn</a
           >
           <a
-            href="https://github.com/itsmenirajpaudel"
+            href="https://github.com/npzlatu"
             target="_blank"
             class="btn btn-secondary">GitHub</a
           >

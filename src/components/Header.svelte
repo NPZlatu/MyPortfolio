@@ -71,7 +71,7 @@
 
     <li>
       <a
-        href="https://itsmenirajpaudel.github.io/theme-based-marksheet-conversion"
+        href="https://npzlatu.github.io/theme-based-marksheet-conversion"
         target="_blank"
       >
         Theme Marksheet

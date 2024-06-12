@@ -5,6 +5,7 @@
   import proj4Image from "$lib/images/proj_4.webp";
   import proj5Image from "$lib/images/proj_5.webp";
   import proj6Image from "$lib/images/proj_6.webp";
+  import proj7Image from "$lib/images/proj_7.webp";
 
   let articles = [
     {
@@ -24,7 +25,7 @@
     },
     {
       title:
-        "Understanding Rust’s Memory Management: Ownership, Borrowing, and Lifetimes",
+        "Understanding Rust's Memory Management: Ownership, Borrowing, and Lifetimes",
       imageUrl: proj2Image,
       description:
         "Rust's memory management, facilitated by its Borrow Checker, ensures both memory safety and performance by enforcing rules during compilation, eliminating runtime overhead associated with garbage collection or manual memory allocation/deallocation.",
@@ -38,19 +39,26 @@
         "JavaScript, including Node.js, primarily operates on a single-threaded model, but it can handle concurrent operations efficiently through non-blocking I/O, although there are methods available for utilizing multiple threads in Node.js, necessitating an understanding of its concurrency models.",
       url: "https://medium.com/@nirajpaudel/concurrency-models-in-node-js-single-threaded-multi-threaded-and-multi-process-configurations-0080488a1c0b",
     },
-    {
-      title: "5 THINGS I LEARNED FROM ELON MUSK",
-      imageUrl: proj4Image,
-      description:
-        "Elon Musk's groundbreaking achievements underscore the importance of visionary leadership, teamwork, and relentless pursuit of ambitious goals, serving as a powerful inspiration for aspiring entrepreneurs like myself.",
-      url: "https://bpazes.com/story/5-things-i-learned-from-elon-musk-884604d4-7468-4998-b90f-8fc7dfeec95c",
-    },
+    // {
+    //   title: "5 THINGS I LEARNED FROM ELON MUSK",
+    //   imageUrl: proj4Image,
+    //   description:
+    //     "Elon Musk's groundbreaking achievements underscore the importance of visionary leadership, teamwork, and relentless pursuit of ambitious goals, serving as a powerful inspiration for aspiring entrepreneurs like myself.",
+    //   url: "https://bpazes.com/story/5-things-i-learned-from-elon-musk-884604d4-7468-4998-b90f-8fc7dfeec95c",
+    // },
     {
       title: "How JavaScript Directs the Flow of Electricity ?",
       imageUrl: proj5Image,
       description:
         "In this article, I delve into the fundamental connection between high-level programming languages like JavaScript and the underlying electronic principles learned in electronics and communication engineering. Specifically, I explore how seemingly abstract JavaScript instructions intricately manipulate the flow of electricity at the transistor level within a computer system.",
       url: "https://www.linkedin.com/pulse/how-javascript-directs-flow-electricity-niraj-paudel-apfrc",
+    },
+    {
+      title: "JWT & the Cryptographic Principles Underpinning Them.",
+      imageUrl: proj5Image,
+      description:
+        "The article explores JWT (JSON Web Tokens), detailing its structure, components, and usage in client-server authentication, leveraging cryptographic principles.",
+      url: "https://www.linkedin.com/posts/itsmenirajpaudel_backenddevelopment-jwt-cryptographicprinciples-activity-7206598634295951361-Y39t?utm_source=share&utm_medium=member_desktop",
     },
   ];
 </script>

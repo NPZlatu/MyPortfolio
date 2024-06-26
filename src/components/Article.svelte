@@ -54,11 +54,11 @@
       url: "https://www.linkedin.com/pulse/how-javascript-directs-flow-electricity-niraj-paudel-apfrc",
     },
     {
-      title: "JWT & the Cryptographic Principles Underpinning Them.",
-      imageUrl: proj5Image,
+      title: "Optimizing JWT Validation in Micro-Services Using API Gateway.",
+      imageUrl: proj7Image,
       description:
-        "The article explores JWT (JSON Web Tokens), detailing its structure, components, and usage in client-server authentication, leveraging cryptographic principles.",
-      url: "https://www.linkedin.com/posts/itsmenirajpaudel_backenddevelopment-jwt-cryptographicprinciples-activity-7206598634295951361-Y39t?utm_source=share&utm_medium=member_desktop",
+        "The article discusses integrating API Gateways with JWTs in micro-service architectures for enhanced security and performance.",
+      url: "https://www.linkedin.com/posts/itsmenirajpaudel_jwt-apiabrgateway-microservices-activity-7210939369182887936-V6J_?utm_source=share&utm_medium=member_desktop",
     },
   ];
 </script>

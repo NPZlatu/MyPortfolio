@@ -68,15 +68,6 @@
         Contact
       </a>
     </li>
-
-    <li>
-      <a
-        href="https://npzlatu.github.io/theme-based-marksheet-conversion"
-        target="_blank"
-      >
-        Theme Marksheet
-      </a>
-    </li>
   </ul>
 </div>
 

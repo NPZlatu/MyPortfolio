@@ -16,17 +16,17 @@
 
   const progress = {
     "Backend Development": 95,
-    Leadership: 80,
-    "Frontend Development": 60,
+    Leadership: 90,
+    "Frontend Development": 40,
     Automation: 70,
     "Project Management": 60,
   };
 
   const technologies = {
     Languages: `JavaScript, TypeScript, Rust, PHP, C#, Go`,
-    Frameworks: `Node.js (Express), PHP (Yii, CakePHP, Laravel), Rust (Axum), .Net Core`,
+    Frameworks: `Node.js (Express, Nest.js), PHP (Yii, CakePHP, Laravel), Rust (Axum), .Net Core`,
     Frontend: `React.js, Next.js, Vue.js, Svelte.js, Angular.js, Nuxt.js, Jquery`,
-    Database: `MySQL, PostgreSQL, MongoDB, InfluxDB, ElasticSearch, Redis`,
+    Database: `MySQL, PostgreSQL, MongoDB, ElasticSearch, Redis`,
     APIs: `REST, GraphQL`,
     "Unit Testing": `Jest, Mocha, Vitest, Entity Framework, Rust's testing framework`,
     Automation: `Protractor, Cucumber, Selenium, Jmeter, TestRail`,
@@ -34,7 +34,7 @@
     DevOps: `GitHub, SVN, AWS, Docker, Kibana`,
     Architecture: `Monolith, Microservice, Serverless`,
     SDLC: `Jira, Agile, Scrum, Sportify, Kanban, Mob Programming, TDD, Peer Programming`,
-    Others: `RabbitMQ, Excel, Google Analytics & SEO`,
+    Others: `RabbitMQ, Terraform, Excel, Google Analytics & SEO`,
     Interests: `Philosophy, Writing, Travelling, Teaching`,
   };
 </script>

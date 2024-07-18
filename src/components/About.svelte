@@ -27,7 +27,7 @@
     Frameworks: `Node.js (Express, Nest.js), PHP (Yii, CakePHP, Laravel), Rust (Axum), .Net Core`,
     Frontend: `React.js, Next.js, Vue.js, Svelte.js, Angular.js, Nuxt.js, Jquery`,
     Database: `MySQL, PostgreSQL, MongoDB, ElasticSearch, Redis`,
-    APIs: `REST, GraphQL`,
+    APIs: `REST, GraphQL, gRPC`,
     "Unit Testing": `Jest, Mocha, Vitest, Entity Framework, Rust's testing framework`,
     Automation: `Protractor, Cucumber, Selenium, Jmeter, TestRail`,
     "CI/CD": `Jenkins, GitHub Actions, Octopus`,

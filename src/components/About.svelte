@@ -24,7 +24,7 @@
 
   const technologies = {
     Languages: `JavaScript, TypeScript, Rust, PHP, C#, Go`,
-    Frameworks: `Node.js (Express, Nest.js), PHP (Yii, CakePHP, Laravel), Rust (Axum), .Net Core`,
+    Frameworks: `Node.js (Express, Nest.js), PHP (Drupal, Yii, Laravel), Rust (Axum), .Net Core`,
     Frontend: `React.js, Next.js, Vue.js, Svelte.js, Angular.js, Nuxt.js, Jquery`,
     Database: `MySQL, PostgreSQL, MongoDB, ElasticSearch, Redis`,
     APIs: `REST, GraphQL, gRPC`,

@@ -47,7 +47,7 @@
         <p>Name: Niraj Paudel</p>
         <p>Role: Software Engineer</p>
         <p>Experience: 9 Years</p>
-        <p>Address: Kathmandu, Nepal</p>
+        <p>Address: Mount Albert, Auckland, New Zealand</p>
       </div>
     </div>
     <div class="skills">

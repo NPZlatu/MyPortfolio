@@ -9,13 +9,13 @@
   export let contactDetails = [
     {
       title: "Address",
-      content: "Kathmandu, Nepal",
+      content: "Mount Albert, Auckland, New Zealand",
       href: "https://maps.app.goo.gl/UeLEx1j2CyDb6TRH8",
     },
     {
       title: "Contact Number",
-      content: "+977-9841025133",
-      href: "tel:+977-9841025133",
+      content: "02102524460",
+      href: "tel:0210254460",
     },
     {
       title: "Email Address",

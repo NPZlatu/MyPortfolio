@@ -25,7 +25,7 @@
     {
       title: "Download Resume",
       content: "Click to download ",
-      href: "https://drive.google.com/file/d/1vfD2y60_sw_GPInqGb5aSykK0Y-rkM2z/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1OZuTkdFOfqu0SkekYuwIhj-jBz3Xvz2g/view?usp=sharing",
     },
   ];
 

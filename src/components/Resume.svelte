@@ -136,7 +136,7 @@
       <div class="col-md-12 text-center ftco-animate">
         <p>
           <a
-            href="https://drive.google.com/file/d/1OZuTkdFOfqu0SkekYuwIhj-jBz3Xvz2g/view?usp=sharing"
+            href="https://drive.google.com/file/d/10GA-HhOuR6og6u6Se1QghmJxBCMy8CHy/view?usp=sharing"
             target="_blank"
             class="btn btn-primary">Download CV</a
           >

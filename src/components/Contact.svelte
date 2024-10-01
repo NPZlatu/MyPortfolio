@@ -14,8 +14,8 @@
     },
     {
       title: "Contact Number",
-      content: "02102524460",
-      href: "tel:0210254460",
+      content: "+6402102524460",
+      href: "tel:+640210254460",
     },
     {
       title: "Email Address",
@@ -25,7 +25,7 @@
     {
       title: "Download Resume",
       content: "Click to download ",
-      href: "https://drive.google.com/file/d/1OZuTkdFOfqu0SkekYuwIhj-jBz3Xvz2g/view?usp=sharing",
+      href: "https://drive.google.com/file/d/10GA-HhOuR6og6u6Se1QghmJxBCMy8CHy/view?usp=sharing",
     },
   ];
 

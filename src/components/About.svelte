@@ -23,15 +23,15 @@
   };
 
   const technologies = {
-    Languages: `JavaScript, TypeScript, Rust, PHP, C#, Go`,
-    Frameworks: `Node.js (Express, Nest.js), PHP (Drupal, Yii, Laravel), Rust (Axum), .Net Core`,
+    Languages: `JavaScript, TypeScript, C#, Rust, PHP, Python`,
+    Frameworks: `Node.js (Express, Nest.js), PHP (Drupal, Yii, Laravel), Rust (Axum), .Net Core, Django`,
     Frontend: `React.js, Next.js, Vue.js, Svelte.js, Angular.js, Nuxt.js, Jquery`,
     Database: `MySQL, PostgreSQL, MongoDB, ElasticSearch, Redis`,
     APIs: `REST, GraphQL, gRPC`,
     "Unit Testing": `Jest, Mocha, Vitest, Entity Framework, Rust's testing framework`,
     Automation: `Protractor, Cucumber, Selenium, Jmeter, TestRail`,
     "CI/CD": `Jenkins, GitHub Actions, Octopus`,
-    DevOps: `GitHub, SVN, AWS, Docker, Kibana`,
+    Cloud: `Azure (App Service, VM, VMSS, SQL Servers), AWS (SES, S3, EC2, Amplify, Elastic Beanstalk)`,
     Architecture: `Monolith, Microservice, Serverless`,
     SDLC: `Jira, Agile, Scrum, Sportify, Kanban, Mob Programming, TDD, Peer Programming`,
     Others: `RabbitMQ, Terraform, Excel, Google Analytics & SEO`,

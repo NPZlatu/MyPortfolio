@@ -4,22 +4,7 @@
 
   const dispatch = createEventDispatcher();
 
-  function download() {
-    const resumeEl = document.getElementById('resume-area');
-    if (!resumeEl) return;
-
-    const popup = window.open('', '_blank', 'width=900,height=700');
-    if (!popup) return;
-
-    popup.document.write(`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Niraj Paudel — Resume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
+  const CSS = `
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; padding: 32px 48px; font-family: 'Lora', Georgia, serif; color: #2C2C2C; background: #fff; }
     a { color: inherit; text-decoration: none; }
@@ -47,14 +32,33 @@
     .r-skill-label { color: #B85C38; white-space: nowrap; width: 110px; flex-shrink: 0; }
     .r-skill-value { color: #444; }
     @media print { body { padding: 16px 24px; } }
-  </style>
-</head>
-<body>
-${resumeEl.innerHTML}
-</body>
-</html>`);
-    popup.document.close();
-    popup.onload = () => { popup.focus(); popup.print(); };
+  `;
+
+  function download() {
+    const resumeEl = document.getElementById('resume-area');
+    if (!resumeEl) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;';
+    document.body.appendChild(iframe);
+
+    const doc = iframe.contentDocument || iframe.contentWindow?.document;
+    if (!doc) return;
+
+    doc.open();
+    doc.write(`<!DOCTYPE html><html><head><meta charset="utf-8">
+      <title>Niraj Paudel — Resume</title>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+      <style>${CSS}</style>
+      </head><body>${resumeEl.innerHTML}</body></html>`);
+    doc.close();
+
+    // Wait for fonts to load then print
+    setTimeout(() => {
+      iframe.contentWindow?.focus();
+      iframe.contentWindow?.print();
+      setTimeout(() => document.body.removeChild(iframe), 1000);
+    }, 800);
   }
 
   /** @param {KeyboardEvent} e */
@@ -83,7 +87,7 @@ ${resumeEl.innerHTML}
         <!-- Header -->
         <div class="r-header">
           <h1 class="r-name">Niraj Paudel</h1>
-          <p class="r-title">Software Engineer &amp; Writer</p>
+          <p class="r-title">Software Engineer</p>
           <div class="r-contact">
             <span>Auckland, New Zealand</span>
             <span class="r-sep">·</span>

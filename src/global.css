@@ -1,4 +1,193 @@
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+:root {
+  --bg: #FAF6F0;
+  --text: #2C2C2C;
+  --accent: #B85C38;
+  --accent-green: #3A5A40;
+  --border: #D4CFC7;
+  --bg-code: #EDE8DE;
+  --bg-card: #F0EBE3;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-nav: 'Jost', system-ui, sans-serif;
+
+  --max-prose: 720px;
+  --max-wide: 1100px;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: black;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paper texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--text);
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.2em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: text-decoration-thickness 0.2s;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  background: var(--bg-code);
+  font-size: 0.875em;
+  border-radius: 3px;
+}
+
+code {
+  padding: 0.15em 0.35em;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+}
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 0.5em 1.5em;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   Section Layout Utilities
+   ============================================================ */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Thin border separating each section after the hero */
+section:not(#hero-section) {
+  border-top: 1px solid var(--border);
+}
+
+.section-container {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.prose-container {
+  max-width: var(--max-prose);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.25em;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.6;
+  margin-bottom: 2rem;
+}
+
+/* Literary section divider */
+.section-divider {
+  text-align: center;
+  color: var(--border);
+  letter-spacing: 0.75em;
+  margin: 60px 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  border: none;
+  background: none;
+}
+
+/* ============================================================
+   Scroll Fade-In Utility
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1024px) {
+  .section-container {
+    padding: 44px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .section-container {
+    padding: 36px 16px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
 }

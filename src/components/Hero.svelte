@@ -1,238 +1,242 @@
 <script>
-  import { onMount } from "svelte";
-  import bg1Img from "$lib/images/bg_1.webp";
+  import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
+  import { openSlug } from '$lib/stores/notebook.js';
 
-  let imageLoaded = false;
+  /** @type {Record<string, any>[]} */
+  export let featuredWritings = [];
 
-  let typingTexts = [
-    "An Engineer",
-    "A Dishwasher",
-    "A Leader",
-    `And my wife's follower`,
-    "I write sometimes",
-    "I follow Jordan Peterson",
-    "Clean your room 😁",
-  ];
-
-  let currentText = typingTexts[0];
-  let typingIndex = 0;
-  /**
-   * @type {number | undefined}
-   */
-  let typingInterval;
-  /**
-   * @type {string}
-   */
-  let typedText;
-
-  function startTypingAnimation() {
-    typingInterval = setInterval(() => {
-      if (typingIndex < currentText.length) {
-        typedText = currentText.substring(0, typingIndex + 1);
-        typingIndex++;
-      } else {
-        clearInterval(typingInterval);
-        typingIndex = 0;
-        startTypingAnimation();
-        currentText =
-          typingTexts[
-            (typingTexts.indexOf(currentText) + 1) % typingTexts.length
-          ];
-      }
-    }, 200);
-  }
+  let currentIndex = 0;
+  let quoteVisible = true;
 
   onMount(() => {
-    const img = new Image();
-    img.onload = () => {
-      imageLoaded = true;
-    };
-    img.src = bg1Img;
+    if (featuredWritings.length < 2) return;
+
+    const interval = setInterval(async () => {
+      quoteVisible = false;
+      await new Promise(r => setTimeout(r, 500));
+      currentIndex = (currentIndex + 1) % featuredWritings.length;
+      quoteVisible = true;
+    }, 7000);
+
+    return () => clearInterval(interval);
   });
-  startTypingAnimation();
+
+  $: currentWriting = featuredWritings[currentIndex] ?? null;
+
+  /** @param {Record<string, any>} writing */
+  function readStory(writing) {
+    if (writing.externalUrl) {
+      window.open(writing.externalUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      openSlug.set(writing.slug);
+      const section = document.querySelector('#notebook-section');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 </script>
 
-<div class="hero container-fluid" id="hero-section">
-  {#if !imageLoaded}
-    <div class="loader-container">
-      <div class="loader"></div>
-    </div>
-  {:else}
-    <div class="row">
-      <div class="col-md-6 hero__content">
-        <div class="small-text">HELLO!</div>
-        <h1 class="name">I'm <span>Niraj Paudel</span></h1>
-        <div class="animated-text">{typedText}</div>
-        <h2 class="role">Software Engineer</h2>
-        <div class="buttons">
-          <a
-            href="https://www.linkedin.com/in/itsmenirajpaudel"
-            target="_blank"
-            class="btn btn-primary">LinkedIn</a
-          >
-          <a
-            href="https://github.com/npzlatu"
-            target="_blank"
-            class="btn btn-secondary">GitHub</a
-          >
+<section id="hero-section" class="hero">
+  <div class="hero-inner">
+    <div class="epigraph-area">
+      {#if quoteVisible && currentWriting}
+        <button class="quote-wrapper" transition:fade={{ duration: 500 }} on:click={() => readStory(currentWriting)}>
+          <blockquote class="epigraph">
+            {currentWriting.excerpt}
+          </blockquote>
+          <cite class="epigraph-cite">— {currentWriting.title} &nbsp;· {currentWriting.externalUrl ? 'read ↗' : 'read ↓'}</cite>
+        </button>
+      {:else if !currentWriting}
+        <div class="quote-wrapper">
+          <blockquote class="epigraph">
+            "Swimming was always his Ikigai, yet he kept searching for wings."
+          </blockquote>
+          <cite class="epigraph-cite">— from the notebook</cite>
         </div>
-      </div>
-      <div class="col-md-6 hero__image">
-        <img src={bg1Img} alt="niraj background" />
-      </div>
+      {/if}
     </div>
-  {/if}
-</div>
+
+    <div class="hero-identity">
+      <div class="hero-rule"></div>
+      <h1 class="hero-name">Niraj Paudel</h1>
+      <p class="hero-tagline">Software Engineer &nbsp;·&nbsp; Writer &nbsp;·&nbsp; Seeker</p>
+      <p class="hero-sub">
+        A decade of building software.<br>
+        Now learning what it means when the machines start building too.
+      </p>
+      <p class="hero-location">Auckland, New Zealand</p>
+    </div>
+
+    <a href="#about-section" class="scroll-hint" aria-label="Scroll to about section">↓</a>
+  </div>
+</section>
 
 <style>
-  /* Loader styles */
-  .loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #ffbd39;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Your existing styles */
   .hero {
-    position: relative;
-    background-color: black;
-    color: #fff;
-    padding: 10px;
-    overflow: hidden;
-  }
-
-  /* Hero component */
-  .row {
     display: flex;
-    flex-direction: column-reverse; /* Rearrange columns on small screens */
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 24px 40px;
+    text-align: center;
   }
 
-  .hero__content {
-    max-width: 100%;
-    margin-bottom: 20px; /* Add space between content and image */
-  }
-
-  .hero__content .small-text {
-    font-size: 14px;
-    font-weight: 600;
-    color: #ffbd39;
-    text-transform: capitalize;
-  }
-
-  .hero__content .name {
-    font-size: 40px;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-weight: 800;
-  }
-
-  .hero__content .name span {
-    color: #ffbd39;
-  }
-
-  .hero__content .animated-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-
-  .hero__content .role {
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-
-  .hero__content .buttons {
+  .hero-inner {
+    max-width: 640px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
-    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
 
-  .hero__content .buttons .btn {
-    font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+  .epigraph-area {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .quote-wrapper {
+    width: 100%;
+    border-left: 2px solid var(--border);
+    padding-left: 14px;
+    text-align: left;
+    background: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
     cursor: pointer;
-    letter-spacing: 2px;
+    transition: border-color 0.2s;
   }
 
-  .hero__image {
-    max-width: 100%;
-    padding-left: 20px;
+  .quote-wrapper:hover {
+    border-left-color: var(--accent);
   }
 
-  .hero__image img {
-    max-width: 100%;
-    height: auto;
+  .epigraph {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0 0 0.4rem 0;
+    padding: 0;
+    border: none;
+    opacity: 0.6;
+    quotes: none;
   }
 
-  @media screen and (min-width: 768px) {
+  .epigraph-cite {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    display: block;
+    font-style: normal;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto 2rem;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.05;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    opacity: 0.7;
+    margin: 0 0 1rem 0;
+  }
+
+  .hero-location {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    opacity: 0.45;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .scroll-hint {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-decoration: none;
+    animation: pulse 2s ease-in-out infinite;
+    display: inline-block;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scroll-hint:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(6px); opacity: 0.5; }
+  }
+
+  @media (max-width: 640px) {
     .hero {
-      height: auto;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 40px 20px 24px;
+      align-items: flex-start;
     }
 
-    .row {
-      flex-direction: row; /* Revert to default row layout on larger screens */
+    .hero-inner {
+      padding-top: 0;
     }
 
-    .hero__content {
-      max-width: 50%;
+    .epigraph-area {
+      margin-bottom: 1.5rem;
     }
 
-    .hero__image {
-      max-width: 50%;
+    .hero-name {
+      font-size: clamp(2.4rem, 12vw, 3.2rem);
     }
 
-    .hero__content .name {
-      font-size: 50px;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      font-weight: 800;
+    .hero-tagline {
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
     }
 
-    .hero__content .animated-text,
-    .hero__content .role {
-      font-size: 30px;
+    .hero-sub {
+      font-size: 0.95rem;
     }
-  }
 
-  /* LinkedIn button */
-  .btn-primary {
-    background: #ffbd39;
-    border: 1px solid #ffbd39;
-    color: #000;
-  }
-
-  /* GitHub button */
-  .btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background: transparent;
-    color: #fff;
+    .hero-location {
+      margin: 0 0 1rem 0;
+    }
   }
 </style>

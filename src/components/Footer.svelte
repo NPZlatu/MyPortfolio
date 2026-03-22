@@ -1,42 +1,93 @@
 <script>
-  export let year = new Date().getFullYear(); // Get current year dynamically
+  const year = new Date().getFullYear();
 </script>
 
-<footer class="ftco-footer ftco-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>
-          Copyright &copy; {year} All rights reserved | This website is designed
-          by <a href="https://nirajpaudel.me" target="_blank">Niraj Paudel</a>
-          using inspiration from
-          <a href="https://colorlib.com" target="_blank">Colorlib</a>.
-        </p>
-      </div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-quote">"Still becoming. Still moving forward."</p>
+    <div class="footer-nav">
+      <a href="#about-section">About</a>
+      <span class="dot">·</span>
+      <a href="#experience-section">Work</a>
+      <span class="dot">·</span>
+      <a href="#notebook-section">Notebook</a>
+      <span class="dot">·</span>
+      <a href="#contact-section">Contact</a>
     </div>
+    <p class="footer-copy">© {year} Niraj Paudel &nbsp;·&nbsp; Auckland, New Zealand</p>
   </div>
 </footer>
 
 <style>
-  /* Custom styles based on provided CSS */
-
-  .ftco-footer {
-    background-color: black;
-    color: #999999; /* Text color */
-    margin-top: 40px; /* Top margin */
-    margin-bottom: 40px; /* Bottom margin */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 24px;
+    text-align: center;
   }
 
-  .ftco-footer p {
-    font-size: 16px; /* Font size */
-    margin-bottom: 0; /* Remove bottom margin for paragraph */
+  .footer-inner {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .ftco-footer a {
-    color: #ffbd39; /* Link color */
+  .footer-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text);
+    opacity: 0.65;
+    margin: 0;
   }
 
-  .ftco-footer a:hover {
-    color: #ffbd39; /* Link color on hover */
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-nav a {
+    font-family: var(--font-nav);
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    opacity: 0.45;
+    transition: opacity 0.2s;
+  }
+
+  .footer-nav a:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+
+  .dot {
+    font-size: 0.6rem;
+    color: var(--border);
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    opacity: 0.3;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .site-footer {
+      padding: 36px 16px;
+    }
+
+    .footer-quote {
+      font-size: 1rem;
+    }
   }
 </style>

@@ -1,152 +1,205 @@
-<!-- Header.svelte -->
 <script>
-  import { BarsSolid } from "svelte-awesome-icons";
+  import { onMount } from 'svelte';
 
-  function viewMenu() {
-    // @ts-ignore
-    document.querySelector(".menu-toggle").style.display = "none";
-    // @ts-ignore
-    document.querySelector(".menu").style.display = "block";
+  let menuOpen = false;
+
+  function toggleMenu() {
+    menuOpen = !menuOpen;
   }
 
-  /**
-   * @param {{ target: any; }} element
-   */
-  function scrollIntoView(element) {
-    const { target } = element;
-    const el = document.querySelector(target.getAttribute("href"));
-    if (!el) return;
-    el.scrollIntoView({
-      behavior: "smooth",
-    });
+  function closeMenu() {
+    menuOpen = false;
   }
 
-  /**
-   * @param {{ key: string; }} event
-   */
-  function handleKeyPress(event) {
-    if (event.key === "Enter" || event.key === " ") {
-      viewMenu();
+  /** @param {MouseEvent & { currentTarget: HTMLAnchorElement }} event */
+  function scrollToSection(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    if (!href) return;
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     }
+    closeMenu();
   }
+
+  onMount(() => {
+    /** @param {MouseEvent} event */
+    function handleClickOutside(event) {
+      if (menuOpen && !(/** @type {HTMLElement} */ (event.target))?.closest('nav')) {
+        menuOpen = false;
+      }
+    }
+    function handleScroll() {
+      if (menuOpen) menuOpen = false;
+    }
+    document.addEventListener('click', handleClickOutside);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+
+  const navLinks = [
+    { href: '#about-section', label: 'About' },
+    { href: '#experience-section', label: 'Work' },
+    { href: '#research-section', label: 'Research' },
+    { href: '#notebook-section', label: 'Notebook' },
+    { href: '#education-section', label: 'Education' },
+    { href: '#contact-section', label: 'Contact' },
+  ];
 </script>
 
-<div class="header">
-  <div class="logo">Niraj Paudel</div>
-  <div
-    role="button"
-    class="menu-toggle"
-    tabindex="0"
-    on:click={viewMenu}
-    on:keydown={handleKeyPress}
-  >
-    <BarsSolid />
-  </div>
-  <ul class="menu">
-    <li>
-      <a href="#hero-section" on:click|preventDefault={scrollIntoView}>
-        Home
-      </a>
-    </li>
-    <li>
-      <a href="#about-section" on:click|preventDefault={scrollIntoView}>
-        About
-      </a>
-    </li>
-    <li>
-      <a href="#resume-section" on:click|preventDefault={scrollIntoView}>
-        Resume
-      </a>
-    </li>
-    <li>
-      <a href="#article-section" on:click|preventDefault={scrollIntoView}>
-        Articles
-      </a>
-    </li>
-    <li>
-      <a href="#contact-section" on:click|preventDefault={scrollIntoView}>
-        Contact
-      </a>
-    </li>
-  </ul>
-</div>
+<header>
+  <nav class="nav-container">
+    <a href="#hero-section" class="logo" on:click={scrollToSection}>
+      <img src="/favicon.svg" alt="NP" class="logo-mark" />
+    </a>
+
+    <ul class="nav-links" class:open={menuOpen}>
+      {#each navLinks as link}
+        <li>
+          <a href={link.href} on:click={scrollToSection}>{link.label}</a>
+        </li>
+      {/each}
+    </ul>
+
+    <button class="hamburger" aria-label="Toggle navigation menu" on:click={toggleMenu}>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
+</header>
 
 <style>
-  .header {
-    background-color: black;
-    color: white;
-    padding: 15px 20px;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(250, 246, 240, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-container {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-family: "Roboto", sans-serif;
+    justify-content: space-between;
   }
 
   .logo {
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .logo:hover {
-    color: #ffbd39;
-  }
-
-  .menu {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-left: 20px; /* Add left padding */
-    padding-right: 20px; /* Add right padding */
-  }
-
-  .menu li {
-    margin-left: 20px;
-    cursor: pointer;
-    position: relative;
-    font-size: 16px;
-    transition: color 0.3s;
-  }
-
-  .menu li a {
-    font-size: 16px;
-    color: white;
+    color: var(--accent);
     text-decoration: none;
   }
 
-  .menu li:hover:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background-color: #ffbd39;
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
 
-  .menu-toggle {
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: var(--font-nav);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .hamburger {
     display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
-  @media screen and (max-width: 768px) {
-    .menu {
-      display: none;
-    }
+  .bar {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
 
-    .menu-toggle {
+  @media (max-width: 640px) {
+    .hamburger {
       display: flex;
     }
 
-    .menu li:hover:after {
-      content: "";
+    .nav-links {
+      display: none;
       position: absolute;
+      top: 60px;
       left: 0;
-      bottom: 0px;
-      width: 100%;
-      height: 2px;
-      background-color: #ffbd39;
+      right: 0;
+      background-color: rgba(250, 246, 240, 0.97);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0;
     }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links li {
+      width: 100%;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 14px 24px;
+      font-size: 0.85rem;
+      min-height: 44px;
+    }
+
   }
 </style>

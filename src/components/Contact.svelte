@@ -1,203 +1,169 @@
 <script>
-  import {
-    LinkedinBrand,
-    TwitterBrand,
-    InstagramBrand,
-    FacebookBrand,
-  } from "svelte-awesome-icons";
+  import { observeFadeIn } from '$lib/utils/observer.js';
 
-  export let contactDetails = [
+  const contactItems = [
     {
-      title: "Address",
-      content: "Mount Albert, Auckland, New Zealand",
-      href: "https://maps.app.goo.gl/UeLEx1j2CyDb6TRH8",
+      icon: '✉',
+      label: 'itsmenirajpaudel@gmail.com',
+      href: 'mailto:itsmenirajpaudel@gmail.com',
     },
     {
-      title: "Contact Number",
-      content: "+6402102524460",
-      href: "tel:+640210254460",
+      icon: '☎',
+      label: '+64 021 025 24460',
+      href: 'tel:+6402102524460',
     },
     {
-      title: "Email Address",
-      content: "itsmenirajpaudel@gmail.com",
-      href: `mailto: itsmenirajpaudel@gmail.com`,
-    },
-    {
-      title: "Download Resume",
-      content: "Click to download ",
-      href: "https://drive.google.com/file/d/10GA-HhOuR6og6u6Se1QghmJxBCMy8CHy/view?usp=sharing",
+      icon: '⌖',
+      label: 'Auckland, New Zealand',
+      href: 'https://maps.app.goo.gl/UeLEx1j2CyDb6TRH8',
+      external: true,
     },
   ];
 
-  export let contactFormLink = "https://forms.gle/rkP71gVVFyq77GUi6";
-
-  export let socialLinks = [
-    {
-      icon: LinkedinBrand,
-      link: "https://www.linkedin.com/in/itsmenirajpaudel/",
-    },
-    { icon: TwitterBrand, link: "https://twitter.com/NirajPaudel62" },
-    { icon: FacebookBrand, link: "https://www.facebook.com/niraz.paudel/" },
-    { icon: InstagramBrand, link: "https://www.instagram.com/nirazlatu/" },
+  const socialItems = [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/itsmenirajpaudel/' },
+    { label: 'GitHub', href: 'https://github.com/NPZlatu' },
+    { label: 'Medium', href: 'https://medium.com/@nirajpaudel' },
   ];
 </script>
 
-<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-5">
-      <div class="col-md-12 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Contact Me</h1>
-        <p class="caption">Below are the details to reach out to me!</p>
-      </div>
-    </div>
+<section id="contact-section">
+  <div class="section-container">
+    <div class="contact-inner fade-in" use:observeFadeIn>
+      <h2 class="section-title">Say Hello</h2>
+      <p class="section-subtitle">I read every message and reply to most of them</p>
 
-    <div class="row d-flex contact-info mb-5">
-      {#each contactDetails as detail}
-        <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <h3 class="mb-4">{detail.title}</h3>
-            {#if !!detail.href}
-              <a href={detail.href} target="_blank">{detail.content}</a>
-            {:else}
-              <p>{detail.content}</p>
-            {/if}
-          </div>
-        </div>
-      {/each}
-
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-12 ftco-animate text-center queries">
-            <h2>
-              Have any <span> queries? </span>
-              <a
-                target="_blank"
-                href={contactFormLink}
-                class="btn btn-primary py-3 px-5">Click Here</a
-              >
-            </h2>
-          </div>
-        </div>
-        <ul
-          class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0"
-        >
-          <li class="ftco-animate normal-txt">Find me on:</li>
-          {#each socialLinks as link}
-            <li class="ftco-animate">
-              <a target="_blank" href={link.link}>
-                <div class="round-icon">
-                  <svelte:component this={link.icon} />
-                </div>
-              </a>
-            </li>
-          {/each}
-        </ul>
+      <div class="contact-list">
+        {#each contactItems as item}
+          <a
+            href={item.href}
+            class="contact-line"
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+          >
+            <span class="contact-icon">{item.icon}</span>
+            <span class="contact-label">{item.label}</span>
+          </a>
+        {/each}
       </div>
+
+      <div class="social-list">
+        {#each socialItems as item}
+          <a
+            href={item.href}
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{item.label}</a>
+        {/each}
+      </div>
+
+      <p class="contact-form-note">
+        Or send a note via the
+        <a href="https://forms.gle/rkP71gVVFyq77GUi6" target="_blank" rel="noopener noreferrer">contact form</a>.
+      </p>
     </div>
   </div>
 </section>
 
 <style>
-  .contact-section {
-    background-color: black;
-    color: #999999;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  .contact-inner {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
   }
 
-  .big-2 {
-    font-size: 40px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 20px;
+  .contact-inner :global(.section-subtitle) {
+    margin-bottom: 1.25rem;
   }
 
-  .caption {
-    font-size: 16px;
-  }
-
-  .contact-info .box {
-    background-color: #333333;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .contact-info .box:hover {
-    box-shadow: 0px 15px 40px -10px rgba(0, 0, 0, 0.2); /* Larger box shadow on hover */
-  }
-
-  .contact-info .box h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #ffbd39;
-  }
-
-  .contact-info .box p,
-  .contact-info .box a {
-    font-size: 16px; /* Content font size */
-    color: #fff; /* Content color */
-  }
-
-  .btn-primary:hover {
-    background-color: #ffbd39; /* Button background color on hover */
-    border-color: #ffbd39; /* Button border color on hover */
-    color: #000000; /* Button text color on hover */
-  }
-
-  .ftco-footer-social {
+  .contact-list {
     display: flex;
-    justify-content: center; /* Center the items horizontally */
-    align-items: center; /* Center the items vertically */
-    margin-bottom: 0;
-    margin-top: 40px;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 1.25rem;
   }
 
-  .ftco-footer-social .normal-txt {
-    margin-right: 10px; /* Adjust margin between text and icons */
-    font-size: 16px;
-    color: white;
+  .contact-line {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 5px 0;
+    line-height: 1.6;
+    transition: color 0.2s;
   }
 
-  .ftco-footer-social li {
-    margin-right: 10px; /* Adjust margin between icons */
+  .contact-line:hover {
+    color: var(--accent);
+    text-decoration: none;
   }
 
-  .round-icon {
-    width: 40px; /* Set width and height for the icon container */
-    height: 40px;
+  .contact-icon {
+    font-size: 0.85rem;
+    opacity: 0.45;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    color: inherit;
+  }
+
+  .social-list {
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 50%; /* Make the container round */
-    background-color: #ffbd39; /* Set background color */
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
   }
 
-  .round-icon {
-    color: black; /* Set icon color */
-    font-size: 20px; /* Set icon size */
-  }
-
-  .round-icon:hover {
-    background-color: #ffbd39; /* Change background color on hover */
-  }
-
-  .queries {
-    margin-top: 40px;
-    color: white;
-  }
-
-  .btn-primary {
-    cursor: pointer;
-    border-radius: 20px;
-    box-shadow: 0px 12px 24px -8px rgba(0, 0, 0, 0.09);
-    font-size: 12px;
+  .social-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    background: #ffbd39;
-    border: 1px solid #ffbd39;
-    color: #000000;
-    padding: 1rem 2rem;
+    color: var(--text);
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .social-link:hover {
+    opacity: 1;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .contact-form-note {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--text);
+    opacity: 0.55;
+    margin: 0;
+  }
+
+  .contact-form-note a {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  @media (max-width: 640px) {
+    .social-list {
+      gap: 0.9rem;
+    }
+
+    .contact-line {
+      font-size: 0.8rem;
+      gap: 0.45rem;
+    }
+
+    .contact-form-note {
+      font-size: 0.82rem;
+    }
   }
 </style>

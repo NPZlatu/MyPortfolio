@@ -1,220 +1,152 @@
 <script>
-  import { onMount } from "svelte";
-  import aboutMeImgSrc from "$lib/images/about-me.webp";
+  import { observeFadeIn } from '$lib/utils/observer.js';
 
-  let counter = 1;
-
-  onMount(() => {
-    const interval = setInterval(() => {
-      if (counter < 31) {
-        counter += 1;
-      } else {
-        clearInterval(interval);
-      }
-    }, 200);
-  });
-
-  const progress = {
-    "Backend Development": 95,
-    Leadership: 90,
-    "Frontend Development": 40,
-    Automation: 70,
-    "Project Management": 60,
-  };
-
-  const technologies = {
-    Languages: `JavaScript, TypeScript, C#, Rust, PHP, Python`,
-    Frameworks: `Node.js (Express, Nest.js), PHP (Drupal, Yii, Laravel), Rust (Axum), .Net Core, Django`,
-    Frontend: `React.js, Next.js, Vue.js, Svelte.js, Angular.js, Nuxt.js, Jquery`,
-    Database: `MySQL, PostgreSQL, MongoDB, ElasticSearch, Redis`,
-    APIs: `REST, GraphQL, gRPC`,
-    "Unit Testing": `Jest, Mocha, Vitest, Entity Framework, Rust's testing framework`,
-    Automation: `Protractor, Cucumber, Selenium, Jmeter, TestRail`,
-    "CI/CD": `Jenkins, GitHub Actions, Octopus`,
-    Cloud: `Azure (App Service, VM, VMSS, SQL Servers), AWS (SES, S3, EC2, Amplify, Elastic Beanstalk)`,
-    Architecture: `Monolith, Microservice, Serverless`,
-    SDLC: `Jira, Agile, Scrum, Sportify, Kanban, Mob Programming, TDD, Peer Programming`,
-    Others: `RabbitMQ, Terraform, Excel, Google Analytics & SEO`,
-    Interests: `Philosophy, Writing, Travelling, Teaching`,
-  };
+  const skills = [
+    { label: 'Fluent in', value: 'JavaScript, TypeScript, Python, C#, Rust, PHP' },
+    { label: 'Practiced in', value: 'Node.js, React, Vue, .NET, Django, SvelteKit' },
+    { label: 'Versed in', value: 'PostgreSQL, MongoDB, Redis, ElasticSearch' },
+    { label: 'Familiar with', value: 'Azure, AWS, Docker, Terraform, CI/CD, Scrum' },
+    { label: 'Currently exploring', value: 'RAG pipelines, AI workflows, Claude Code, LLM evaluation' },
+  ];
 </script>
 
-<div class="container" id="about-section">
-  <div class="left">
-    <div class="image-wrapper">
-      <img class="image" src={aboutMeImgSrc} alt="about niraj" />
-      <div class="info">
-        <p>Name: Niraj Paudel</p>
-        <p>Role: Software Engineer</p>
-        <p>Experience: 9 Years</p>
-        <p>Address: Mount Albert, Auckland, New Zealand</p>
-      </div>
-    </div>
-    <div class="skills">
-      <p class="section-title">Skills:</p>
-
-      {#each Object.entries(progress) as [skill, percentage]}
-        <div class="skill">
-          <p>{`${skill} (${percentage}%)`}</p>
-          <div class="progress">
-            <div class="bar" style="width: {percentage}%;"></div>
-          </div>
-        </div>
-      {/each}
-    </div>
-  </div>
-  <div class="right">
-    <div class="about-me">
-      <p class="section-title main-header">About Me</p>
+<section id="about-section">
+  <div class="section-container">
+    <div class="about-prose fade-in" use:observeFadeIn>
       <p>
-        With nine years of experience in software development, I excel in
-        designing and delivering top-tier products. My expertise spans a wide
-        range of programming languages, backend and frontend frameworks,
-        databases, and API development. I am adept in ensuring software quality
-        through rigorous testing and implementing efficient CI/CD pipelines and
-        DevOps practices. Whether as a Solution Architect, Senior Full-Stack
-        Software Engineer, Senior Backend Engineer, or Automation Engineer, I
-        bring finesse and efficiency to every role. With a deep understanding of
-        software architecture and SDLC methodologies, I am committed to driving
-        success through innovation and collaboration in any project or team
-        setting.
+        Ten years of building software. Started in Kathmandu, built products for companies in Nepal
+        and overseas, led teams, was briefly a CTO, and ended up in Auckland working on legal AI.
+        The path wasn't linear.
       </p>
+      <p>
+        I care about correctness. I love testing — TDD, thinking through edge cases, building things
+        that hold up. It's where I feel most like myself in code.
+      </p>
+      <p>
+        AI is changing what engineers do and I find that more interesting than frightening. I work
+        with it daily at Law Cyborg — building RAG pipelines, working with AI tools, thinking about
+        how the tools reshape the work.
+      </p>
+      <p>
+        I also write. Essays, parables, reflections on why people do what they do. I think the
+        engineers who last are the ones who understand people, not just systems.
+      </p>
+      <a
+        href="https://drive.google.com/file/d/10GA-HhOuR6og6u6Se1QghmJxBCMy8CHy/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cv-link"
+      >Download CV →</a>
     </div>
-    <div class="interest">
-      {#each Object.entries(technologies) as [key, value]}
-        <p>
-          <span class="section-title">{key}:</span>
-          {value}
-        </p>
-      {/each}
+
+    <div class="colophon fade-in" use:observeFadeIn>
+      <p class="colophon-label">Technical Inventory</p>
+      <dl class="colophon-list">
+        {#each skills as skill}
+          <div class="colophon-row">
+            <dt>{skill.label}</dt>
+            <dd>{skill.value}</dd>
+          </div>
+        {/each}
+      </dl>
     </div>
   </div>
-</div>
-
-<div class="row project-counter">
-  <p>
-    <span>{counter > 30 ? "30+" : counter}</span> Projects completed
-  </p>
-</div>
+</section>
 
 <style>
-  .container {
+  .about-prose {
+    max-width: var(--max-prose);
+    margin: 0 auto 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    text-align: left;
+  }
+
+  .about-prose p {
+    margin-bottom: 1.1em;
+  }
+
+  .cv-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  .cv-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Colophon */
+  .colophon {
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+  }
+
+  .colophon-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-green);
+    margin: 0 0 1rem 0;
+  }
+
+  .colophon-list {
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    color: #999999;
-    font-weight: 400;
-    font-size: 16px;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 0.4rem;
   }
 
-  .left {
-    flex: 1;
-    padding-right: 20px;
-  }
-
-  .right {
-    flex: 2;
-    padding-left: 20px;
-  }
-
-  .image-wrapper {
+  .colophon-row {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.5;
   }
 
-  .image {
-    max-width: 150px;
-    border-radius: 50%;
-    margin-right: 20px;
+  dt {
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
-  .info,
-  .skills {
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: 400;
+  dt::after {
+    content: ':';
   }
 
-  .skill {
-    margin-bottom: 20px;
+  dd {
+    margin: 0;
+    color: var(--text);
+    opacity: 0.75;
   }
 
-  .progress {
-    background-color: #333;
-    height: 15px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .bar {
-    background-color: #ffbd39;
-    height: 100%;
-  }
-
-  .section-title {
-    color: white;
-    margin-bottom: 10px;
-  }
-
-  .main-header {
-    font-size: 40px;
-    font-weight: 700;
-  }
-
-  .interest {
-    margin-top: 30px;
-  }
-
-  .interest p {
-    display: inline-block;
-  }
-
-  .section-title {
-    color: white;
-    margin-bottom: 5px;
-  }
-
-  .project-counter {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .project-counter p {
-    font-size: 20px;
-    color: white;
-  }
-
-  .project-counter p span {
-    color: #ffbd39;
-    padding-right: 10px;
-  }
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
+  @media (max-width: 640px) {
+    .about-prose {
+      font-size: 0.95rem;
+      text-align: left;
     }
-    to {
-      opacity: 1;
-    }
-  }
 
-  @media (max-width: 768px) {
-    .container {
+    .colophon {
+      padding: 18px 16px;
+    }
+
+    .colophon-row {
+      font-size: 0.75rem;
       flex-direction: column;
+      gap: 0.1rem;
     }
 
-    .left,
-    .right {
-      border: none;
-      padding: 0;
-    }
-
-    .image {
-      max-width: 80px;
+    dd {
+      padding-left: 0.5rem;
     }
   }
 </style>

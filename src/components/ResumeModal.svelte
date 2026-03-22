@@ -5,7 +5,56 @@
   const dispatch = createEventDispatcher();
 
   function download() {
-    window.print();
+    const resumeEl = document.getElementById('resume-area');
+    if (!resumeEl) return;
+
+    const popup = window.open('', '_blank', 'width=900,height=700');
+    if (!popup) return;
+
+    popup.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Niraj Paudel — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 48px; font-family: 'Lora', Georgia, serif; color: #2C2C2C; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+    .r-header { text-align: center; margin-bottom: 1.5rem; }
+    .r-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.2rem; font-weight: 700; margin: 0 0 0.2rem 0; }
+    .r-title { font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 1rem; color: #B85C38; margin: 0 0 0.75rem 0; }
+    .r-contact { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.03em; color: #555; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.5rem; align-items: center; }
+    .r-sep { opacity: 0.4; }
+    .r-rule { border: none; border-top: 1px solid #D4CFC7; margin: 1.25rem 0; }
+    .r-section { margin-bottom: 1.5rem; }
+    .r-section-title { font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: #B85C38; margin: 0 0 0.75rem 0; padding-bottom: 0.35rem; border-bottom: 1px solid #D4CFC7; }
+    .r-body { font-size: 0.87rem; line-height: 1.75; margin: 0; color: #444; }
+    .r-job { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #EDE8DE; page-break-inside: avoid; }
+    .r-job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .r-job-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.5rem; margin-bottom: 0.1rem; }
+    .r-company { font-family: 'Cormorant Garamond', serif; font-size: 1.02rem; font-weight: 700; }
+    .r-job-sep { color: #D4CFC7; }
+    .r-role { font-style: italic; font-size: 0.87rem; color: #555; flex: 1; }
+    .r-period { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #B85C38; white-space: nowrap; margin-left: auto; }
+    .r-location { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: #888; margin: 0 0 0.4rem 0; }
+    .r-desc { font-size: 0.86rem; line-height: 1.68; color: #444; margin: 0 0 0.4rem 0; }
+    .r-tags { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: #3A5A40; margin: 0; }
+    .r-skills { display: flex; flex-direction: column; gap: 0.35rem; }
+    .r-skill-row { display: flex; gap: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; line-height: 1.5; }
+    .r-skill-label { color: #B85C38; white-space: nowrap; width: 110px; flex-shrink: 0; }
+    .r-skill-value { color: #444; }
+    @media print { body { padding: 16px 24px; } }
+  </style>
+</head>
+<body>
+${resumeEl.innerHTML}
+</body>
+</html>`);
+    popup.document.close();
+    popup.onload = () => { popup.focus(); popup.print(); };
   }
 
   /** @param {KeyboardEvent} e */
@@ -515,49 +564,6 @@
   .r-skill-value {
     color: #2C2C2C;
     opacity: 0.72;
-  }
-
-  /* --- Print styles --- */
-  @media print {
-    :global(body > *) { display: none !important; }
-    :global(body > div) { display: none !important; }
-
-    .overlay {
-      position: static !important;
-      background: none !important;
-      backdrop-filter: none !important;
-      padding: 0 !important;
-      display: block !important;
-    }
-
-    .modal {
-      border: none !important;
-      border-radius: 0 !important;
-      max-height: none !important;
-      max-width: none !important;
-    }
-
-    .modal-toolbar {
-      display: none !important;
-    }
-
-    .resume-scroll {
-      overflow: visible !important;
-      padding: 0 !important;
-    }
-
-    #resume-area {
-      max-width: none;
-      padding: 0;
-    }
-
-    .r-job {
-      page-break-inside: avoid;
-    }
-
-    .r-section {
-      page-break-inside: avoid;
-    }
   }
 
   @media (max-width: 640px) {

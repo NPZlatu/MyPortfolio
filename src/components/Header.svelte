@@ -152,22 +152,22 @@
   }
 
   .nav-resume {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-family: var(--font-nav);
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: var(--accent);
-    color: #fff;
+    background: none;
+    color: var(--accent);
     border: none;
-    padding: 6px 14px;
-    border-radius: 2px;
+    padding: 0;
     cursor: pointer;
-    transition: opacity 0.2s;
-    min-height: 30px;
+    transition: color 0.2s;
+    min-height: auto;
     white-space: nowrap;
   }
 
-  .nav-resume:hover { opacity: 0.85; }
+  .nav-resume:hover { color: var(--text); }
 
   .hamburger {
     display: none;
@@ -228,7 +228,6 @@
       display: block;
       width: 100%;
       text-align: left;
-      border-radius: 0;
       padding: 14px 24px;
       font-size: 0.85rem;
       min-height: 44px;

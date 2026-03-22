@@ -66,7 +66,7 @@
         </li>
       {/each}
       <li>
-        <button class="nav-resume" on:click={() => { closeMenu(); dispatch('openResume'); }}>Resume</button>
+        <button class="nav-resume" on:click={() => { closeMenu(); dispatch('openResume'); }}>↓ Resume</button>
       </li>
     </ul>
 
@@ -152,22 +152,26 @@
   }
 
   .nav-resume {
-    font-family: var(--font-nav);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
     background: none;
-    color: var(--accent);
-    border: none;
-    padding: 0;
+    border: 1px solid var(--border);
+    color: var(--text);
+    opacity: 0.55;
+    padding: 5px 12px;
+    border-radius: 2px;
     cursor: pointer;
-    transition: color 0.2s;
-    min-height: auto;
+    transition: opacity 0.2s, border-color 0.2s, color 0.2s;
+    min-height: 30px;
     white-space: nowrap;
   }
 
-  .nav-resume:hover { color: var(--text); }
+  .nav-resume:hover {
+    opacity: 1;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 
   .hamburger {
     display: none;

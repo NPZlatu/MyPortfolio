@@ -47,5 +47,10 @@
 {/if}
 
 {#if showResume}
-  <ResumeModal on:close={() => (showResume = false)} />
+  <ResumeModal on:close={() => {
+    showResume = false;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('resume');
+    history.replaceState({}, '', url.pathname + (url.search || ''));
+  }} />
 {/if}

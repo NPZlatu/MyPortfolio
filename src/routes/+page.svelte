@@ -10,6 +10,7 @@
   import Research from "../components/Research.svelte";
   import Notebook from "../components/Notebook.svelte";
   import Education from "../components/Education.svelte";
+  import Testimonials from "../components/Testimonials.svelte";
   import Contact from "../components/Contact.svelte";
   import Footer from "../components/Footer.svelte";
   import QuizModal from "../components/QuizModal.svelte";
@@ -38,6 +39,7 @@
   <Research />
   <Notebook {writings} />
   <Education />
+  <Testimonials />
   <Contact />
 </main>
 <Footer />

@@ -158,7 +158,7 @@
     background: none;
     border: 1px solid var(--border);
     color: var(--text);
-    opacity: 0.55;
+    opacity: 0.85;
     padding: 5px 12px;
     border-radius: 2px;
     cursor: pointer;

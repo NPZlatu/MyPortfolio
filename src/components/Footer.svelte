@@ -4,7 +4,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-quote">"Still becoming. Still moving forward."</p>
+    <p class="footer-quote">"The fish who is searching for his ocean."</p>
     <div class="footer-nav">
       <a href="#about-section">About</a>
       <span class="dot">·</span>

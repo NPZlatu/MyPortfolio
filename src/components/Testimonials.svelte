@@ -5,9 +5,9 @@
     {
       quote: "Niraj is an outstanding product-minded Engineer who I had the privilege to work with on MyFonts.com. He was instrumental in decreasing release cycle time from \"weeks\" to \"minutes\" by leveraging his technical expertise and keen attention to detail for building first-class test automation from the ground up. I was always impressed by his domain knowledge and constant expansion of T-shaped skills with passion for learning more, while supporting other team members hone their own skills. It was a delight to see his professional growth, and he would be a great partner on any serious team.",
       name: "James Minior",
-      role: "Engineering Manager",
+      role: "Product Owner, Fuji Squad",
       company: "Monotype",
-      relationship: "Direct manager · MyFonts.com",
+      relationship: "Same squad · MyFonts.com",
       year: "2020",
     },
     {
@@ -21,7 +21,7 @@
     {
       quote: "One of Niraj's standout qualities is his openness. He readily seeks assistance, offers support, and diplomatically declines unreasonable requests, always providing clear explanations. He ensures his availability is transparent from the outset, fostering effective communication within our Scrum team and motivating others to embrace openness. As a senior member, Niraj demonstrated strong leadership skills — and I found myself learning valuable lessons from his exemplary behaviour.",
       name: "Biplab Subedi",
-      role: "Self-Management & Continuous Improvement Coach",
+      role: "Scrum Master",
       company: "UBA Solutions (Monotype)",
       relationship: "Teammate · Foundry Platform",
       year: "2024",
@@ -29,7 +29,7 @@
     {
       quote: "Though brief, the time I worked with Niraj was enough to notice his impressive work ethics. Niraj is hard-working, smart and a good listener — he tries to understand work from multiple perspectives. He also has a progressive mindset when it comes to decision making and problem solving. His current job speaks for itself, and I need not say more. Keep it up, Jaggu!",
       name: "Jivesh Hamal",
-      role: "Software Engineer",
+      role: "QA Engineer",
       company: "Spiralogics",
       relationship: "Teammate",
       year: "2021",

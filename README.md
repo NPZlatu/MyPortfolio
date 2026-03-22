@@ -1,59 +1,150 @@
-# Niraj Paudel's Portfolio Website
+# Niraj Paudel — Portfolio
 
-Welcome to the README file for Niraj Paudel's portfolio website!
+Personal portfolio website for Niraj Paudel, Software Engineer & Writer based in Auckland, New Zealand.
 
-## Overview
+Live at: [nirajpaudel.me](https://nirajpaudel.me)
 
-This portfolio website showcases the skills, experiences, and projects of Niraj Paudel. It serves as a digital resume and a platform to demonstrate expertise to potential employers, clients, or collaborators. The website template idea is taken from [Colorlib](https://colorlib.com/), a platform offering free and premium HTML website templates.
+---
 
-## Technologies Used
+## Stack
 
-The website is built using the following technologies:
+- **SvelteKit** — framework and static site generation
+- **mdsvex** — markdown as Svelte components (powers the Notebook section)
+- **adapter-static** — prerendered static output, deployed to GitHub Pages
+- **Vite** — build tooling
+- Custom CSS with CSS variables — no UI framework, no Bootstrap
 
-- **Svelte.js**: Front-end framework for building reactive web applications.
-- **SvelteKit**: Framework for building Svelte applications with SSR, routing, and more.
-- **HTML**: For structuring the web pages.
-- **CSS**: For styling and layout.
-- **JavaScript**: For interactive elements and functionality.
-- **Bootstrap**: Front-end framework for design consistency.
+---
 
-## Features
+## Project Structure
 
-- Responsive design: Ensures the website is accessible on various devices.
-- Animated typing effect: Adds dynamism to the homepage.
-- Project showcase: Displays projects with descriptions and links.
-- About section: Provides information about Niraj Paudel.
-- Contact form: Allows visitors to reach out easily.
+```
+src/
+  routes/
+    +page.svelte          # Single-page app, composes all sections
+  components/
+    Header.svelte         # Fixed nav with NP monogram logo
+    Hero.svelte           # Rotating featured writings epigraph
+    About.svelte          # Bio + skills colophon
+    Experience.svelte     # Work history (tier 1 cards + tier 2 list) + hackathon badge
+    Research.svelte       # Academic research projects (AIS)
+    Notebook.svelte       # On-site writings + external articles
+    Education.svelte      # Education + academic excellence certificate lightbox
+    Contact.svelte        # Contact details
+    Footer.svelte         # Quote + nav links
+    QuizModal.svelte      # A Good Day to Quiz Hard — movie dialogue quiz game
+    Seo.svelte            # Head meta tags
+  content/
+    writings/             # Markdown files with YAML frontmatter (Notebook content)
+  lib/
+    content.js            # Loads and exports all writings via import.meta.glob
+    quizData.js           # 100 movie dialogue questions for the quiz
+    stores/
+      notebook.js         # openSlug writable store (hero → notebook navigation)
+    utils/
+      observer.js         # Svelte action for scroll-triggered fade-in animations
+  global.css              # CSS custom properties, typography, base styles
+static/
+  favicon.svg             # SVG favicon (modern browsers)
+  favicon.ico             # ICO fallback
+  favicon-16.png          # 16×16 PNG
+  favicon-32.png          # 32×32 PNG
+  favicon-192.png         # Android/PWA
+  favicon-512.png         # Android/PWA splash
+  apple-touch-icon.png    # iOS home screen
+  site.webmanifest        # PWA manifest
+  academic_excellence.jpeg # Certificate of Academic Excellence (AIS, Trimester 2 2025)
+```
 
-## Usage
+---
 
-To view the website, simply open the HTML files in a web browser or navigate to the URL where it is hosted.
+## Sections
 
-## Development
+| Section | Description |
+|---|---|
+| Hero | Rotates through featured writings every 7 seconds. Clicking the epigraph navigates to that piece in the Notebook. |
+| About | Career bio, skills colophon (languages, frameworks, tools). |
+| The Work | Tier 1: Law Cyborg + UBA Solutions SDET as editorial chapter cards. Tier 2: compact timeline of earlier roles. Includes React Riot 2018 Hacker Favorite badge with the movie quiz game. |
+| The Research | Two AIS research projects: "Small Wins" Slack Bot (COMP902) and RAGAS metrics reliability study (COMP903). |
+| The Notebook | On-site writings (expand inline) and external articles (LinkedIn, Medium). Filter by type. First 3 pinned pieces shown by default with show more toggle. |
+| The Learning | AIS Master of IT (current) with Certificate of Academic Excellence lightbox. Earlier degrees listed compactly. |
+| Contact | Email, phone, location, LinkedIn, GitHub, Medium. |
 
-If you wish to contribute or modify the website, follow these steps:
+---
 
-1. Clone the repository to your local machine.
-2. Make the desired changes to the HTML, CSS, or JavaScript files.
-3. Test the changes locally to ensure they work as expected.
-4. Commit the changes and push them to the repository.
-5. If applicable, submit a pull request for review.
+## Notebook Content
 
-## Credits
+Writings live in `src/content/writings/` as Markdown files with YAML frontmatter:
 
-- **Colorlib**: Template design inspiration source ([Colorlib website](https://colorlib.com/))
+```yaml
+---
+title: "The In-Between"
+type: reflection        # reflection | parable | technical | essay
+date: "2025-01-01"
+featured: true
+pinned: true            # shows in first 3 by default
+excerpt: "..."
+---
+```
 
-## License
+External articles use `externalUrl` instead of body content — they render as links in the Notebook list and open in a new tab from the hero epigraph.
 
-This portfolio website is open source and available under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use and modify it as per your requirements.
+---
 
-## Documentation
+## Quiz
 
-Please go through the [Medium Article](https://medium.com/@nirajpaudel/why-and-how-to-create-a-portfolio-website-using-svelte-465daff4ebf3) for the detailed steps about how to create portfolio website using Svelte.
+*A Good Day to Quiz Hard* — built originally for React Riot 2018, awarded Hacker Favorite by Hackbit. Accessible via the "Play it →" button in the Work section hackathon badge.
 
+- 100 movie dialogue questions, 10 random per game
+- 4 multiple choice options per question
+- Hints, scoring, Web Audio API sound effects
+- GIFs via Tenor API for correct/wrong feedback
+- Fully responsive
 
-## Feedback
+---
 
-If you have any feedback, suggestions, or issues regarding the website, please don't hesitate to [contact Niraj Paudel](mailto:itsmenirajpaudel@email.com).
+## Commands
 
-Thank you for visiting Niraj Paudel's portfolio website!
+```bash
+npm run dev        # Dev server at localhost:5173
+npm run build      # Production build (static prerender)
+npm run preview    # Preview production build locally
+npm run check      # Svelte + TypeScript validation
+npm run deploy     # Build and deploy to GitHub Pages
+```
+
+---
+
+## Design
+
+Warm editorial aesthetic — paper tones, serif headings, monospace labels.
+
+| Variable | Value | Use |
+|---|---|---|
+| `--bg` | `#FAF6F0` | Page background |
+| `--text` | `#2C2C2C` | Body text |
+| `--accent` | `#B85C38` | Terracotta — links, highlights |
+| `--accent-green` | `#3A5A40` | Tags, awards |
+| `--border` | `#D4CFC7` | Dividers |
+| `--font-display` | Cormorant Garamond | Headings |
+| `--font-body` | Lora | Prose |
+| `--font-mono` | JetBrains Mono | Labels, code, meta |
+| `--font-nav` | Jost | Navigation |
+
+---
+
+## Deployment
+
+Deployed as a static site to GitHub Pages via the `gh-pages` package.
+
+```bash
+npm run deploy
+```
+
+This runs `vite build` (with 8GB Node memory) then pushes the `build/` directory to the `gh-pages` branch.
+
+---
+
+## Contact
+
+Niraj Paudel — [itsmenirajpaudel@gmail.com](mailto:itsmenirajpaudel@gmail.com)

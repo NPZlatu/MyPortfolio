@@ -1,5 +1,7 @@
 <script>
   import { observeFadeIn } from '$lib/utils/observer.js';
+  import ResumeModal from './ResumeModal.svelte';
+  let showResume = false;
 
   const skills = [
     { label: 'Fluent in', value: 'JavaScript, TypeScript, Python, C#, Rust, PHP' },
@@ -31,12 +33,7 @@
         I also write. Essays, parables, reflections on why people do what they do. I think the
         engineers who last are the ones who understand people, not just systems.
       </p>
-      <a
-        href="https://drive.google.com/file/d/10GA-HhOuR6og6u6Se1QghmJxBCMy8CHy/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cv-link"
-      >Download CV →</a>
+      <button class="cv-link" on:click={() => showResume = true}>Preview Resume →</button>
     </div>
 
     <div class="colophon fade-in" use:observeFadeIn>
@@ -52,6 +49,10 @@
     </div>
   </div>
 </section>
+
+{#if showResume}
+  <ResumeModal on:close={() => showResume = false} />
+{/if}
 
 <style>
   .about-prose {
@@ -73,6 +74,10 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     letter-spacing: 0.04em;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
 
   .cv-link:hover {

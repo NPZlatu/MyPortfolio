@@ -89,7 +89,7 @@
     <div class="hackathon-badge fade-in" use:observeFadeIn>
       <span class="badge-label">Hackathon</span>
       <span class="badge-title">React Riot 2018 — Hacker Favorite</span>
-      <span class="badge-desc">Built <em>A Good Day to Quiz Hard</em> — a movie dialogue quiz with GIFs, hints, and scoring. Selected as Hacker Favorite by Hackbit out of all React Riot entries.</span>
+      <span class="badge-desc">Built <em>A Good Day to Quiz Hard</em> — a movie dialogue quiz with GIFs, hints, and scoring. Selected as Hacker Favorite by Hackbit out of all React Riot entries. Built with the team: Kushal, Abish, Dipendra &amp; Ritesh.</span>
       <button class="badge-play" id="quiz-trigger">Play it →</button>
     </div>
 

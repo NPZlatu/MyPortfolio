@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
 
   let menuOpen = false;
 
@@ -63,6 +65,9 @@
           <a href={link.href} on:click={scrollToSection}>{link.label}</a>
         </li>
       {/each}
+      <li>
+        <button class="nav-resume" on:click={() => { closeMenu(); dispatch('openResume'); }}>Resume</button>
+      </li>
     </ul>
 
     <button class="hamburger" aria-label="Toggle navigation menu" on:click={toggleMenu}>
@@ -146,6 +151,24 @@
     text-decoration: none;
   }
 
+  .nav-resume {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    min-height: 30px;
+    white-space: nowrap;
+  }
+
+  .nav-resume:hover { opacity: 0.85; }
+
   .hamburger {
     display: none;
     flex-direction: column;
@@ -201,5 +224,14 @@
       min-height: 44px;
     }
 
+    .nav-resume {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border-radius: 0;
+      padding: 14px 24px;
+      font-size: 0.85rem;
+      min-height: 44px;
+    }
   }
 </style>

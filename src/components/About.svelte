@@ -1,7 +1,7 @@
 <script>
   import { observeFadeIn } from '$lib/utils/observer.js';
-  import ResumeModal from './ResumeModal.svelte';
-  let showResume = false;
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
 
   const skills = [
     { label: 'Fluent in', value: 'JavaScript, TypeScript, Python, C#, Rust, PHP' },
@@ -33,7 +33,7 @@
         I also write. Essays, parables, reflections on why people do what they do. I think the
         engineers who last are the ones who understand people, not just systems.
       </p>
-      <button class="cv-link" on:click={() => showResume = true}>Preview Resume →</button>
+      <button class="cv-link" on:click={() => dispatch('openResume')}>Preview Resume →</button>
     </div>
 
     <div class="colophon fade-in" use:observeFadeIn>
@@ -49,10 +49,6 @@
     </div>
   </div>
 </section>
-
-{#if showResume}
-  <ResumeModal on:close={() => showResume = false} />
-{/if}
 
 <style>
   .about-prose {

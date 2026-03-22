@@ -210,7 +210,7 @@
 
   @media (max-width: 640px) {
     .hero {
-      padding: 40px 20px 24px;
+      padding: 48px 20px 32px;
       align-items: flex-start;
     }
 
@@ -219,24 +219,36 @@
     }
 
     .epigraph-area {
+      margin-bottom: 2.25rem;
+    }
+
+    .epigraph {
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .hero-rule {
       margin-bottom: 1.5rem;
     }
 
     .hero-name {
-      font-size: clamp(2.4rem, 12vw, 3.2rem);
+      font-size: clamp(2.6rem, 12vw, 3.4rem);
     }
 
     .hero-tagline {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.07em;
+      margin-bottom: 1.25rem;
     }
 
     .hero-sub {
-      font-size: 0.95rem;
+      font-size: 0.97rem;
+      line-height: 1.75;
     }
 
     .hero-location {
-      margin: 0 0 1rem 0;
+      font-size: 0.7rem;
+      margin: 0 0 1.25rem 0;
     }
   }
 </style>

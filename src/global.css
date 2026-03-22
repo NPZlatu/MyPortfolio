@@ -184,10 +184,16 @@ section:not(#hero-section) {
   }
 
   .section-container {
-    padding: 36px 16px;
+    padding: 44px 20px;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.2em;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
   }
 }

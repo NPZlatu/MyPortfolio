@@ -132,22 +132,28 @@
 
   @media (max-width: 640px) {
     .about-prose {
-      font-size: 0.95rem;
+      font-size: 1rem;
+      line-height: 1.85;
       text-align: left;
     }
 
     .colophon {
-      padding: 18px 16px;
+      padding: 20px 18px;
+    }
+
+    .colophon-list {
+      gap: 0.65rem;
     }
 
     .colophon-row {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: 0.15rem;
     }
 
     dd {
-      padding-left: 0.5rem;
+      padding-left: 0.6rem;
+      opacity: 0.7;
     }
   }
 </style>

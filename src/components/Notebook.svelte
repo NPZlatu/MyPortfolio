@@ -432,16 +432,18 @@
 
   @media (max-width: 640px) {
     .reading-card {
-      padding: 20px 0 20px 14px;
+      padding: 22px 0 22px 16px;
     }
 
     .card-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      margin-bottom: 0.55rem;
     }
 
     .card-excerpt {
-      font-size: 0.88rem;
-      line-height: 1.55;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     .card-expand {
@@ -450,22 +452,23 @@
     }
 
     .expand-prose {
-      font-size: 0.92rem;
-      line-height: 1.8;
+      font-size: 0.94rem;
+      line-height: 1.85;
     }
 
     .filter-tabs {
       gap: 6px;
+      margin-bottom: 1.5rem;
     }
 
     .filter-btn {
       font-size: 0.68rem;
-      padding: 6px 10px;
-      min-height: 40px;
+      padding: 6px 12px;
+      min-height: 44px;
     }
 
     .external-link {
-      padding: 12px 0;
+      padding: 14px 0;
       gap: 0.5rem;
     }
 
@@ -474,11 +477,12 @@
     }
 
     .external-title {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
     }
 
     .zone-divider {
-      margin: 1.75rem 0 1.25rem;
+      margin: 2rem 0 1.5rem;
     }
   }
 </style>

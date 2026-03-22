@@ -1,6 +1,5 @@
 <script>
   import { observeFadeIn } from '$lib/utils/observer.js';
-  import { base } from '$app/paths';
 
   const earlier = [
     {
@@ -27,7 +26,7 @@
   <div class="cert-overlay" on:click={() => showCertificate = false}>
     <div class="cert-modal" on:click|stopPropagation>
       <button class="cert-close" on:click={() => showCertificate = false} aria-label="Close">✕</button>
-      <img src="{base}/academic_excellence.jpeg" alt="Certificate of Academic Excellence" class="cert-image" />
+      <img src="/academic_excellence.jpeg" alt="Certificate of Academic Excellence" class="cert-image" />
     </div>
   </div>
 {/if}

@@ -1,7 +1,3 @@
-<script>
-  import { base } from '$app/paths';
-</script>
-
 <svelte:head>
   <title>Niraj Paudel — Software Engineer & Writer | Auckland, NZ</title>
   <meta
@@ -31,8 +27,8 @@
   />
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/10824118?v=4" />
 
-  <link rel="icon" href="{base}/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="{base}/favicon.ico" sizes="32x32" />
-  <link rel="apple-touch-icon" href="{base}/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#2C2C2C" />
 </svelte:head>

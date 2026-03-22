@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte';
-  import { base } from '$app/paths';
 
   let menuOpen = false;
 
@@ -55,7 +54,7 @@
 <header>
   <nav class="nav-container">
     <a href="#hero-section" class="logo" on:click={scrollToSection}>
-      <img src="{base}/favicon.svg" alt="NP" class="logo-mark" />
+      <img src="/favicon.svg" alt="NP" class="logo-mark" />
     </a>
 
     <ul class="nav-links" class:open={menuOpen}>

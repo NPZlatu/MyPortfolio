@@ -2,7 +2,7 @@
 
 Personal portfolio website for Niraj Paudel, Software Engineer & Writer based in Auckland, New Zealand.
 
-Live at: [nirajpaudel.me](https://nirajpaudel.me)
+Live at: [nirajpaudel.com](https://nirajpaudel.com)
 
 ---
 

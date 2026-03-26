@@ -5,7 +5,7 @@
   <meta name="keywords" content="Niraj Paudel, Software Engineer Auckland, Node.js Developer New Zealand, TypeScript Engineer, RAG Pipelines, Legal AI, SvelteKit Developer, Full Stack Engineer Auckland" />
   <meta name="author" content="Niraj Paudel" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://nirajpaudel.me/" />
+  <link rel="canonical" href="https://nirajpaudel.com/" />
 
   <!-- Geo -->
   <meta name="geo.region" content="NZ-AUK" />
@@ -15,7 +15,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://nirajpaudel.me/" />
+  <meta property="og:url" content="https://nirajpaudel.com/" />
   <meta property="og:title" content="Niraj Paudel — Software Engineer | Auckland, NZ" />
   <meta property="og:description" content="Software engineer with 10 years of experience building production systems. Specialising in Node.js, TypeScript, RAG pipelines, and AI-assisted engineering." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/10824118?v=4" />
@@ -38,7 +38,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Niraj Paudel",
-    "url": "https://nirajpaudel.me",
+    "url": "https://nirajpaudel.com",
     "image": "https://avatars.githubusercontent.com/u/10824118?v=4",
     "jobTitle": "Software Engineer",
     "worksFor": {

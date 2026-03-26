@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://nirajpaudel.com/sitemap.xml

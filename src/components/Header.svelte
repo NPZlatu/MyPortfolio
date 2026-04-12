@@ -49,6 +49,7 @@
     { href: '#research-section', label: 'Research' },
     { href: '#notebook-section', label: 'Notebook' },
     { href: '#education-section', label: 'Education' },
+    { href: '/nz-visa', label: 'Visa Guide', external: true },
     { href: '#contact-section', label: 'Contact' },
   ];
 </script>
@@ -62,7 +63,11 @@
     <ul class="nav-links" class:open={menuOpen}>
       {#each navLinks as link}
         <li>
-          <a href={link.href} on:click={scrollToSection}>{link.label}</a>
+          {#if link.external}
+            <a href={link.href} on:click={closeMenu}>{link.label}</a>
+          {:else}
+            <a href={link.href} on:click={scrollToSection}>{link.label}</a>
+          {/if}
         </li>
       {/each}
       <li>
@@ -85,7 +90,7 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(250, 246, 240, 0.92);
+    background-color: rgba(250, 250, 248, 0.92);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
@@ -95,7 +100,7 @@
     max-width: var(--max-wide);
     margin: 0 auto;
     padding: 0 24px;
-    height: 60px;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,7 +127,7 @@
   .logo-mark {
     width: 28px;
     height: 28px;
-    border-radius: 6px;
+    border-radius: 50%;
     flex-shrink: 0;
   }
 
@@ -152,25 +157,25 @@
   }
 
   .nav-resume {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    background: none;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    background: var(--accent-soft);
     border: 1px solid var(--border);
     color: var(--text);
-    opacity: 0.85;
-    padding: 5px 12px;
-    border-radius: 2px;
+    padding: 7px 18px;
+    border-radius: 2rem;
     cursor: pointer;
-    transition: opacity 0.2s, border-color 0.2s, color 0.2s;
-    min-height: 30px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    min-height: 32px;
     white-space: nowrap;
   }
 
   .nav-resume:hover {
-    opacity: 1;
     border-color: var(--accent);
     color: var(--accent);
+    background: rgba(61, 139, 139, 0.12);
   }
 
   .hamburger {
@@ -203,10 +208,10 @@
     .nav-links {
       display: none;
       position: absolute;
-      top: 60px;
+      top: 68px;
       left: 0;
       right: 0;
-      background-color: rgba(250, 246, 240, 0.97);
+      background-color: rgba(250, 250, 248, 0.97);
       border-bottom: 1px solid var(--border);
       flex-direction: column;
       gap: 0;

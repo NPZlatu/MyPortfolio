@@ -90,7 +90,7 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(250, 250, 248, 0.92);
+    background-color: rgba(248, 250, 252, 0.92);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
@@ -211,7 +211,7 @@
       top: 68px;
       left: 0;
       right: 0;
-      background-color: rgba(250, 250, 248, 0.97);
+      background-color: rgba(248, 250, 252, 0.97);
       border-bottom: 1px solid var(--border);
       flex-direction: column;
       gap: 0;

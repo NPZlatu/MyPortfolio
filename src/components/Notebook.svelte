@@ -157,6 +157,21 @@
     {#if filteredWritings.length === 0}
       <p class="empty-state">Nothing here yet.</p>
     {/if}
+
+    <div class="also-built fade-in" use:observeFadeIn>
+      <span class="also-label">also built</span>
+      <a href="/nz-visa" class="also-card">
+        <div class="also-card-inner">
+          <div class="also-meta">
+            <span class="also-tag">tool</span>
+            <span class="also-year">2025</span>
+          </div>
+          <h4 class="also-title">NZ Visa Application Checklist</h4>
+          <p class="also-desc">Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips. Progress saves in your browser.</p>
+          <span class="also-cta">open checklist ↗</span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -428,6 +443,103 @@
     font-style: italic;
     opacity: 0.45;
     margin-top: 2rem;
+  }
+
+  .also-built {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .also-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text);
+    opacity: 0.3;
+  }
+
+  .also-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    max-width: 560px;
+  }
+
+  .also-card:hover {
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+
+  .also-card-inner {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-left: 3px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .also-card:hover .also-card-inner {
+    border-left-color: var(--accent);
+  }
+
+  .also-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .also-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .also-year {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text);
+    opacity: 0.35;
+  }
+
+  .also-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text);
+  }
+
+  .also-desc {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text);
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .also-cta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+
+  .also-card:hover .also-cta {
+    opacity: 1;
   }
 
   @media (max-width: 640px) {

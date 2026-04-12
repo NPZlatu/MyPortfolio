@@ -188,6 +188,16 @@
   ];
 </script>
 
+<svelte:head>
+  <title>NZ Post-Study Work Visa Checklist & Guide | Niraj Paudel</title>
+  <meta name="description" content="Interactive checklist and step-by-step guide for New Zealand Post-Study Work Visa (PSWV) and Partner of Worker Work Visa. Track documents, deadlines, and progress — built for international graduates." />
+  <meta name="keywords" content="NZ post-study work visa, PSWV checklist, New Zealand visa guide, partner of worker visa, immigration NZ, international student visa NZ" />
+  <meta property="og:title" content="NZ Post-Study Work Visa Checklist & Guide" />
+  <meta property="og:description" content="Interactive checklist and step-by-step guide for New Zealand Post-Study Work Visa (PSWV) and Partner of Worker Work Visa. Track your progress, access templates, and stay organised." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+</svelte:head>
+
 <main class="nz-visa-page">
   <!-- Header -->
   <div class="page-header">
@@ -348,7 +358,7 @@
             </div>
           </div>
         </div>
-        <p style="margin-bottom: 1.5rem; color: #666; font-size: 0.9rem;">INZ needs to see that your relationship is genuine and stable, and that you live together. This is the most critical part of the partner application.</p>
+        <p style="margin-bottom: 1.5rem; color: var(--slate-500); font-size: 0.875rem;">INZ needs to see that your relationship is genuine and stable, and that you live together. This is the most critical part of the partner application.</p>
         <div class="checklist-items">
           {#each checklistC as item (item.id)}
             <div class="checklist-item" class:checked={checked[item.id]}>
@@ -428,8 +438,8 @@
           </button>
           {#if showTimelineLetter}
             <div class="template-content">
-              <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;"><strong>⚠ Instructions:</strong> Customize this template with your own details. Both partners must sign it. Print, sign by hand, scan, upload as PDF.</p>
-              <pre style="background: #f5f5f1; padding: 1.5rem; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6;">[Your Full Name]
+              <p style="margin-bottom: 1rem; font-size: 0.875rem; color: var(--slate-500);"><strong>⚠ Instructions:</strong> Customize this template with your own details. Both partners must sign it. Print, sign by hand, scan, upload as PDF.</p>
+              <pre style="background: white; border: 1px solid var(--slate-200); border-radius: 6px; padding: 1.25rem; overflow-x: auto; font-size: 0.8rem; line-height: 1.7; color: var(--slate-700);">[Your Full Name]
 [Your Address]
 [Date]
 
@@ -506,8 +516,8 @@ _________________________
           </button>
           {#if showSupportLetter}
             <div class="template-content">
-              <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;"><strong>⚠ Instructions:</strong> Ask 2–3 people who know you as a couple to write this. Each person writes their own version. They must sign it by hand.</p>
-              <pre style="background: #f5f5f1; padding: 1.5rem; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6;">[Friend/Family Member's Full Name]
+              <p style="margin-bottom: 1rem; font-size: 0.875rem; color: var(--slate-500);"><strong>⚠ Instructions:</strong> Ask 2–3 people who know you as a couple to write this. Each person writes their own version. They must sign it by hand.</p>
+              <pre style="background: white; border: 1px solid var(--slate-200); border-radius: 6px; padding: 1.25rem; overflow-x: auto; font-size: 0.8rem; line-height: 1.7; color: var(--slate-700);">[Friend/Family Member's Full Name]
 [Their Address]
 [Their Phone Number]
 [Their Email]
@@ -561,9 +571,10 @@ _________________________
         <h3>Folder Structure</h3>
         <p>Create folders on your computer to keep everything tidy:</p>
         {#each folderStructure as folder}
-          <div style="margin: 1.5rem 0;">
-            <p><strong>{folder.folder}</strong></p>
-            <ul style="margin-left: 1rem; font-family: monospace; font-size: 0.9rem;">
+          <div style="margin: 1.25rem 0; padding: 1rem 1.25rem; background: var(--blue-50); border-radius: 8px; border-left: 3px solid var(--blue-400);">
+            <p style="font-weight: 700; color: var(--blue-700); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;"><strong>{folder.folder}</strong></p>
+            <ul style="margin: 0; padding-left: 1.2rem; font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--slate-700);">
+
               {#each folder.files as file}
                 <li>{file}</li>
               {/each}
@@ -591,7 +602,7 @@ _________________________
     {#if activeTab === 'timeline'}
     <div class="tab-pane">
       <h2>Action Timeline</h2>
-      <p style="margin-bottom: 2rem; color: #666;">Follow this timeline to ensure nothing falls through the cracks. Adjust based on your student visa expiry date.</p>
+      <p style="margin-bottom: 2.5rem; color: var(--slate-500); font-size: 0.9rem;">Follow this timeline to ensure nothing falls through the cracks. Adjust based on your student visa expiry date.</p>
 
       <div class="timeline">
         {#each timelineRows as row}
@@ -656,49 +667,89 @@ _________________________
 </main>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+  /* ── Design Tokens ───────────────────────────────────── */
+  :root {
+    --blue-50:  #fdf6f1;
+    --blue-100: #f5e6da;
+    --blue-200: #e8c9b6;
+    --blue-400: #c97a55;
+    --blue-500: #b85c38;
+    --blue-600: #9b4b2c;
+    --blue-700: #7d3920;
+    --slate-50:  #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-700: #334155;
+    --slate-900: #0f172a;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+    --radius:    10px;
+  }
+
   :global(body) {
-    background-color: var(--bg);
+    background-color: var(--slate-50);
   }
 
   .nz-visa-page {
-    max-width: 900px;
+    max-width: 820px;
     margin: 0 auto;
-    padding: 40px 24px;
-    color: var(--text);
+    padding: 48px 24px 64px;
+    color: var(--slate-900);
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   /* ── Header ─────────────────────────────────────────── */
 
   .back-link {
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 2rem;
+    color: var(--blue-600);
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.15s;
   }
 
   .back-link:hover {
-    color: var(--text);
+    color: var(--blue-700);
+    text-decoration: underline;
   }
 
   .page-header h1 {
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
     font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
-    color: var(--text);
+    color: var(--slate-900);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
   }
 
   .subtitle {
-    color: #666;
+    color: var(--slate-500);
     margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    max-width: 600px;
   }
 
+  /* ── Progress Section ────────────────────────────────── */
+
   .progress-section {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--blue-200);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2.5rem;
   }
 
   .progress-stat {
@@ -706,396 +757,488 @@ _________________________
   }
 
   .big-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    font-family: var(--font-display);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--blue-600);
+    line-height: 1;
+    letter-spacing: -1px;
   }
 
   .progress-label {
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--slate-500);
+    font-size: 0.875rem;
+    margin-top: 0.2rem;
   }
 
   .progress-bar {
     height: 8px;
-    background: #e8e8e4;
-    border-radius: 4px;
+    background: var(--blue-100);
+    border-radius: 99px;
+    margin-bottom: 1.25rem;
     overflow: hidden;
-    margin-bottom: 1rem;
   }
 
   .progress-fill {
     height: 100%;
-    background: var(--accent);
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+    border-radius: 99px;
+    transition: width 0.4s cubic-bezier(.4,0,.2,1);
   }
 
   .reset-btn {
     background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 8px 16px;
-    border-radius: 3px;
+    border: 1.5px solid var(--slate-300, #cbd5e1);
+    color: var(--slate-600, #475569);
+    padding: 6px 14px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: all 0.2s;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.18s;
+    font-family: inherit;
+    letter-spacing: 0.01em;
   }
 
   .reset-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--blue-400);
+    color: var(--blue-600);
+    background: var(--blue-50);
   }
 
   .reset-btn.small {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    margin-top: 1rem;
+    padding: 5px 11px;
+    font-size: 0.78rem;
   }
 
   /* ── Tabs ────────────────────────────────────────────── */
 
   .tabs {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid var(--slate-200);
     flex-wrap: wrap;
+    overflow-x: auto;
   }
 
   .tabs button {
     background: none;
     border: none;
-    padding: 12px 0;
-    margin-bottom: -1px;
-    color: #999;
+    padding: 11px 16px;
+    margin-bottom: -2px;
+    color: var(--slate-500);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s;
+    transition: color 0.18s, border-color 0.18s;
+    font-family: inherit;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
   }
 
   .tabs button:hover {
-    color: var(--text);
+    color: var(--blue-600);
   }
 
   .tabs button.active {
-    color: var(--text);
-    border-bottom-color: var(--accent);
+    color: var(--blue-600);
+    border-bottom-color: var(--blue-500);
+    font-weight: 600;
   }
 
   /* ── Tab Content ────────────────────────────────────── */
 
   .tab-content {
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.22s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .tab-pane {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
 
   .tab-pane h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--slate-900);
+    letter-spacing: -0.3px;
   }
 
   .tab-pane h3 {
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    color: var(--slate-800, #1e293b);
   }
 
   .tab-pane h4 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     margin-bottom: 0.8rem;
+    font-weight: 600;
   }
 
   /* ── Overview Card ──────────────────────────────────── */
 
   .overview-card {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 4px;
+    background: white;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--blue-200);
+    box-shadow: var(--shadow-sm);
     margin-bottom: 2rem;
-    border: 1px solid var(--border);
   }
 
   .overview-card h2 {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
   }
 
   .facts {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.5rem;
   }
 
   .facts p {
     margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 0.6rem 0.75rem;
+    background: var(--blue-50);
+    border-radius: 6px;
+    border-left: 3px solid var(--blue-400);
   }
 
   .facts strong {
-    color: var(--accent);
+    color: var(--blue-700);
+    font-weight: 600;
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.15rem;
   }
 
   /* ── Checklist Section ──────────────────────────────── */
 
   .checklist-section {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    border: 1px solid var(--border);
+    background: white;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
   }
 
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     gap: 1rem;
   }
 
   .section-header h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--slate-900);
   }
 
   .progress-meta {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     white-space: nowrap;
-    font-size: 0.85rem;
-    color: #666;
+    font-size: 0.78rem;
+    color: var(--slate-500);
+    font-weight: 500;
   }
 
   .small-bar {
-    width: 100px;
-    height: 6px;
-    background: #e8e8e4;
-    border-radius: 3px;
+    width: 80px;
+    height: 5px;
+    background: var(--blue-100);
+    border-radius: 99px;
     overflow: hidden;
   }
 
   .small-fill {
     height: 100%;
-    background: var(--accent);
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+    border-radius: 99px;
+    transition: width 0.35s cubic-bezier(.4,0,.2,1);
   }
 
   .checklist-items {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.5rem;
   }
 
   .checklist-item {
     display: flex;
-    gap: 0.8rem;
-    padding: 0.8rem;
-    border-radius: 3px;
-    background: transparent;
-    transition: background 0.2s;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--slate-200);
+    background: var(--slate-50);
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
   }
 
   .checklist-item:hover {
-    background: rgba(0, 0, 0, 0.02);
+    border-color: var(--blue-300, #93c5fd);
+    background: var(--blue-50);
+    box-shadow: 0 0 0 3px rgba(59,130,246,.06);
   }
 
   .checklist-item.checked {
-    opacity: 0.6;
+    background: var(--blue-50);
+    border-color: var(--blue-200);
+    opacity: 0.75;
   }
 
   .checklist-item input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     margin-top: 2px;
     cursor: pointer;
-    accent-color: var(--accent);
+    accent-color: var(--blue-500);
     flex-shrink: 0;
+    border-radius: 4px;
   }
 
   .checklist-item label {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.25rem;
     flex: 1;
   }
 
   .task-title {
-    font-weight: 500;
-    color: var(--text);
+    font-weight: 600;
+    color: var(--slate-800, #1e293b);
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .checklist-item.checked .task-title {
     text-decoration: line-through;
-    color: #999;
+    color: var(--slate-400);
   }
 
   .task-notes {
-    font-size: 0.85rem;
-    color: #777;
-    line-height: 1.4;
+    font-size: 0.82rem;
+    color: var(--slate-500);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .checklist-item.checked .task-notes {
+    color: var(--slate-400);
   }
 
   /* ── How-to Section ─────────────────────────────────── */
 
   .how-to-section {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    border: 1px solid var(--border);
+    background: white;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .how-to-section h3 {
+    margin-top: 0;
   }
 
   .steps {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    gap: 0.85rem;
+    margin-top: 1rem;
   }
 
   .step {
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
+    align-items: flex-start;
   }
 
   .step-num {
-    min-width: 60px;
-    background: var(--accent);
+    min-width: 52px;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
     color: white;
-    padding: 8px 12px;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 0.85rem;
+    padding: 5px 8px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 0.75rem;
     text-align: center;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(37,99,235,.25);
   }
 
   .step-content {
     flex: 1;
+    padding-top: 3px;
   }
 
   .step-content p {
     margin: 0;
     line-height: 1.6;
+    font-size: 0.9rem;
+    color: var(--slate-700);
   }
 
   .step-content a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
+    color: var(--blue-600);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 500;
   }
 
   .step-content a:hover {
-    text-decoration: underline;
+    color: var(--blue-700);
   }
 
   /* ── Templates ──────────────────────────────────────── */
 
   .templates-section {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .template-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    background: white;
+    border: 1.5px solid var(--blue-200);
+    border-radius: var(--radius);
     margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
 
   .template-toggle {
     width: 100%;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.25rem;
     background: none;
     border: none;
     text-align: left;
     cursor: pointer;
-    font-weight: 500;
-    color: var(--text);
+    font-weight: 600;
+    color: var(--blue-700);
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    transition: background 0.2s;
+    gap: 0.6rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background 0.15s;
   }
 
   .template-toggle:hover {
-    background: rgba(0, 0, 0, 0.02);
+    background: var(--blue-50);
   }
 
   .template-toggle span:first-child {
-    color: var(--accent);
-    font-size: 1.2rem;
+    color: var(--blue-500);
+    font-size: 1.1rem;
     font-weight: 700;
+    width: 20px;
+    text-align: center;
   }
 
   .template-content {
-    padding: 1.5rem;
-    border-top: 1px solid var(--border);
+    padding: 1.25rem;
+    border-top: 1.5px solid var(--blue-100);
+    background: var(--slate-50);
   }
 
   .template-content pre {
     white-space: pre-wrap;
     word-break: break-word;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    background: white;
+    border: 1px solid var(--slate-200);
+    border-radius: 6px;
+    padding: 1.25rem;
+    line-height: 1.7;
+    color: var(--slate-700);
   }
 
   .template-tips {
-    background: rgba(61, 139, 139, 0.08);
-    padding: 1rem;
-    border-radius: 3px;
+    background: var(--blue-50);
+    padding: 1rem 1.1rem;
+    border-left: 3px solid var(--blue-400);
+    border-radius: 0 6px 6px 0;
     margin-top: 1rem;
   }
 
   .template-tips p {
-    margin: 0 0 0.5rem 0;
-    font-weight: 500;
-    font-size: 0.9rem;
+    margin: 0 0 0.4rem 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--blue-700);
   }
 
   .template-tips ul {
-    margin: 0.5rem 0 0 0;
-    padding-left: 1.5rem;
+    margin: 0.4rem 0 0 0;
+    padding-left: 1.2rem;
   }
 
   .template-tips li {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     margin-bottom: 0.3rem;
+    color: var(--slate-600, #475569);
+    line-height: 1.5;
   }
 
   /* ── Info Box ────────────────────────────────────────── */
 
   .info-box {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    border: 1px solid var(--border);
+    background: white;
+    padding: 1.4rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
   }
 
   .info-box h3 {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
+    font-size: 1rem;
+    color: var(--slate-900);
   }
 
   .info-box ul {
     margin: 0;
-    padding-left: 1.5rem;
+    padding-left: 1.4rem;
   }
 
   .info-box li {
-    margin-bottom: 0.6rem;
-    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    line-height: 1.55;
+    font-size: 0.9rem;
+    color: var(--slate-700);
+  }
+
+  .info-box li strong {
+    color: var(--slate-900);
+    font-weight: 600;
   }
 
   /* ── Timeline ────────────────────────────────────────── */
@@ -1103,40 +1246,58 @@ _________________________
   .timeline {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue-400), var(--blue-200));
+    border-radius: 2px;
   }
 
   .timeline-item {
-    padding-left: 2rem;
-    border-left: 3px solid var(--accent);
     position: relative;
+    padding-bottom: 1.75rem;
   }
 
   .timeline-item::before {
     content: '';
     position: absolute;
-    left: -8px;
-    top: 0;
+    left: -1.78rem;
+    top: 6px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--blue-500);
+    border: 2.5px solid white;
+    box-shadow: 0 0 0 2px var(--blue-300, #93c5fd);
   }
 
   .timeline-when {
-    font-weight: 600;
-    color: var(--text);
+    font-weight: 700;
+    color: var(--blue-700);
     margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
   }
 
   .timeline-tasks {
     margin: 0;
-    padding-left: 1.5rem;
-    font-size: 0.95rem;
+    padding-left: 1.2rem;
+    font-size: 0.88rem;
   }
 
   .timeline-tasks li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.55;
+    color: var(--slate-700);
   }
 
   /* ── Mistakes List ───────────────────────────────────── */
@@ -1144,23 +1305,31 @@ _________________________
   .mistakes-list {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.65rem;
   }
 
   .mistake-item {
     display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--bg-card);
-    border-radius: 3px;
-    border-left: 3px solid #d32f2f;
+    gap: 0.8rem;
+    padding: 0.9rem 1.1rem;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid #f87171;
+    border-top: 1px solid var(--slate-200);
+    border-right: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+    color: var(--slate-700);
   }
 
   .mistake-icon {
-    color: #d32f2f;
-    font-weight: 700;
-    font-size: 1.1rem;
+    color: #ef4444;
+    font-weight: 800;
+    font-size: 1rem;
     flex-shrink: 0;
+    margin-top: 0.05rem;
   }
 
   /* ── Links List ──────────────────────────────────────── */
@@ -1168,47 +1337,57 @@ _________________________
   .links-list {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .link-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    color: var(--text);
+    padding: 0.9rem 1.1rem;
+    background: white;
+    border-radius: 8px;
+    border: 1.5px solid var(--blue-200);
+    color: var(--blue-700);
     text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.18s;
+    box-shadow: var(--shadow-sm);
   }
 
   .link-item:hover {
-    background: rgba(61, 139, 139, 0.05);
-    border-color: var(--accent);
+    background: var(--blue-50);
+    border-color: var(--blue-400);
+    box-shadow: 0 2px 8px rgba(37,99,235,.12);
+    transform: translateY(-1px);
   }
 
   .link-label {
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .link-arrow {
-    color: var(--accent);
+    color: var(--blue-400);
     font-weight: 700;
+    margin-left: 0.8rem;
+    font-size: 1rem;
+    transition: transform 0.18s;
+  }
+
+  .link-item:hover .link-arrow {
+    transform: translateX(3px);
   }
 
   /* ── Disclaimer ─────────────────────────────────────── */
 
   .disclaimer {
-    background: #fff9f0;
-    border: 1px solid #ffe0c9;
-    padding: 1.5rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    color: #5d4037;
-    line-height: 1.6;
+    background: var(--slate-100);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    font-size: 0.82rem;
+    color: var(--slate-500);
+    line-height: 1.65;
     margin-top: 3rem;
   }
 
@@ -1227,6 +1406,10 @@ _________________________
       display: none !important;
     }
 
+    .nz-visa-page {
+      background: white;
+    }
+
     .tab-pane {
       page-break-inside: avoid;
     }
@@ -1242,20 +1425,20 @@ _________________________
 
   @media (max-width: 640px) {
     .nz-visa-page {
-      padding: 24px 16px;
+      padding: 28px 16px 48px;
     }
 
     .page-header h1 {
-      font-size: 1.5rem;
+      font-size: 1.55rem;
     }
 
     .tabs {
-      gap: 0.5rem;
+      gap: 0;
     }
 
     .tabs button {
-      padding: 10px 0;
-      font-size: 0.75rem;
+      padding: 9px 10px;
+      font-size: 0.78rem;
     }
 
     .section-header {
@@ -1269,6 +1452,14 @@ _________________________
 
     .big-number {
       font-size: 2rem;
+    }
+
+    .facts {
+      grid-template-columns: 1fr;
+    }
+
+    .checklist-item {
+      padding: 0.75rem 0.85rem;
     }
   }
 </style>

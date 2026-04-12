@@ -6,27 +6,59 @@
   /** @type {Record<string, any>[]} */
   export let featuredWritings = [];
 
+  const nzVisaCard = {
+    slug: 'nz-visa',
+    title: 'NZ Visa Application Checklist',
+    excerpt: 'Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips.',
+    internalUrl: '/nz-visa',
+    pinned: true,
+  };
+
+  // Insert nzVisaCard after every 3rd writing
+  function buildDisplayItems(/** @type {Record<string, any>[]} */ writings) {
+    /** @type {Record<string, any>[]} */
+    const result = [];
+    writings.forEach((w, i) => {
+      result.push(w);
+      if ((i + 1) % 2 === 0) result.push(nzVisaCard);
+    });
+    return result;
+  }
+
   let currentIndex = 0;
   let quoteVisible = true;
+  /** @type {ReturnType<typeof setTimeout> | null} */
+  let timeoutId = null;
 
   onMount(() => {
-    if (featuredWritings.length < 2) return;
+    const displayItems = buildDisplayItems(featuredWritings);
+    if (displayItems.length < 2) return;
 
-    const interval = setInterval(async () => {
-      quoteVisible = false;
-      await new Promise(r => setTimeout(r, 500));
-      currentIndex = (currentIndex + 1) % featuredWritings.length;
-      quoteVisible = true;
-    }, 7000);
+    function scheduleNext() {
+      const current = displayItems[currentIndex];
+      const delay = current?.pinned ? 14000 : 4500;
+      timeoutId = setTimeout(async () => {
+        quoteVisible = false;
+        await new Promise(r => setTimeout(r, 500));
+        currentIndex = (currentIndex + 1) % displayItems.length;
+        quoteVisible = true;
+        scheduleNext();
+      }, delay);
+    }
 
-    return () => clearInterval(interval);
+    scheduleNext();
+    return () => { if (timeoutId) clearTimeout(timeoutId); };
   });
 
-  $: currentWriting = featuredWritings[currentIndex] ?? null;
+  // Build display items for template use
+  $: displayItems = buildDisplayItems(featuredWritings);
+  $: currentWriting = displayItems[currentIndex] ?? null;
 
   /** @param {Record<string, any>} writing */
   function readStory(writing) {
-    if (writing.externalUrl) {
+    if (writing.internalUrl) {
+      window.location.href = writing.internalUrl;
+    } else if (writing.externalUrl) {
       window.open(writing.externalUrl, '_blank', 'noopener,noreferrer');
     } else {
       openSlug.set(writing.slug);
@@ -44,7 +76,7 @@
           <blockquote class="epigraph">
             {currentWriting.excerpt}
           </blockquote>
-          <cite class="epigraph-cite">— {currentWriting.title} &nbsp;· {currentWriting.externalUrl ? 'read ↗' : 'read ↓'}</cite>
+          <cite class="epigraph-cite">— {currentWriting.title} &nbsp;· {currentWriting.internalUrl ? 'open ↗' : currentWriting.externalUrl ? 'read ↗' : 'read ↓'}</cite>
         </button>
       {:else if !currentWriting}
         <div class="quote-wrapper">

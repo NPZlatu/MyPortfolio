@@ -4,7 +4,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-quote">"The fish who is searching for his ocean."</p>
+    <p class="footer-quote">"My Ikigai - To be the best of version of me."</p>
     <div class="footer-nav">
       <a href="#about-section">About</a>
       <span class="dot">·</span>
@@ -13,8 +13,12 @@
       <a href="#notebook-section">Notebook</a>
       <span class="dot">·</span>
       <a href="#contact-section">Contact</a>
+      <span class="dot">·</span>
+      <a href="/nz-visa">NZ Visa</a>
     </div>
-    <p class="footer-copy">© {year} Niraj Paudel &nbsp;·&nbsp; Auckland, New Zealand</p>
+    <p class="footer-copy">
+      © {year} Niraj Paudel &nbsp;·&nbsp; Auckland, New Zealand
+    </p>
   </div>
 </footer>
 
@@ -35,10 +39,9 @@
   }
 
   .footer-quote {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--text);
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--accent);
     opacity: 0.65;
     margin: 0;
   }

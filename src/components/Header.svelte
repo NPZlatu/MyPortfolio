@@ -1,6 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
-  import { createEventDispatcher } from 'svelte';
+  import { onMount } from "svelte";
+  import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
   let menuOpen = false;
@@ -16,11 +16,11 @@
   /** @param {MouseEvent & { currentTarget: HTMLAnchorElement }} event */
   function scrollToSection(event) {
     event.preventDefault();
-    const href = event.currentTarget.getAttribute('href');
+    const href = event.currentTarget.getAttribute("href");
     if (!href) return;
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: "smooth" });
     }
     closeMenu();
   }
@@ -28,29 +28,31 @@
   onMount(() => {
     /** @param {MouseEvent} event */
     function handleClickOutside(event) {
-      if (menuOpen && !(/** @type {HTMLElement} */ (event.target))?.closest('nav')) {
+      if (
+        menuOpen &&
+        !(/** @type {HTMLElement} */ (event.target)?.closest("nav"))
+      ) {
         menuOpen = false;
       }
     }
     function handleScroll() {
       if (menuOpen) menuOpen = false;
     }
-    document.addEventListener('click', handleClickOutside);
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      document.removeEventListener('click', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
     };
   });
 
   const navLinks = [
-    { href: '#about-section', label: 'About' },
-    { href: '#experience-section', label: 'Work' },
-    { href: '#research-section', label: 'Research' },
-    { href: '#notebook-section', label: 'Notebook' },
-    { href: '#education-section', label: 'Education' },
-    { href: '/nz-visa', label: 'Visa Guide', external: true },
-    { href: '#contact-section', label: 'Contact' },
+    { href: "#about-section", label: "About" },
+    { href: "#experience-section", label: "Work" },
+    { href: "#research-section", label: "Research" },
+    { href: "#notebook-section", label: "Notebook" },
+    { href: "#education-section", label: "Education" },
+    { href: "#contact-section", label: "Contact" },
   ];
 </script>
 
@@ -71,11 +73,21 @@
         </li>
       {/each}
       <li>
-        <button class="nav-resume" on:click={() => { closeMenu(); dispatch('openResume'); }}>↓ Resume</button>
+        <button
+          class="nav-resume"
+          on:click={() => {
+            closeMenu();
+            dispatch("openResume");
+          }}>↓ Resume</button
+        >
       </li>
     </ul>
 
-    <button class="hamburger" aria-label="Toggle navigation menu" on:click={toggleMenu}>
+    <button
+      class="hamburger"
+      aria-label="Toggle navigation menu"
+      on:click={toggleMenu}
+    >
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
@@ -167,7 +179,10 @@
     padding: 7px 18px;
     border-radius: 2rem;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      color 0.2s;
     min-height: 32px;
     white-space: nowrap;
   }
@@ -197,7 +212,9 @@
     width: 22px;
     height: 1.5px;
     background: var(--text);
-    transition: transform 0.3s, opacity 0.3s;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
   }
 
   @media (max-width: 640px) {

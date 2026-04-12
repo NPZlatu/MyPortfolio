@@ -190,12 +190,12 @@
   .chapter-pull-quote {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 0.78rem;
     border-left: 2px solid var(--accent);
     padding: 0.25rem 1rem;
     margin: 0 0 1.25rem 0;
     color: var(--accent);
-    opacity: 0.9;
+    opacity: 0.65;
   }
 
   .chapter-narrative {
@@ -393,7 +393,7 @@
     }
 
     .chapter-pull-quote {
-      font-size: 0.88rem;
+      font-size: 0.75rem;
     }
 
     .chapter-narrative {

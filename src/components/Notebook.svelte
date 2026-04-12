@@ -17,31 +17,31 @@
     ? writings
     : writings.filter(w => w.type === activeFilter);
 
-  $: onSiteWritings = filteredWritings
-    .filter(w => !w.externalUrl)
-    .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
-  $: externalWritings = filteredWritings.filter(w => w.externalUrl);
+  // technical first, then others; within each group sort by date desc
+  $: sortedWritings = [...filteredWritings].sort((a, b) => {
+    const aTech = a.type === 'technical' ? 0 : 1;
+    const bTech = b.type === 'technical' ? 0 : 1;
+    if (aTech !== bTech) return aTech - bTech;
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 
-  $: expandedWriting = expandedSlug
-    ? writings.find(w => w.slug === expandedSlug)
-    : null;
+  let showAll = false;
+  const INITIAL_VISIBLE = 5;
 
-  let showAllOnSite = false;
-
-  $: visibleOnSite = showAllOnSite ? onSiteWritings : onSiteWritings.slice(0, 3);
+  $: visibleWritings = showAll ? sortedWritings : sortedWritings.slice(0, INITIAL_VISIBLE);
 
   /** @param {string} f */
   function setFilter(f) {
     activeFilter = f;
     expandedSlug = null;
-    showAllOnSite = false;
+    showAll = false;
   }
 
   openSlug.subscribe(async (slug) => {
     if (!slug) return;
     openSlug.set(null);
     activeFilter = 'all';
-    showAllOnSite = true;   // ensure hidden cards are rendered
+    showAll = true;
     await tick();
     expandedSlug = slug;
     await tick();
@@ -87,10 +87,24 @@
       {/each}
     </div>
 
-    <!-- On-site writings: reading cards -->
-    {#if onSiteWritings.length > 0}
+    <!-- Pinned tool card: always visible -->
+    <div class="reading-cards fade-in" use:observeFadeIn>
+      <a href="/nz-visa" class="reading-card pinned-card" data-card="nz-visa" style="border-left: 3px solid var(--accent)">
+        <div class="card-meta">
+          <span class="card-type" style="color: var(--accent)">tool</span>
+          <span class="card-date">2025</span>
+          <span class="pinned-badge">pinned</span>
+        </div>
+        <h3 class="card-title">NZ Visa Application Checklist</h3>
+        <p class="card-excerpt">Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips. Progress saves in your browser.</p>
+        <span class="card-toggle card-toggle-link">open checklist ↗</span>
+      </a>
+    </div>
+
+    <!-- Unified writings list: technical first, then others -->
+    {#if sortedWritings.length > 0}
       <div class="reading-cards fade-in" use:observeFadeIn>
-        {#each visibleOnSite as writing (writing.slug)}
+        {#each visibleWritings as writing (writing.slug)}
           <div class="reading-card" data-card={writing.slug} style="border-left: 3px solid {typeColor[writing.type] ?? typeColor.essay}">
             <div class="card-meta">
               <span class="card-type" style="color: {typeColor[writing.type] ?? typeColor.essay}">{writing.type}</span>
@@ -100,78 +114,46 @@
             {#if writing.excerpt}
               <p class="card-excerpt">{writing.excerpt}</p>
             {/if}
-            <button
-              class="card-toggle"
-              class:open={expandedSlug === writing.slug}
-              on:click={() => toggleExpand(writing)}
-            >
-              {expandedSlug === writing.slug ? 'close ✕' : 'read →'}
-            </button>
 
-            {#if expandedSlug === writing.slug}
-              <div class="card-expand" data-expand={writing.slug} transition:slide={{ duration: 350 }}>
-                <div class="expand-prose">
-                  <svelte:component this={writing.component} />
+            {#if writing.externalUrl}
+              <a
+                href={writing.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-toggle card-toggle-link"
+              >read ↗</a>
+            {:else}
+              <button
+                class="card-toggle"
+                class:open={expandedSlug === writing.slug}
+                on:click={() => toggleExpand(writing)}
+              >
+                {expandedSlug === writing.slug ? 'close ✕' : 'read →'}
+              </button>
+
+              {#if expandedSlug === writing.slug}
+                <div class="card-expand" data-expand={writing.slug} transition:slide={{ duration: 350 }}>
+                  <div class="expand-prose">
+                    <svelte:component this={writing.component} />
+                  </div>
                 </div>
-              </div>
+              {/if}
             {/if}
           </div>
         {/each}
       </div>
 
-      {#if onSiteWritings.length > 3}
-        <button class="show-more" on:click={() => showAllOnSite = !showAllOnSite}>
-          {showAllOnSite ? 'show less ↑' : `show ${onSiteWritings.length - 3} more ↓`}
+      {#if sortedWritings.length > INITIAL_VISIBLE}
+        <button class="show-more" on:click={() => showAll = !showAll}>
+          {showAll ? 'show less ↑' : `show ${sortedWritings.length - INITIAL_VISIBLE} more ↓`}
         </button>
       {/if}
-    {/if}
-
-    <!-- External articles: compact list -->
-    {#if externalWritings.length > 0}
-      {#if onSiteWritings.length > 0}
-        <div class="zone-divider">
-          <span>— published elsewhere —</span>
-        </div>
-      {/if}
-      <ul class="external-list fade-in" use:observeFadeIn>
-        {#each externalWritings as writing (writing.slug)}
-          <li class="external-item">
-            <a
-              href={writing.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="external-link"
-            >
-              <span class="external-meta">
-                <span class="external-type" style="color: {typeColor[writing.type] ?? typeColor.essay}">{writing.type}</span>
-                <span class="external-date">{formatDate(writing.date)}</span>
-              </span>
-              <span class="external-title">{writing.title}</span>
-              <span class="external-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-        {/each}
-      </ul>
     {/if}
 
     {#if filteredWritings.length === 0}
       <p class="empty-state">Nothing here yet.</p>
     {/if}
 
-    <div class="also-built fade-in" use:observeFadeIn>
-      <span class="also-label">also built</span>
-      <a href="/nz-visa" class="also-card">
-        <div class="also-card-inner">
-          <div class="also-meta">
-            <span class="also-tag">tool</span>
-            <span class="also-year">2025</span>
-          </div>
-          <h4 class="also-title">NZ Visa Application Checklist</h4>
-          <p class="also-desc">Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips. Progress saves in your browser.</p>
-          <span class="also-cta">open checklist ↗</span>
-        </div>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -292,6 +274,11 @@
     border-color: var(--accent);
   }
 
+  .card-toggle-link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
   .card-expand {
     margin-top: 2rem;
     padding-top: 2rem;
@@ -353,91 +340,6 @@
     color: var(--accent);
   }
 
-  /* Zone divider */
-  .zone-divider {
-    text-align: center;
-    margin: 2.5rem 0 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    color: var(--text);
-    opacity: 0.35;
-  }
-
-  /* External list */
-  .external-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .external-item {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .external-item:first-child {
-    border-top: 1px solid var(--border);
-  }
-
-  .external-link {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding: 14px 0;
-    text-decoration: none;
-    color: var(--text);
-    transition: color 0.15s;
-  }
-
-  .external-link:hover {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  .external-link:hover .external-arrow {
-    transform: translate(2px, -2px);
-  }
-
-  .external-meta {
-    display: flex;
-    gap: 0.6rem;
-    flex-shrink: 0;
-    align-items: baseline;
-  }
-
-  .external-type {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .external-date {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    color: var(--text);
-    opacity: 0.4;
-    white-space: nowrap;
-  }
-
-  .external-title {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    flex: 1;
-    line-height: 1.4;
-  }
-
-  .external-arrow {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--accent);
-    opacity: 0.5;
-    flex-shrink: 0;
-    transition: transform 0.15s;
-  }
-
   .empty-state {
     font-family: var(--font-body);
     font-style: italic;
@@ -445,101 +347,26 @@
     margin-top: 2rem;
   }
 
-  .also-built {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .also-label {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text);
-    opacity: 0.3;
-  }
-
-  .also-card {
+  .pinned-card {
     display: block;
     text-decoration: none;
     color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-    max-width: 560px;
   }
 
-  .also-card:hover {
-    border-color: var(--accent);
+  .pinned-card:hover {
     text-decoration: none;
   }
 
-  .also-card-inner {
-    padding: 20px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    border-left: 3px solid var(--border);
-    transition: border-color 0.2s;
-  }
-
-  .also-card:hover .also-card-inner {
-    border-left-color: var(--accent);
-  }
-
-  .also-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .also-tag {
+  .pinned-badge {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--accent);
-  }
-
-  .also-year {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    color: var(--text);
-    opacity: 0.35;
-  }
-
-  .also-title {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0;
-    color: var(--text);
-  }
-
-  .also-desc {
-    font-size: 0.85rem;
-    line-height: 1.65;
-    color: var(--text);
-    opacity: 0.6;
-    margin: 0;
-  }
-
-  .also-cta {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    opacity: 0.6;
-    transition: opacity 0.2s;
-  }
-
-  .also-card:hover .also-cta {
-    opacity: 1;
+    opacity: 0.5;
+    border: 1px solid var(--accent);
+    padding: 1px 6px;
+    border-radius: 2px;
   }
 
   @media (max-width: 640px) {
@@ -579,22 +406,5 @@
       min-height: 44px;
     }
 
-    .external-link {
-      padding: 14px 0;
-      gap: 0.5rem;
-    }
-
-    .external-meta {
-      display: none;
-    }
-
-    .external-title {
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-
-    .zone-divider {
-      margin: 2rem 0 1.5rem;
-    }
   }
 </style>

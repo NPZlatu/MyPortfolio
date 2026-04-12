@@ -74,7 +74,7 @@
     { id: 'c8', task: 'Travel evidence together', notes: 'Flight bookings, hotel receipts, boarding passes with both names.' },
     { id: 'c9', task: "Children's birth certificates (if any)", notes: 'Strong evidence if you have children together.' },
     { id: 'c10', task: 'Relationship Timeline Letter', notes: 'A written letter from both partners explaining your relationship history. THIS IS ESSENTIAL.' },
-    { id: 'c11', task: 'Form INZ 1146', notes: 'Completed by the PSWV holder as the supporting partner. Download from INZ website.' },
+    { id: 'c11', task: 'Form INZ 1146', notes: 'Completed by the PSWV holder as the supporting partner. Download PDF directly from immigration.govt.nz/assets/inz/documents/forms-and-guides/inz-1146-form-for-partners_april-2016_fa_web.pdf' },
   ];
 
   const checklistD = [
@@ -95,7 +95,7 @@
   $: progD = progress(checklistD.map(i => i.id));
 
   const pswvSteps = [
-    { step: 1, text: 'Go to immigration.govt.nz/visas/post-study-work-visa', link: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/post-study-work-visa' },
+    { step: 1, text: 'Go to immigration.govt.nz — Post-Study Work Visa page', link: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/post-study-work-visa' },
     { step: 2, text: "Click 'Apply online' and log in with your RealMe account" },
     { step: 3, text: 'Fill in the application form. Enter all details exactly as they appear on your passport.' },
     { step: 4, text: 'Upload all documents as PDF files (max 10MB each).' },
@@ -106,7 +106,7 @@
 
   const partnerSteps = [
     { step: 1, text: 'Wait until the PSWV is granted (or apply at the same time).' },
-    { step: 2, text: 'Go to immigration.govt.nz/visas/partner-of-a-worker-work-visa', link: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/partner-of-a-worker-work-visa' },
+    { step: 2, text: 'Go to immigration.govt.nz — Partner of a Worker Work Visa page', link: 'https://www.immigration.govt.nz/visas/partner-of-a-worker-work-visa/' },
     { step: 3, text: 'Log in with a RealMe account and fill in the application.' },
     { step: 4, text: 'Upload all relationship evidence + personal documents.' },
     { step: 5, text: 'The PSWV holder attaches the completed Form INZ 1146.' },
@@ -179,12 +179,12 @@
 
   const usefulLinks = [
     { label: 'Post-Study Work Visa (PSWV) Application Page', url: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/post-study-work-visa' },
-    { label: 'Partner of Worker Work Visa', url: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/partner-of-a-worker-work-visa' },
-    { label: 'Proving Your Partnership — INZ Guide', url: 'https://www.immigration.govt.nz/new-zealand-visas/preparing-a-visa-application/preparing-supporting-documents/prove-partnership' },
-    { label: 'Form INZ 1146 — Download', url: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/partner-of-a-worker-work-visa' },
-    { label: 'Work Visa Guide INZ 1016 — Download', url: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/post-study-work-visa' },
-    { label: 'Partnership-Based Temporary Visa Guide INZ 1199', url: 'https://www.immigration.govt.nz/new-zealand-visas/visas/visa/partner-of-a-worker-work-visa' },
-    { label: 'INZ Contact: 0508 558 855 (NZ) / +64 9 914 4100', url: 'https://www.immigration.govt.nz/about-us/contact-us' },
+    { label: 'Partner of Worker Work Visa', url: 'https://www.immigration.govt.nz/visas/partner-of-a-worker-work-visa/' },
+    { label: 'Proving Your Partnership — INZ Guide', url: 'https://www.immigration.govt.nz/process-to-apply/once-you-have-a-visa/bringing-family-to-new-zealand/partnership-and-how-to-prove-it/' },
+    { label: 'Form INZ 1146 — Download (PDF)', url: 'https://www.immigration.govt.nz/assets/inz/documents/forms-and-guides/inz-1146-form-for-partners_april-2016_fa_web.pdf' },
+    { label: 'Work Visa Guide INZ 1016 — Download (PDF)', url: 'https://www.immigration.govt.nz/assets/inz/documents/forms-and-guides/Work-Visa-Guide-INZ-1016.pdf' },
+    { label: 'Partnership-Based Temporary Visa Guide INZ 1199 — Download (PDF)', url: 'https://www.immigration.govt.nz/assets/inz/documents/forms-and-guides/Partnership-Based-Temporary-Visa-Guide-INZ-1199PDF-453KB.pdf' },
+    { label: 'INZ Contact: 0508 558 855 (NZ) / +64 9 914 4100', url: 'https://www.immigration.govt.nz/contact-us/' },
   ];
 </script>
 

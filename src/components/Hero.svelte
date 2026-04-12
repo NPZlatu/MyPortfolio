@@ -9,7 +9,7 @@
   const nzVisaCard = {
     slug: 'nz-visa',
     title: 'NZ Visa Application Checklist',
-    excerpt: 'Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips.',
+    excerpt: 'Interactive checklist for Masters / Level 9 graduates navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips.',
     internalUrl: '/nz-visa',
     pinned: true,
   };

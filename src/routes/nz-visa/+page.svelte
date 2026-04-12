@@ -190,10 +190,10 @@
 
 <svelte:head>
   <title>NZ Post-Study Work Visa Checklist & Guide | Niraj Paudel</title>
-  <meta name="description" content="Interactive checklist and step-by-step guide for New Zealand Post-Study Work Visa (PSWV) and Partner of Worker Work Visa. Track documents, deadlines, and progress — built for international graduates." />
+  <meta name="description" content="Interactive checklist and step-by-step guide for Masters / Level 9 graduates applying for the New Zealand Post-Study Work Visa (PSWV) and Partner of Worker Work Visa. Track documents, deadlines, and progress." />
   <meta name="keywords" content="NZ post-study work visa, PSWV checklist, New Zealand visa guide, partner of worker visa, immigration NZ, international student visa NZ" />
   <meta property="og:title" content="NZ Post-Study Work Visa Checklist & Guide" />
-  <meta property="og:description" content="Interactive checklist and step-by-step guide for New Zealand Post-Study Work Visa (PSWV) and Partner of Worker Work Visa. Track your progress, access templates, and stay organised." />
+  <meta property="og:description" content="Interactive checklist and step-by-step guide for Masters / Level 9 graduates applying for the NZ Post-Study Work Visa (PSWV) and Partner of Worker Work Visa. Track your progress and stay organised." />
   <meta property="og:type" content="website" />
   <meta name="robots" content="index, follow" />
 </svelte:head>
@@ -203,7 +203,7 @@
   <div class="page-header">
     <a href="/" class="back-link">← Back to portfolio</a>
     <h1>NZ Visa Interactive Checklist & Guide</h1>
-    <p class="subtitle">Post-Study Work Visa (PSWV) + Partner of Worker Work Visa. Track your progress, access templates, and stay organised.</p>
+    <p class="subtitle">For Masters / Level 9 graduates. Post-Study Work Visa (PSWV) + Partner of Worker Work Visa. Track your progress, access templates, and stay organised.</p>
 
     <!-- Overall Progress -->
     <div class="progress-section">

@@ -96,7 +96,7 @@
           <span class="pinned-badge">pinned</span>
         </div>
         <h3 class="card-title">NZ Visa Application Checklist</h3>
-        <p class="card-excerpt">Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips. Progress saves in your browser.</p>
+        <p class="card-excerpt">For Masters / Level 9 graduates. Interactive checklist for navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips. Progress saves in your browser.</p>
         <span class="card-toggle card-toggle-link">open checklist ↗</span>
       </a>
     </div>

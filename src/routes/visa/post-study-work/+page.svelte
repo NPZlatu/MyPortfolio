@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import '../../global.css';
+  import '../../../global.css';
 
   let activeTab = 'pswv'; // pswv | partner | documents | timeline | tips
   /** @type {Record<string, boolean>} */

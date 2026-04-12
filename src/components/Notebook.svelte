@@ -89,7 +89,7 @@
 
     <!-- Pinned tool card: always visible -->
     <div class="reading-cards fade-in" use:observeFadeIn>
-      <a href="/nz-visa" class="reading-card pinned-card" data-card="nz-visa" style="border-left: 3px solid var(--accent)">
+      <a href="/visa/post-study-work" class="reading-card pinned-card" data-card="nz-visa" style="border-left: 3px solid var(--accent)">
         <div class="card-meta">
           <span class="card-type" style="color: var(--accent)">tool</span>
           <span class="card-date">2025</span>

@@ -14,7 +14,7 @@
       <span class="dot">·</span>
       <a href="#contact-section">Contact</a>
       <span class="dot">·</span>
-      <a href="/nz-visa">NZ Visa</a>
+      <a href="/visa/post-study-work">NZ Visa</a>
     </div>
     <p class="footer-copy">
       © {year} Niraj Paudel &nbsp;·&nbsp; Auckland, New Zealand

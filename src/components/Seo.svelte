@@ -1,7 +1,7 @@
 <svelte:head>
   <!-- Primary -->
-  <title>Niraj Paudel — Test Automation Engineer | Auckland, New Zealand</title>
-  <meta name="description" content="Test automation engineer and SDET in Auckland with a ten year software engineering background. UI and API automation, CI/CD, and testing of AI systems: RAG data, MCP tools and LLM evaluation." />
+  <title>Niraj Paudel — Software Engineer and SDET | Auckland, New Zealand</title>
+  <meta name="description" content="Software engineer and SDET in Auckland, ten years of building products, focused on test automation. UI and API automation, CI/CD, and testing of AI systems: RAG data, MCP tools and LLM evaluation." />
   <meta name="keywords" content="Niraj Paudel, Test Automation Engineer Auckland, SDET New Zealand, Quality Engineer, QA Engineer Auckland, Playwright, TypeScript, CI/CD, LLM evaluation, RAGAS, AI testing" />
   <meta name="author" content="Niraj Paudel" />
   <meta name="robots" content="index, follow" />
@@ -16,12 +16,12 @@
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://nirajpaudel.com/" />
-  <meta property="og:title" content="Niraj Paudel — Test Automation Engineer | Auckland, NZ" />
-  <meta property="og:description" content="Test automation engineer and SDET in Auckland with a ten year software engineering background. UI and API automation, CI/CD, and testing of AI systems: RAG data, MCP tools and LLM evaluation." />
+  <meta property="og:title" content="Niraj Paudel — Software Engineer and SDET | Auckland, NZ" />
+  <meta property="og:description" content="Software engineer and SDET in Auckland, ten years of building products, focused on test automation. UI and API automation, CI/CD, and testing of AI systems: RAG data, MCP tools and LLM evaluation." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/10824118?v=4" />
   <meta property="og:image:width" content="400" />
   <meta property="og:image:height" content="400" />
-  <meta property="og:image:alt" content="Niraj Paudel — Test Automation Engineer" />
+  <meta property="og:image:alt" content="Niraj Paudel — Software Engineer and SDET" />
   <meta property="og:locale" content="en_NZ" />
   <meta property="og:site_name" content="Niraj Paudel" />
   <meta property="profile:first_name" content="Niraj" />
@@ -29,8 +29,8 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Niraj Paudel — Test Automation Engineer | Auckland, NZ" />
-  <meta name="twitter:description" content="Test automation engineer and SDET in Auckland. UI and API automation, CI/CD, and testing of AI systems." />
+  <meta name="twitter:title" content="Niraj Paudel — Software Engineer and SDET | Auckland, NZ" />
+  <meta name="twitter:description" content="Software engineer and SDET in Auckland. UI and API automation, CI/CD, and testing of AI systems." />
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/10824118?v=4" />
 
   <!-- JSON-LD Person schema -->
@@ -40,7 +40,7 @@
     "name": "Niraj Paudel",
     "url": "https://nirajpaudel.com",
     "image": "https://avatars.githubusercontent.com/u/10824118?v=4",
-    "jobTitle": "Test Automation Engineer",
+    "jobTitle": "Software Engineer and SDET",
     "worksFor": {
       "@type": "Organization",
       "name": "Nylon",

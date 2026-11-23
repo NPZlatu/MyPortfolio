@@ -18,25 +18,24 @@
     </div>
     <div class="about-prose fade-in" use:observeFadeIn>
       <p>
-        I am a software engineer and an SDET, and test automation is where I am taking my career.
-        On MyFonts.com, Monotype's online font store, I worked as a full-time SDET: I wrote the
-        browser automation, ran it in Jenkins on every build, and took the regression cycle from
-        one to two days of manual checking down to a twenty minute automated run.
+        I am a software engineer. Over ten years I have built products, led a team and run the
+        technical side of a start-up, and for two of those years I worked as a full-time SDET on
+        MyFonts.com, Monotype's online font store. There I wrote the browser automation, ran it
+        in Jenkins on every build, and took the regression cycle from one to two days of manual
+        checking down to a twenty minute automated run.
       </p>
       <p>
-        Around that I have built software for ten years, including leading a team and running the
-        technical side of a start-up. That is why I read the code I am testing, review pull
-        requests, and design a test framework the way I would design any other piece of software.
+        At Nylon, an AI research tool for tax and law, I work as a software engineer on the data
+        team in an AI-assisted workflow. I build and test end to end: data ingestion pipelines on
+        Node.js and AWS that load a Qdrant vector database, an MCP server tested against Claude,
+        ChatGPT and Gemini, and Playwright end to end tests wired into CI.
       </p>
       <p>
-        At Nylon, an AI research tool for tax and law, I build and test end to end in an
-        AI-assisted workflow. I build data ingestion pipelines on Node.js and AWS and validate
-        what they produce, I built our MCP server and tested it against Claude, ChatGPT and
-        Gemini, and I wrote Playwright end to end tests and wired them into CI. Much of the work
-        is validation: is the data complete, is the answer right, did the release break anything.
-      </p>
-      <p>
-        My Master's research measured how far an automated LLM evaluation tool can be trusted.
+        Working that way changed what I think the job is. As AI writes more of the code, the
+        harder and more valuable work is proving that what it built is correct: is the data
+        complete, is the answer right, did the release break anything. That is the work I enjoy
+        most, and it is where I am taking my career. My Master's research went the same way: it
+        measured how far an automated LLM evaluation tool can be trusted.
       </p>
       <a class="cv-link" href="/Niraj-Paudel-CV.pdf" target="_blank" rel="noopener">Download CV →</a>
     </div>

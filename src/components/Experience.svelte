@@ -8,9 +8,9 @@
       role: 'Software Engineer, Data Team',
       period: 'May 2025 — Present',
       url: 'https://usenylon.com',
-      summary: 'AI research tools for tax and law professionals. I build and test end to end in an AI-assisted workflow, from development through testing to release.',
+      summary: 'AI research tools for tax and law professionals. Software engineer on the data team: I build and test end to end in an AI-assisted workflow, from development through testing to release.',
       points: [
-        ['Testing AI integrations', 'Built the MCP server that puts Nylon’s legal search inside Claude, ChatGPT and Gemini, and tested the OAuth 2.1 sign-in and every tool against each client before release.'],
+        ['MCP server, built and tested', 'Built the MCP server that puts Nylon’s legal search inside Claude, ChatGPT and Gemini, and tested the OAuth 2.1 sign-in and every tool against each client before release.'],
         ['Browser automation', 'Wrote and hardened Puppeteer scrapers for sites behind Cloudflare and Akamai: a shared browser pool, retry rules that separate transient failures from real ones, and recovery from a degraded browser.'],
         ['Playwright in CI', 'Wrote Playwright end to end tests for the web app and wired them into GitHub Actions.'],
         ['Data pipelines', 'Build and test ingestion steps on Node.js, AWS Lambda and SQS that load a Qdrant vector database, with infrastructure in Terraform.'],
@@ -68,7 +68,7 @@
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
       <h2 class="section-title">Experience</h2>
-      <p class="section-subtitle">Testing and quality work first, software engineering after</p>
+      <p class="section-subtitle">Software engineering and test automation</p>
     </div>
 
     <div class="tier1-grid fade-in" use:observeFadeIn>
@@ -96,7 +96,7 @@
     </div>
 
     <div class="other-chapters-header fade-in" use:observeFadeIn>
-      <span>software engineering</span>
+      <span>earlier software engineering</span>
     </div>
 
     <div class="tier2-list fade-in" use:observeFadeIn>

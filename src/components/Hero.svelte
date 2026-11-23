@@ -9,12 +9,12 @@
 
 <section id="hero-section" class="hero">
   <div class="hero-inner">
-    <p class="hero-tagline">Test Automation Engineer &nbsp;·&nbsp; Quality Engineering</p>
+    <p class="hero-tagline">Software Engineer &nbsp;·&nbsp; SDET &nbsp;·&nbsp; Test Automation</p>
     <h1 class="hero-name">Niraj Paudel</h1>
     <p class="hero-sub">
-      Software engineer and SDET. I build systems and the test automation that proves they work.
-      Ten years of building software, two of them as a full-time SDET, and most recently
-      building and testing AI data pipelines end to end. My focus is test automation and quality engineering.
+      Software engineer with ten years of building products, two of them as a full-time SDET.
+      As AI writes more of the code, the harder and more valuable work is proving that what
+      it built is correct. That is where I am taking my career: test automation and quality engineering.
     </p>
     <p class="hero-location">Auckland, New Zealand &nbsp;·&nbsp; NZ resident, full work rights</p>
 

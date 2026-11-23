@@ -82,7 +82,7 @@
           {/each}
         </div>
 
-        <p class="card-takeaway">For a tester, the lesson is simple: an automated check needs testing too.</p>
+        <p class="card-takeaway">The lesson for testing: check your testing tools too. They can be wrong.</p>
 
         <div class="card-meta-bottom">
           <a href="https://github.com/NPZlatu/RAGAS-LLM-Judge-Reliability-Study" target="_blank" rel="noopener noreferrer">Full results on GitHub →</a>

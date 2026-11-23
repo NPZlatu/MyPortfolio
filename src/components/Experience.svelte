@@ -16,6 +16,7 @@
         ['Monitoring', 'Set up Datadog monitoring for the pipeline, showing what each step is processing and where a run fails.'],
         ['MCP server', 'Built the MCP server that puts Nylon’s legal search inside Claude, ChatGPT and Gemini, and tested the OAuth 2.1 sign-in and every tool against each client before release.'],
         ['End to end tests', 'Added Playwright end to end tests, written with Claude Code, to the web app’s GitHub Actions pipeline.'],
+        ['Benchmarking, as a team', 'The team gates each release with an LLM benchmark: gold-standard question sets, an independent LLM judge and a pass or fail gate. I did not build the harness. It measures answers built on the data I ingest, and it is the same LLM-as-a-judge idea my research tested.'],
       ],
       tags: ['Claude Code', 'MCP', 'Playwright', 'Puppeteer', 'Vitest', 'Jest', 'GitHub Actions', 'TypeScript', 'Node.js', 'AWS Lambda', 'Terraform', 'Qdrant', 'PostgreSQL', 'Datadog'],
     },

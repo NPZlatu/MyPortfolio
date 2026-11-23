@@ -1,32 +1,24 @@
 <script>
   import { observeFadeIn } from '$lib/utils/observer.js';
 
-  const results = [
-    { value: '1,800', label: 'scores from 3 judges, 4 dataset variants and 3 metrics' },
-    { value: '±0.1', label: 'how far a score moves when only the judge model changes (mean absolute error 0.097)' },
-    { value: '15 of 18', label: 'comparisons where the judges caught a deliberately broken answer set' },
-    { value: '0.89', label: 'rank agreement between judges on Answer Correctness (0.82 Faithfulness, 0.59 Answer Relevancy)' },
-  ];
-
   const findings = [
-    ['Scores are relative, not absolute', 'Changing the judge from GPT-4o mini to Gemini 2.5 Flash-Lite or Llama 3.1 8B moved a score by about 0.1 on a 0 to 1 scale. A pass mark set on one judge does not carry to another.'],
-    ['Rankings hold even when scores do not', 'The judges disagreed on the number but agreed on the order. That is enough to compare two versions of a system or to catch a regression in a CI run.'],
-    ['One metric has a blind spot', 'Answer Relevancy did not drop when answers were hallucinated, on any of the three judges. It cannot be used to detect unfaithful answers. Faithfulness can.'],
-    ['Disagreement is a signal', 'When judges split widely on one sample, that sample is the one worth a human look. Most samples can go through a single cheap judge.'],
+    ['The markers agreed on which answers were better', 'So the tool is reliable for comparing two versions of a system, or for catching a drop in quality after a change.'],
+    ['They did not agree on the exact score', 'The same answer got marks about 10% apart depending on which AI did the marking. A fixed pass mark is not safe.'],
+    ['One of the three measures missed made-up answers', 'It gave invented answers the same mark as correct ones, with every marker. The other two measures caught them.'],
   ];
 
-  const method = [
-    'WikiEval dataset, 50 questions, rebuilt into four variants: a gold set, a hallucinated set, a poor-quality set and a noisy-context set.',
-    'Every variant scored by three judges on Faithfulness, Answer Relevancy and Answer Correctness, with the embedding model held constant so the judge was the only variable.',
-    'Mean absolute error for score agreement, Mann-Whitney U and Kruskal-Wallis for sensitivity, Spearman rank correlation for ranking stability.',
+  const numbers = [
+    { value: '3', label: 'AI markers compared: GPT-4o mini, Gemini and Llama' },
+    { value: '1,800', label: 'marks collected and analysed' },
+    { value: '15 of 18', label: 'times the markers correctly spotted a deliberately bad answer set' },
   ];
 </script>
 
 <section id="research-section">
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
-      <h2 class="section-title">Testing AI Systems</h2>
-      <p class="section-subtitle">Master's research: can you trust an automated judge?</p>
+      <h2 class="section-title">Research</h2>
+      <p class="section-subtitle">Can you trust an AI to mark another AI's answers?</p>
     </div>
 
     <div class="research-card fade-in" use:observeFadeIn>
@@ -35,39 +27,34 @@
         <span class="card-course">Master of IT applied research · Auckland Institute of Studies · 2026</span>
         <h3 class="card-title">Reliability of RAGAS Metrics across LLM Judges</h3>
         <p class="card-summary">
-          Teams that ship RAG products test them with tools like RAGAS, where one language model
-          marks another model's answers. I tested the test: if you swap the judge model and change
-          nothing else, do you get the same result? I built a controlled tournament to find out.
+          Companies test AI products with tools where one AI model marks another model's answers.
+          I checked whether the marker itself can be trusted. I gave the same answers to three
+          different AI markers and compared the marks they gave.
         </p>
 
-        <dl class="result-grid">
-          {#each results as r}
-            <div class="result">
-              <dt>{r.value}</dt>
-              <dd>{r.label}</dd>
-            </div>
-          {/each}
-        </dl>
+        <p class="card-result">
+          <strong>The result:</strong> you can trust it to compare, but not for exact scores.
+        </p>
 
-        <h4 class="card-sub">What it means for testing an AI product</h4>
         <ul class="finding-list">
           {#each findings as f}
             <li><strong>{f[0]}.</strong> {f[1]}</li>
           {/each}
         </ul>
 
-        <h4 class="card-sub">Method</h4>
-        <ul class="finding-list method">
-          {#each method as m}
-            <li>{m}</li>
+        <dl class="result-grid">
+          {#each numbers as n}
+            <div class="result">
+              <dt>{n.value}</dt>
+              <dd>{n.label}</dd>
+            </div>
           {/each}
-        </ul>
+        </dl>
 
-        <div class="tag-row">
-          {#each ['RAGAS', 'LLM-as-a-judge', 'RAG evaluation', 'Python', 'Statistical testing', 'GPT-4o mini', 'Gemini', 'Llama'] as tag}
-            <span class="tag">{tag}</span>
-          {/each}
-        </div>
+        <p class="card-summary">
+          Why it matters for testing: before you rely on an automated check, test the check itself.
+        </p>
+
         <div class="card-meta-bottom">
           <a href="https://github.com/NPZlatu/RAGAS-LLM-Judge-Reliability-Study" target="_blank" rel="noopener noreferrer">Code and results on GitHub →</a>
           <span class="card-dot">·</span>
@@ -81,9 +68,8 @@
         <span class="card-course">Master of IT specialised project · 2024</span>
         <h3 class="card-title">“Small Wins” Slack Bot</h3>
         <p class="card-summary">
-          A Slack bot that recognises small developer wins from GitHub and Trello events, in two
-          modes: a real-time notification or one daily digest. Built to compare the two against
-          research on notification fatigue.
+          A Slack bot that recognises small developer wins from GitHub and Trello events, either
+          as they happen or in one daily digest.
         </p>
         <div class="card-meta-bottom">
           <a href="https://github.com/NPZlatu/dual-mode-recognition-slack-bot" target="_blank" rel="noopener noreferrer">Code on GitHub →</a>
@@ -200,7 +186,8 @@
 
   .research-card.secondary { margin-top: 24px; }
   .card-sub { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin: 0.5rem 0 0 0; }
-  .result-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .card-result { font-size: 1.1rem; line-height: 1.5; margin: 0; padding: 12px 16px; background: var(--bg-code); border-left: 3px solid var(--accent); border-radius: 3px; }
+  .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .result dt { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
   .result dd { margin: 0.2rem 0 0 0; font-size: 0.8rem; line-height: 1.5; opacity: 0.7; }
   .finding-list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -209,6 +196,6 @@
   .card-meta-bottom { opacity: 1; }
   .card-meta-bottom span { opacity: 0.5; }
   .card-summary { flex: none; }
-  @media (max-width: 768px) { .result-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 768px) { .result-grid { grid-template-columns: 1fr; } }
 
 </style>

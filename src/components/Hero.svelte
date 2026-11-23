@@ -9,7 +9,7 @@
 
 <section id="hero-section" class="hero">
   <div class="hero-inner">
-    <p class="hero-tagline">Software Engineer &nbsp;·&nbsp; SDET &nbsp;·&nbsp; Test Automation</p>
+    <p class="hero-tagline">SDET &nbsp;·&nbsp; Test Automation Engineer &nbsp;·&nbsp; Software Engineering background</p>
     <h1 class="hero-name">Niraj Paudel</h1>
     <p class="hero-sub">
       Software engineer with ten years of building products, two of them as a full-time SDET.

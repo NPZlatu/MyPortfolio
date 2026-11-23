@@ -13,7 +13,7 @@
     <h1 class="hero-name">Niraj Paudel</h1>
     <p class="hero-sub">
       I build test automation and find where software breaks before users do.
-      SDET by training, software engineer by background, and for the last two years
+      SDET by training, software engineer by background, and for the last year and a half
       the person checking what an AI product returns before it ships.
     </p>
     <p class="hero-location">Auckland, New Zealand &nbsp;·&nbsp; NZ resident, full work rights</p>

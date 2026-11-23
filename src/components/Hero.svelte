@@ -1,192 +1,48 @@
 <script>
-  import { onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
-  import { openSlug } from '$lib/stores/notebook.js';
-
-  /** @type {Record<string, any>[]} */
-  export let featuredWritings = [];
-
-  const nzVisaCard = {
-    slug: 'nz-visa',
-    title: 'NZ Visa Application Checklist',
-    excerpt: 'Interactive checklist for Masters / Level 9 graduates navigating the Post-Study Work Visa and Partner Visa process — documents, timelines, fees, and tips.',
-    internalUrl: '/visa/post-study-work',
-    pinned: true,
-  };
-
-  // Insert nzVisaCard after every 3rd writing
-  function buildDisplayItems(/** @type {Record<string, any>[]} */ writings) {
-    /** @type {Record<string, any>[]} */
-    const result = [];
-    writings.forEach((w, i) => {
-      result.push(w);
-      if ((i + 1) % 2 === 0) result.push(nzVisaCard);
-    });
-    return result;
-  }
-
-  let currentIndex = 0;
-  let quoteVisible = true;
-  /** @type {ReturnType<typeof setTimeout> | null} */
-  let timeoutId = null;
-
-  onMount(() => {
-    const displayItems = buildDisplayItems(featuredWritings);
-    if (displayItems.length < 2) return;
-
-    function scheduleNext() {
-      const current = displayItems[currentIndex];
-      const delay = current?.pinned ? 14000 : 4500;
-      timeoutId = setTimeout(async () => {
-        quoteVisible = false;
-        await new Promise(r => setTimeout(r, 500));
-        currentIndex = (currentIndex + 1) % displayItems.length;
-        quoteVisible = true;
-        scheduleNext();
-      }, delay);
-    }
-
-    scheduleNext();
-    return () => { if (timeoutId) clearTimeout(timeoutId); };
-  });
-
-  // Build display items for template use
-  $: displayItems = buildDisplayItems(featuredWritings);
-  $: currentWriting = displayItems[currentIndex] ?? null;
-
-  /** @param {Record<string, any>} writing */
-  function readStory(writing) {
-    if (writing.internalUrl) {
-      window.location.href = writing.internalUrl;
-    } else if (writing.externalUrl) {
-      window.open(writing.externalUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      openSlug.set(writing.slug);
-      const section = document.querySelector('#notebook-section');
-      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
+  const facts = [
+    { value: 'SDET', label: 'Two years of full-time test automation on Monotype’s MyFonts.com' },
+    { value: '1–2 days → 20 min', label: 'Regression cycle after moving the suite into CI' },
+    { value: 'AI systems', label: 'Testing an MCP server, RAG data and LLM evaluation' },
+    { value: '10 years', label: 'Building software, so I read the code I test' },
+  ];
 </script>
 
 <section id="hero-section" class="hero">
   <div class="hero-inner">
-    <div class="epigraph-area">
-      {#if quoteVisible && currentWriting}
-        <button class="quote-wrapper" transition:fade={{ duration: 500 }} on:click={() => readStory(currentWriting)}>
-          <blockquote class="epigraph">
-            {currentWriting.excerpt}
-          </blockquote>
-          <cite class="epigraph-cite">— {currentWriting.title} &nbsp;· {currentWriting.internalUrl ? 'open ↗' : currentWriting.externalUrl ? 'read ↗' : 'read ↓'}</cite>
-        </button>
-      {:else if !currentWriting}
-        <div class="quote-wrapper">
-          <blockquote class="epigraph">
-            "Swimming was always his Ikigai, yet he kept searching for wings."
-          </blockquote>
-          <cite class="epigraph-cite">— from the notebook</cite>
+    <p class="hero-tagline">Test Automation Engineer &nbsp;·&nbsp; Quality Engineering</p>
+    <h1 class="hero-name">Niraj Paudel</h1>
+    <p class="hero-sub">
+      I build test automation and find where software breaks before users do.
+      SDET by training, software engineer by background, and for the last two years
+      the person checking what an AI product returns before it ships.
+    </p>
+    <p class="hero-location">Auckland, New Zealand &nbsp;·&nbsp; NZ resident, full work rights</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/Niraj-Paudel-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn" href="https://github.com/NPZlatu" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/itsmenirajpaudel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <dl class="hero-facts">
+      {#each facts as fact}
+        <div class="fact">
+          <dt>{fact.value}</dt>
+          <dd>{fact.label}</dd>
         </div>
-      {/if}
-    </div>
-
-    <div class="hero-identity">
-      <div class="hero-rule"></div>
-      <h1 class="hero-name">Niraj Paudel</h1>
-      <p class="hero-tagline">Software Engineer &nbsp;·&nbsp; Writer &nbsp;·&nbsp; Seeker</p>
-      <p class="hero-sub">
-        A decade of building software.<br>
-        Now learning what it means when the machines start building too.
-      </p>
-      <p class="hero-location">Auckland, New Zealand</p>
-    </div>
-
-    <a href="#about-section" class="scroll-hint" aria-label="Scroll to about section">↓</a>
+      {/each}
+    </dl>
   </div>
 </section>
 
 <style>
   .hero {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 48px 24px 40px;
-    text-align: center;
+    padding: 72px 24px 48px;
   }
 
   .hero-inner {
-    max-width: 640px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-  }
-
-  .epigraph-area {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    max-width: 480px;
-    margin-bottom: 2rem;
-  }
-
-  .quote-wrapper {
-    width: 100%;
-    border-left: 2px solid var(--border);
-    padding-left: 14px;
-    text-align: left;
-    background: none;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    cursor: pointer;
-    transition: border-color 0.2s;
-  }
-
-  .quote-wrapper:hover {
-    border-left-color: var(--accent);
-  }
-
-  .epigraph {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 0.97rem;
-    line-height: 1.6;
-    color: var(--text);
-    margin: 0 0 0.4rem 0;
-    padding: 0;
-    border: none;
-    opacity: 0.6;
-    quotes: none;
-  }
-
-  .epigraph-cite {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    display: block;
-    font-style: normal;
-    opacity: 0.8;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .hero-rule {
-    width: 40px;
-    height: 1px;
-    background: var(--border);
-    margin: 0 auto 2rem;
-  }
-
-  .hero-name {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin: 0 0 0.5rem 0;
-    line-height: 1.05;
+    max-width: var(--max-wide);
+    margin: 0 auto;
   }
 
   .hero-tagline {
@@ -195,92 +51,115 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 7vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem 0;
+    line-height: 1.05;
   }
 
   .hero-sub {
-    font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.7;
-    color: var(--text);
-    opacity: 0.7;
-    margin: 0 0 1rem 0;
+    max-width: 640px;
+    margin: 0 0 0.75rem 0;
   }
 
   .hero-location {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--text);
-    opacity: 0.45;
-    margin: 0 0 1.25rem 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+    margin: 0 0 1.75rem 0;
   }
 
-  .scroll-hint {
-    font-family: var(--font-mono);
-    font-size: 1.2rem;
-    color: var(--accent);
-    text-decoration: none;
-    animation: pulse 2s ease-in-out infinite;
-    display: inline-block;
-    min-height: 44px;
-    min-width: 44px;
+  .hero-actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2.5rem;
   }
 
-  .scroll-hint:hover {
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    padding: 10px 18px;
+    border: 1px solid var(--text);
+    border-radius: 3px;
+    color: var(--text);
     text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .btn:hover {
+    background: var(--text);
+    color: var(--bg);
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--text);
+    border-color: var(--text);
+  }
+
+  .hero-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .fact {
+    padding: 18px 20px 0 0;
+  }
+
+  .fact dt {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .fact dd {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
     opacity: 0.7;
   }
 
-  @keyframes pulse {
-    0%, 100% { transform: translateY(0); opacity: 1; }
-    50% { transform: translateY(6px); opacity: 0.5; }
+  @media (max-width: 900px) {
+    .hero-facts {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   @media (max-width: 640px) {
     .hero {
-      padding: 48px 20px 32px;
-      align-items: flex-start;
-    }
-
-    .hero-inner {
-      padding-top: 0;
-    }
-
-    .epigraph-area {
-      margin-bottom: 2.25rem;
-    }
-
-    .epigraph {
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-
-    .hero-rule {
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-name {
-      font-size: clamp(2.6rem, 12vw, 3.4rem);
-    }
-
-    .hero-tagline {
-      font-size: 0.7rem;
-      letter-spacing: 0.07em;
-      margin-bottom: 1.25rem;
+      padding: 40px 20px 32px;
     }
 
     .hero-sub {
-      font-size: 0.97rem;
-      line-height: 1.75;
+      font-size: 1.02rem;
     }
 
-    .hero-location {
-      font-size: 0.7rem;
-      margin: 0 0 1.25rem 0;
+    .hero-facts {
+      grid-template-columns: 1fr;
     }
   }
 </style>

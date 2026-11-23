@@ -34,8 +34,8 @@
 <section id="education-section">
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
-      <h2 class="section-title">The Learning</h2>
-      <p class="section-subtitle">Formal education and the institutions that shaped me</p>
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">Master of IT in Auckland, engineering degree in Nepal</p>
     </div>
 
     <div class="education-featured fade-in" use:observeFadeIn>

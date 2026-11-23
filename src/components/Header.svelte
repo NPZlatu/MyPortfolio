@@ -1,7 +1,8 @@
 <script>
   import { onMount } from "svelte";
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
+
+  /** Set to "/" on pages other than home so section links go back to it. */
+  export let base = "";
 
   let menuOpen = false;
 
@@ -15,6 +16,7 @@
 
   /** @param {MouseEvent & { currentTarget: HTMLAnchorElement }} event */
   function scrollToSection(event) {
+    if (base) { closeMenu(); return; }
     event.preventDefault();
     const href = event.currentTarget.getAttribute("href");
     if (!href) return;
@@ -48,17 +50,17 @@
 
   const navLinks = [
     { href: "#about-section", label: "About" },
-    { href: "#experience-section", label: "Work" },
-    { href: "#research-section", label: "Research" },
-    { href: "#notebook-section", label: "Notebook" },
+    { href: "#experience-section", label: "Experience" },
+    { href: "#research-section", label: "AI Testing" },
     { href: "#education-section", label: "Education" },
     { href: "#contact-section", label: "Contact" },
+    { href: "/writing", label: "Writing", external: true },
   ];
 </script>
 
 <header>
   <nav class="nav-container">
-    <a href="#hero-section" class="logo" on:click={scrollToSection}>
+    <a href="{base}#hero-section" class="logo" on:click={scrollToSection}>
       <img src="/favicon.svg" alt="NP" class="logo-mark" />
     </a>
 
@@ -68,18 +70,12 @@
           {#if link.external}
             <a href={link.href} on:click={closeMenu}>{link.label}</a>
           {:else}
-            <a href={link.href} on:click={scrollToSection}>{link.label}</a>
+            <a href="{base}{link.href}" on:click={scrollToSection}>{link.label}</a>
           {/if}
         </li>
       {/each}
       <li>
-        <button
-          class="nav-resume"
-          on:click={() => {
-            closeMenu();
-            dispatch("openResume");
-          }}>↓ Resume</button
-        >
+        <a class="nav-resume" href="/Niraj-Paudel-CV.pdf" target="_blank" rel="noopener" on:click={closeMenu}>↓ CV</a>
       </li>
     </ul>
 

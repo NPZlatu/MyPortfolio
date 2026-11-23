@@ -3,57 +3,61 @@
 
   const tier1 = [
     {
-      chapter: 'Chapter I',
-      company: 'Law Cyborg',
+      company: 'Nylon (formerly Law Cyborg)',
       location: 'Auckland, New Zealand',
       role: 'Software Engineer, Data Team',
-      period: '2025 — Present',
-      url: 'https://lawcyborg.com',
-      pullQuote: 'Where the classical engineer meets the AI transition, in real time.',
-      narrative: `Started as an intern through the AIS Intensive Internship Course — and was hired part-time after the internship ended, which meant something. Now working on data preparation for legal AI: building and maintaining RAG pipelines for legal question-answering across 30+ practice areas, and the Artifact System. Contributing to the platform's expansion from New Zealand into Australia and the United Kingdom. Using AI-first workflows daily — Cursor and Claude Code are part of how the work gets done.`,
-      tags: ['RAG', 'TypeScript', 'Node.js', 'AWS', 'Terraform', 'Claude Code', 'Data Pipelines', 'Scrum'],
+      period: 'May 2025 — Present',
+      url: 'https://usenylon.com',
+      summary: 'AI research tools for tax and law professionals. I build, test and release my own work, and most of that work is verification.',
+      points: [
+        ['Testing AI integrations', 'Built the MCP server that puts Nylon’s legal search inside Claude, ChatGPT and Gemini, and tested the OAuth 2.1 sign-in and every tool against each client before release.'],
+        ['Browser automation', 'Wrote and hardened Puppeteer scrapers for sites behind Cloudflare and Akamai: a shared browser pool, retry rules that separate transient failures from real ones, and recovery from a degraded browser.'],
+        ['Playwright in CI', 'Added the Playwright end to end run to the web app’s GitHub Actions pipeline.'],
+        ['Data validation', 'Checked each new source for the Australia and UK launches against the original site: record counts, broken links, missing and duplicate documents, and whether a search returns the right text.'],
+        ['Release gates', 'Unit and integration tests in Vitest and Jest with every pull request, CI that blocks a failing merge, and an end to end run on staging before production.'],
+        ['Root cause', 'Ran the weekly data workflows and traced failed runs in Datadog and CloudWatch to the cause.'],
+      ],
+      tags: ['Playwright', 'Puppeteer', 'Vitest', 'Jest', 'GitHub Actions', 'TypeScript', 'PostgreSQL', 'Datadog', 'AWS'],
     },
     {
-      chapter: 'Chapter II',
-      company: 'UBA Solutions',
+      company: 'UBA Solutions (client: Monotype, USA)',
       location: 'Lalitpur, Nepal',
       role: 'Software Development Engineer in Test',
-      period: '2019 — 2021',
-      url: 'https://ubasolutions.com',
-      pullQuote: 'The role where I fell in love with the craft of building software.',
-      narrative: `Part of the scrum team for myfonts.com — Monotype's font distribution portal holding 43% of the online paid Latin font market. This was not just testing. I was embedded in the product team: writing automation scripts that caught regressions before they shipped, building internal tools to speed up QA, designing micro-sites and micro-services. The product was global, the team was tight, and the work had direct impact on millions of font users. This is where the craft became something I cared about deeply.`,
-      tags: ['Protractor', 'Cucumber', 'Docker', 'ElasticSearch', 'React', 'Go', 'Node.js', 'Jenkins', 'Redis', 'Kubernetes', 'AWS', 'Grafana'],
+      period: 'May 2019 — Jan 2021',
+      url: 'https://www.myfonts.com',
+      summary: 'Full-time test automation on MyFonts.com, Monotype’s online font store, inside the product’s Scrum team.',
+      points: [
+        ['Automation', 'Wrote the browser tests in Protractor, Selenium and Cucumber, turning acceptance criteria into scenarios the whole team could read.'],
+        ['Regression', 'Cut the regression cycle from one to two days of manual checking to a twenty minute automated run.'],
+        ['CI', 'Ran the suites in Jenkins on every build and investigated each failure.'],
+        ['Functional testing', 'Tested new features by hand before automating them, reported bugs with clear steps, and retested each fix.'],
+        ['Test management', 'Kept test cases and runs current in TestRail so the team could see what each release covered.'],
+      ],
+      tags: ['Protractor', 'Selenium', 'Cucumber', 'Jenkins', 'TestRail', 'Docker', 'Node.js'],
     },
   ];
 
   const tier2 = [
     {
-      company: 'UBA Solutions',
+      company: 'UBA Solutions (client: Monotype, USA)',
       location: 'Lalitpur, Nepal',
-      role: 'Senior Software Engineer & Team Lead',
+      role: 'Senior Software Engineer and Team Lead',
       period: '2022 — 2024',
-      description: 'Led Vue2→Vue3 migration for Monotype Foundry Platform. Built the Bundles feature end-to-end (PHP Lumen + Node.js + Vue). Managed user migration from Fonts.com to MonotypeFonts.com. Implemented localised email delivery with RabbitMQ across monolith and microservices.',
+      description: 'Returned to the MyFonts team as a developer. Moved the site from Vue 2 to Vue 3 and built the Bundles feature, with tests for each release. Reviewed code and coached less experienced teammates.',
     },
     {
       company: 'Business Pazes',
       location: 'Kathmandu, Nepal',
-      role: 'Senior Software Engineer & CTO',
+      role: 'Senior Software Engineer and CTO',
       period: '2021 — 2022',
-      description: 'Led a startup as full-time CTO. Architected solutions, managed the engineering team, collaborated with marketing, ran sprints. Made strategic tech decisions for scalability and growth.',
+      description: 'Ran the technical side of a start-up hands-on: chose the stack, built the product with a small team, and set up code review and testing before every release.',
     },
     {
-      company: 'B.M. Nepal',
+      company: 'B.M. Nepal and Spiralogics',
       location: 'Kathmandu, Nepal',
       role: 'Software Developer',
-      period: '2018 — 2019',
-      description: 'Built modules for Bookmundi travel booking portal: Trip Planner, Travel Experts, Notifications, Search, Maps. Full-stack with SEO focus.',
-    },
-    {
-      company: 'Spiralogics',
-      location: 'Kathmandu, Nepal',
-      role: 'Full Stack Developer → Junior Developer',
-      period: '2015 — 2018',
-      description: 'Payment gateway integrations (Vericheck), MEAN stack applications. First professional years — learned clean code, Docker, AWS, microservices.',
+      period: '2015 — 2019',
+      description: 'Built modules for the Bookmundi travel booking site, payment gateway integrations, and web applications on the MEAN stack.',
     },
   ];
 </script>
@@ -61,22 +65,25 @@
 <section id="experience-section">
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
-      <h2 class="section-title">The Work</h2>
-      <p class="section-subtitle">A decade of shipping software</p>
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Testing and quality work first, software engineering after</p>
     </div>
 
     <div class="tier1-grid fade-in" use:observeFadeIn>
       {#each tier1 as job}
         <div class="chapter-card">
-          <div class="chapter-label">{job.chapter}</div>
           <div class="chapter-period">{job.period}</div>
           <h3 class="chapter-company">
             <a href={job.url} target="_blank" rel="noopener noreferrer">{job.company}</a>
             <span class="chapter-location">{job.location}</span>
           </h3>
           <p class="chapter-role">{job.role}</p>
-          <blockquote class="chapter-pull-quote">"{job.pullQuote}"</blockquote>
-          <p class="chapter-narrative">{job.narrative}</p>
+          <p class="chapter-narrative">{job.summary}</p>
+          <ul class="chapter-points">
+            {#each job.points as point}
+              <li><strong>{point[0]}.</strong> {point[1]}</li>
+            {/each}
+          </ul>
           <div class="tag-row">
             {#each job.tags as tag}
               <span class="tag">{tag}</span>
@@ -86,15 +93,8 @@
       {/each}
     </div>
 
-    <div class="hackathon-badge fade-in" use:observeFadeIn>
-      <span class="badge-label">Hackathon</span>
-      <span class="badge-title">React Riot 2018 — Hacker Favorite</span>
-      <span class="badge-desc">Built <em>A Good Day to Quiz Hard</em> — a movie dialogue quiz with GIFs, hints, and scoring. Selected as Hacker Favorite by Hackbit out of all React Riot entries. Built with the team: Kushal, Abish, Dipendra &amp; Ritesh.</span>
-      <button class="badge-play" id="quiz-trigger">Play it →</button>
-    </div>
-
     <div class="other-chapters-header fade-in" use:observeFadeIn>
-      <span>— other chapters —</span>
+      <span>software engineering</span>
     </div>
 
     <div class="tier2-list fade-in" use:observeFadeIn>
@@ -408,4 +408,12 @@
       font-size: 0.82rem;
     }
   }
+
+  .chapter-narrative { margin-bottom: 1rem; }
+  .chapter-role { font-style: normal; font-weight: 600; opacity: 0.85; margin-bottom: 0.75rem; }
+  .chapter-points { margin: 0 0 1.5rem 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.55rem; }
+  .chapter-points li { font-size: 0.9rem; line-height: 1.6; }
+  .chapter-points strong { font-weight: 600; }
+  .tier2-role { font-style: normal; }
+
 </style>

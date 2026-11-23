@@ -73,8 +73,8 @@
 <section id="notebook-section">
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
-      <h2 class="section-title">The Notebook</h2>
-      <p class="section-subtitle">Reflections, parables, and technical essays</p>
+      <h2 class="section-title">Writing</h2>
+      <p class="section-subtitle">Technical articles, essays and reflections</p>
     </div>
 
     <div class="filter-tabs fade-in" use:observeFadeIn>

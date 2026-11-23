@@ -19,7 +19,7 @@ No test framework is configured in this project.
 
 This is a **single-page portfolio website** built with SvelteKit and deployed as a static site to GitHub Pages via `adapter-static`.
 
-**Page structure**: `src/routes/+page.svelte` is the sole route — it composes all section components in order: Header → Hero → About → Resume → Article → Contact → Footer. Navigation in the Header uses anchor links (`#section-id`) for smooth scrolling between sections.
+**Page structure**: `src/routes/+page.svelte` is the sole route — the professional home page, composing Header → Hero → About → Experience → Research → Testimonials → Education → Contact → Footer. `src/routes/writing/+page.svelte` holds the Notebook (articles and essays) and side projects, kept apart from the home page on purpose. The CV is a static PDF at `static/Niraj-Paudel-CV.pdf` (web version: no phone number, no referee contact). Navigation in the Header uses anchor links (`#section-id`) for smooth scrolling between sections.
 
 **Components** (`src/components/`) are self-contained with scoped CSS. Each maps to a visible page section. The `Seo.svelte` component manages all `<head>` meta tags (Open Graph, Twitter Cards).
 

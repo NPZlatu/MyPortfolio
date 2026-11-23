@@ -30,8 +30,8 @@
 <section id="contact-section">
   <div class="section-container">
     <div class="contact-inner fade-in" use:observeFadeIn>
-      <h2 class="section-title">Say Hello</h2>
-      <p class="section-subtitle">I read every message and reply to most of them</p>
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Open to test automation and quality engineering roles in Auckland, or remote within New Zealand</p>
 
       <div class="contact-list">
         {#each contactItems as item}

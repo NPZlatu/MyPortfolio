@@ -4,15 +4,14 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-quote">"My Ikigai - To be the best of version of me."</p>
     <div class="footer-nav">
-      <a href="#about-section">About</a>
+      <a href="/#about-section">About</a>
       <span class="dot">·</span>
-      <a href="#experience-section">Work</a>
+      <a href="/#experience-section">Experience</a>
       <span class="dot">·</span>
-      <a href="#notebook-section">Notebook</a>
+      <a href="/writing">Writing</a>
       <span class="dot">·</span>
-      <a href="#contact-section">Contact</a>
+      <a href="/#contact-section">Contact</a>
       <span class="dot">·</span>
       <a href="/visa/post-study-work">NZ Visa</a>
     </div>

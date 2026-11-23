@@ -40,8 +40,8 @@
 <section id="testimonials-section">
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
-      <h2 class="section-title">In Their Words</h2>
-      <p class="section-subtitle">From people I have built things with</p>
+      <h2 class="section-title">Recommendations</h2>
+      <p class="section-subtitle">From a product owner, a co-founder and teammates</p>
     </div>
 
     <div class="testimonials-grid fade-in" use:observeFadeIn>

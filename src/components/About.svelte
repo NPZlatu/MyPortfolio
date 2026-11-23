@@ -1,43 +1,46 @@
 <script>
   import { observeFadeIn } from '$lib/utils/observer.js';
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
 
   const skills = [
-    { label: 'Fluent in', value: 'JavaScript, TypeScript, Python, C#, Rust, PHP' },
-    { label: 'Practiced in', value: 'Node.js, React, Vue, .NET, Django, SvelteKit' },
-    { label: 'Versed in', value: 'PostgreSQL, MongoDB, Redis, ElasticSearch' },
-    { label: 'Familiar with', value: 'Azure, AWS, Docker, Terraform, CI/CD, Scrum' },
-    { label: 'Currently exploring', value: 'RAG pipelines, AI workflows, Claude Code, LLM evaluation' },
+    { label: 'Test automation', value: 'Playwright, Puppeteer, Selenium, Protractor, Cucumber (BDD), UI and REST API tests' },
+    { label: 'Test frameworks', value: 'Vitest, Jest, Mocha, TestRail' },
+    { label: 'Testing AI', value: 'LLM evaluation with RAGAS, RAG data validation, MCP tool testing across AI clients' },
+    { label: 'CI/CD', value: 'GitHub Actions, Jenkins, Docker' },
+    { label: 'Languages', value: 'TypeScript, JavaScript, Python, C#, SQL' },
+    { label: 'Data and cloud', value: 'PostgreSQL, vector databases, AWS, Datadog, CloudWatch' },
   ];
 </script>
 
 <section id="about-section">
   <div class="section-container">
+    <div class="fade-in" use:observeFadeIn>
+      <h2 class="section-title">About</h2>
+    </div>
     <div class="about-prose fade-in" use:observeFadeIn>
       <p>
-        Ten years of building software. Started in Kathmandu, built products for companies in Nepal
-        and overseas, led teams, was briefly a CTO, and ended up in Auckland working on legal AI.
-        The path wasn't linear.
+        I started in testing properly as an SDET on MyFonts.com, Monotype's online font store.
+        I wrote the browser automation, ran it in Jenkins on every build, and took the regression
+        cycle from one to two days of manual checking down to a twenty minute automated run.
       </p>
       <p>
-        I care about correctness. I love testing — TDD, thinking through edge cases, building things
-        that hold up. It's where I feel most like myself in code.
+        Before and after that I built software for ten years, including leading a team and running
+        the technical side of a start-up. That is why I read the code I am testing, review pull
+        requests, and design a test framework the way I would design any other piece of software.
       </p>
       <p>
-        AI is changing what engineers do and I find that more interesting than frightening. I work
-        with it daily at Law Cyborg — building RAG pipelines, working with AI tools, thinking about
-        how the tools reshape the work.
+        At Nylon, an AI research tool for tax and law, my work has been testing-centred inside the
+        data team: checking every new data source against the original, validating what feeds the
+        RAG system, and testing an MCP server against Claude, ChatGPT and Gemini before release.
+        My Master's research measured how far an automated LLM evaluation tool can be trusted.
       </p>
       <p>
-        I also write. Essays, parables, reflections on why people do what they do. I think the
-        engineers who last are the ones who understand people, not just systems.
+        I am looking for a test automation or quality engineering role in Auckland, or remote within New Zealand.
       </p>
-      <button class="cv-link" on:click={() => dispatch('openResume')}>Preview Resume →</button>
+      <a class="cv-link" href="/Niraj-Paudel-CV.pdf" target="_blank" rel="noopener">Download CV →</a>
     </div>
 
     <div class="colophon fade-in" use:observeFadeIn>
-      <p class="colophon-label">Technical Inventory</p>
+      <p class="colophon-label">Skills</p>
       <dl class="colophon-list">
         {#each skills as skill}
           <div class="colophon-row">
@@ -53,7 +56,7 @@
 <style>
   .about-prose {
     max-width: var(--max-prose);
-    margin: 0 auto 1.75rem;
+    margin: 0 0 1.75rem;
     font-size: 1.05rem;
     line-height: 1.85;
     text-align: left;

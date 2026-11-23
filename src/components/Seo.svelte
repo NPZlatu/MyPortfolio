@@ -1,8 +1,8 @@
 <svelte:head>
   <!-- Primary -->
-  <title>Niraj Paudel — Software Engineer | Auckland, New Zealand</title>
-  <meta name="description" content="Software engineer with 10 years of experience building production systems. Specialising in Node.js, TypeScript, RAG pipelines, and AI-assisted engineering. Based in Auckland, New Zealand." />
-  <meta name="keywords" content="Niraj Paudel, Software Engineer Auckland, Node.js Developer New Zealand, TypeScript Engineer, RAG Pipelines, Legal AI, SvelteKit Developer, Full Stack Engineer Auckland" />
+  <title>Niraj Paudel — Test Automation Engineer | Auckland, New Zealand</title>
+  <meta name="description" content="Test automation engineer and SDET in Auckland with a ten year software engineering background. UI and API automation, CI/CD, and testing of AI systems: RAG data, MCP tools and LLM evaluation." />
+  <meta name="keywords" content="Niraj Paudel, Test Automation Engineer Auckland, SDET New Zealand, Quality Engineer, QA Engineer Auckland, Playwright, TypeScript, CI/CD, LLM evaluation, RAGAS, AI testing" />
   <meta name="author" content="Niraj Paudel" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nirajpaudel.com/" />
@@ -16,12 +16,12 @@
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://nirajpaudel.com/" />
-  <meta property="og:title" content="Niraj Paudel — Software Engineer | Auckland, NZ" />
-  <meta property="og:description" content="Software engineer with 10 years of experience building production systems. Specialising in Node.js, TypeScript, RAG pipelines, and AI-assisted engineering." />
+  <meta property="og:title" content="Niraj Paudel — Test Automation Engineer | Auckland, NZ" />
+  <meta property="og:description" content="Test automation engineer and SDET in Auckland with a ten year software engineering background. UI and API automation, CI/CD, and testing of AI systems: RAG data, MCP tools and LLM evaluation." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/10824118?v=4" />
   <meta property="og:image:width" content="400" />
   <meta property="og:image:height" content="400" />
-  <meta property="og:image:alt" content="Niraj Paudel — Software Engineer" />
+  <meta property="og:image:alt" content="Niraj Paudel — Test Automation Engineer" />
   <meta property="og:locale" content="en_NZ" />
   <meta property="og:site_name" content="Niraj Paudel" />
   <meta property="profile:first_name" content="Niraj" />
@@ -29,8 +29,8 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Niraj Paudel — Software Engineer | Auckland, NZ" />
-  <meta name="twitter:description" content="Software engineer with 10 years of experience. Node.js, TypeScript, RAG pipelines, legal AI. Based in Auckland, New Zealand." />
+  <meta name="twitter:title" content="Niraj Paudel — Test Automation Engineer | Auckland, NZ" />
+  <meta name="twitter:description" content="Test automation engineer and SDET in Auckland. UI and API automation, CI/CD, and testing of AI systems." />
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/10824118?v=4" />
 
   <!-- JSON-LD Person schema -->
@@ -40,11 +40,11 @@
     "name": "Niraj Paudel",
     "url": "https://nirajpaudel.com",
     "image": "https://avatars.githubusercontent.com/u/10824118?v=4",
-    "jobTitle": "Software Engineer",
+    "jobTitle": "Test Automation Engineer",
     "worksFor": {
       "@type": "Organization",
-      "name": "Law Cyborg",
-      "url": "https://lawcyborg.com"
+      "name": "Nylon",
+      "url": "https://usenylon.com"
     },
     "alumniOf": {
       "@type": "CollegeOrUniversity",
@@ -62,9 +62,9 @@
       "https://medium.com/@nirajpaudel"
     ],
     "knowsAbout": [
-      "Node.js", "TypeScript", "JavaScript", "Python",
-      "RAG Pipelines", "Legal AI", "SvelteKit", "React",
-      "AWS", "Docker", "PostgreSQL", "Redis"
+      "Test Automation", "Quality Engineering", "Playwright", "Puppeteer",
+      "Selenium", "Cucumber", "TypeScript", "CI/CD",
+      "LLM Evaluation", "RAGAS", "RAG Pipelines", "PostgreSQL"
     ]
   })}</script>`}
 

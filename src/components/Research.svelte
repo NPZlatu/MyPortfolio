@@ -82,14 +82,7 @@
           {/each}
         </div>
 
-        <div class="story-row">
-          <h4>Why it matters</h4>
-          <p>
-            Before you rely on an automated check, test the check itself. Use these tools to
-            see whether a change made things better or worse, not as a pass mark, and pick
-            the metric that actually catches the problem you care about.
-          </p>
-        </div>
+        <p class="card-takeaway">For a tester, the lesson is simple: an automated check needs testing too.</p>
 
         <div class="card-meta-bottom">
           <a href="https://github.com/NPZlatu/RAGAS-LLM-Judge-Reliability-Study" target="_blank" rel="noopener noreferrer">Full results on GitHub →</a>
@@ -248,4 +241,5 @@
   .finding-unit { font-family: var(--font-mono); font-size: 0.7rem; opacity: 0.6; margin-bottom: 0.7rem; }
   .finding p { margin: 0; font-size: 0.88rem; line-height: 1.6; opacity: 0.8; }
   @media (max-width: 768px) { .terms, .finding-grid { grid-template-columns: 1fr; } }
+  .card-takeaway { margin: 0; font-size: 0.95rem; font-weight: 600; }
 </style>

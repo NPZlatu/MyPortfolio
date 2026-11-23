@@ -51,7 +51,8 @@
   const navLinks = [
     { href: "#about-section", label: "About" },
     { href: "#experience-section", label: "Experience" },
-    { href: "#research-section", label: "AI Testing" },
+    { href: "#workflow-section", label: "AI Workflow" },
+    { href: "#research-section", label: "Research" },
     { href: "#education-section", label: "Education" },
     { href: "#contact-section", label: "Contact" },
     { href: "/writing", label: "Writing", external: true },

@@ -2,7 +2,7 @@
   const facts = [
     { value: 'SDET', label: 'Two years of full-time test automation on Monotype’s MyFonts.com' },
     { value: '1–2 days → 20 min', label: 'Regression cycle after moving the suite into CI' },
-    { value: 'AI systems', label: 'Built and tested: an MCP server, RAG data pipelines and LLM evaluation' },
+    { value: 'AI-native', label: 'Builds and tests AI systems with Claude Code agents, every day' },
     { value: '10 years', label: 'Building software, so I read the code I test' },
   ];
 </script>

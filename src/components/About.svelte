@@ -6,6 +6,7 @@
     { label: 'Testing', value: 'Functional, regression, exploratory and end to end testing, test planning and strategy' },
     { label: 'Test frameworks', value: 'Vitest, Jest, Mocha, JMeter (performance testing), TestRail' },
     { label: 'Testing AI', value: 'LLM evaluation with RAGAS, RAG data validation, MCP tool testing across AI clients' },
+    { label: 'AI-native workflow', value: 'Claude Code and parallel AI agents, MCP servers, agent and CodeRabbit code review, human-verified releases' },
     { label: 'CI/CD and infrastructure', value: 'GitHub Actions, Jenkins, Docker, Terraform' },
     { label: 'Languages and runtime', value: 'TypeScript, JavaScript, Node.js, Python, C#, SQL' },
     { label: 'Cloud and data', value: 'AWS (Lambda, SQS, S3, ECS), PostgreSQL, Qdrant vector database, Datadog, CloudWatch' },

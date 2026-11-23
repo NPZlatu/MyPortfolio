@@ -17,9 +17,10 @@
         ['Vector database', 'Wrote the staging to production sync for Qdrant, with a dry run and an ID-by-ID parity check so production matches what was tested.'],
         ['Data validation', 'Checked each new source for the Australia and UK launches against the original site: record counts, broken links, missing and duplicate documents, and whether a search returns the right text.'],
         ['Release gates', 'Unit and integration tests in Vitest and Jest with every pull request, CI that blocks a failing merge, and an end to end run on staging before production.'],
+        ['AI-native workflow', 'Work every day with Claude Code and parallel AI agents connected to our systems through MCP servers. A separate review agent and CodeRabbit challenge each change, and I verify the result on staging before release.'],
         ['Root cause', 'Ran the weekly data workflows and traced failed runs in Datadog and CloudWatch to the cause.'],
       ],
-      tags: ['Playwright', 'Puppeteer', 'Vitest', 'Jest', 'GitHub Actions', 'TypeScript', 'Node.js', 'AWS Lambda', 'Terraform', 'Qdrant', 'PostgreSQL', 'Datadog'],
+      tags: ['Claude Code', 'MCP', 'Playwright', 'Puppeteer', 'Vitest', 'Jest', 'GitHub Actions', 'TypeScript', 'Node.js', 'AWS Lambda', 'Terraform', 'Qdrant', 'PostgreSQL', 'Datadog'],
     },
     {
       company: 'UBA Solutions (client: Monotype, USA)',

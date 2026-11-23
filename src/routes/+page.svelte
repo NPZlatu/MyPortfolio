@@ -5,6 +5,7 @@
   import Hero from "../components/Hero.svelte";
   import About from "../components/About.svelte";
   import Experience from "../components/Experience.svelte";
+  import Workflow from "../components/Workflow.svelte";
   import Research from "../components/Research.svelte";
   import Education from "../components/Education.svelte";
   import Testimonials from "../components/Testimonials.svelte";
@@ -18,6 +19,7 @@
   <Hero />
   <About />
   <Experience />
+  <Workflow />
   <Research />
   <Testimonials />
   <Education />

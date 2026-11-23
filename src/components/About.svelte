@@ -28,9 +28,10 @@
       </p>
       <p>
         At Nylon, an AI research tool for tax and law, I work as a software engineer on the data
-        team in an AI-assisted workflow. I build and test end to end: data ingestion pipelines on
-        Node.js and AWS that load a Qdrant vector database, an MCP server tested against Claude,
-        ChatGPT and Gemini, and Playwright end to end tests wired into CI.
+        team. My main work is the knowledge base pipeline: scraping, ingesting and validating
+        legal data on Node.js and AWS, with the Datadog monitoring I set up for it. I also built
+        our MCP server and wrote Playwright end to end tests. We build and test end to end in an
+        AI-native workflow.
       </p>
       <p>
         Working that way changed what I think the job is. As AI writes more of the code, the

@@ -2,18 +2,18 @@
   import { observeFadeIn } from '$lib/utils/observer.js';
 
   const steps = [
-    ['I plan', 'I break the work down, decide what has to be true when it is done, and write the test strategy before any code exists.'],
+    ['We plan', 'The engineer breaks the work down, decides what has to be true when it is done, and sets the test strategy before any code exists.'],
     ['Agents build', 'Claude Code agents write the code and the tests, often several in parallel, connected to our databases, logs and tickets through MCP servers.'],
     ['A second agent attacks it', 'A separate review agent, with no stake in the change, tries to break it. CodeRabbit reviews the pull request as well.'],
-    ['I verify', 'Nothing ships on an agent’s word. I run it end to end on staging, check the data it produced, and only then release.'],
+    ['We verify', 'Nothing ships on an agent’s word. The engineer runs it end to end on staging, checks the data it produced, and only then releases.'],
   ];
 </script>
 
 <section id="workflow-section">
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
-      <h2 class="section-title">How I Work with AI</h2>
-      <p class="section-subtitle">An AI-native workflow, every day, where verification is the human job</p>
+      <h2 class="section-title">Working in an AI-Native Team</h2>
+      <p class="section-subtitle">How my team at Nylon builds software every day, and why verification is the human job</p>
     </div>
 
     <ol class="steps fade-in" use:observeFadeIn>

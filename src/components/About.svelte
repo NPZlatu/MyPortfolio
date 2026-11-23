@@ -2,8 +2,9 @@
   import { observeFadeIn } from '$lib/utils/observer.js';
 
   const skills = [
-    { label: 'Test automation', value: 'Playwright, Puppeteer, Selenium, Protractor, Cucumber (BDD), UI and REST API tests' },
-    { label: 'Test frameworks', value: 'Vitest, Jest, Mocha, JMeter, TestRail' },
+    { label: 'Test automation', value: 'Playwright, Puppeteer, Selenium, Protractor, Cucumber (BDD), UI and REST API tests, Postman' },
+    { label: 'Testing', value: 'Functional, regression, exploratory and end to end testing, test planning and strategy' },
+    { label: 'Test frameworks', value: 'Vitest, Jest, Mocha, JMeter (performance testing), TestRail' },
     { label: 'Testing AI', value: 'LLM evaluation with RAGAS, RAG data validation, MCP tool testing across AI clients' },
     { label: 'CI/CD and infrastructure', value: 'GitHub Actions, Jenkins, Docker, Terraform' },
     { label: 'Languages and runtime', value: 'TypeScript, JavaScript, Node.js, Python, C#, SQL' },

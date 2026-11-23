@@ -29,13 +29,13 @@
       url: 'https://www.myfonts.com',
       summary: 'Full-time test automation on MyFonts.com, Monotype’s online font store, inside the product’s Scrum team.',
       points: [
-        ['Automation', 'Wrote the browser tests in Protractor, Selenium and Cucumber, turning acceptance criteria into scenarios the whole team could read.'],
+        ['Automation', 'Wrote browser and API tests in Protractor, Selenium and Cucumber for the main site, its micro-sites and its microservices, turning acceptance criteria into scenarios the whole team could read.'],
         ['Regression', 'Cut the regression cycle from one to two days of manual checking to a twenty minute automated run.'],
-        ['CI', 'Ran the suites in Jenkins on every build and investigated each failure.'],
+        ['CI and performance', 'Ran the suites in Jenkins on every build and investigated each failure. Load tested services with JMeter.'],
         ['Functional testing', 'Tested new features by hand before automating them, reported bugs with clear steps, and retested each fix.'],
         ['Test management', 'Kept test cases and runs current in TestRail so the team could see what each release covered.'],
       ],
-      tags: ['Protractor', 'Selenium', 'Cucumber', 'Jenkins', 'TestRail', 'Docker', 'Node.js'],
+      tags: ['Protractor', 'Selenium', 'Cucumber', 'JMeter', 'Postman', 'Jenkins', 'TestRail', 'Docker'],
     },
   ];
 

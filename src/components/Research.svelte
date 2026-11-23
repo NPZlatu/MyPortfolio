@@ -1,16 +1,30 @@
 <script>
   import { observeFadeIn } from '$lib/utils/observer.js';
 
-  const findings = [
-    ['The markers agreed on which answers were better', 'So the tool is reliable for comparing two versions of a system, or for catching a drop in quality after a change.'],
-    ['They did not agree on the exact score', 'The same answer got marks about 10% apart depending on which AI did the marking. A fixed pass mark is not safe.'],
-    ['One of the three measures missed made-up answers', 'It gave invented answers the same mark as correct ones, with every marker. The other two measures caught them.'],
+  const terms = [
+    ['RAG', 'An AI that looks things up before it answers. It finds the relevant documents first, then writes its answer from them, like an open-book exam.'],
+    ['RAGAS', 'A tool that marks those answers automatically. It uses a second AI as the marker and gives each answer a score from 0 to 1.'],
   ];
 
-  const numbers = [
-    { value: '3', label: 'AI markers compared: GPT-4o mini, Gemini and Llama' },
-    { value: '1,800', label: 'marks collected and analysed' },
-    { value: '15 of 18', label: 'times the markers correctly spotted a deliberately bad answer set' },
+  const findings = [
+    {
+      title: 'The markers agreed on which answers were better',
+      text: 'When one marker ranked an answer high, the others did too.',
+      number: '0.89',
+      unit: 'agreement out of 1',
+    },
+    {
+      title: 'They did not agree on the exact score',
+      text: 'The same answer got a different mark depending on which AI marked it.',
+      number: '±0.1',
+      unit: 'gap between markers',
+    },
+    {
+      title: 'One of the three checks missed made-up answers',
+      text: 'It scored invented answers 0.84 and correct ones 0.85. Another check caught them: 0.94 dropped to 0.40.',
+      number: '0.84',
+      unit: 'for a made-up answer',
+    },
   ];
 </script>
 
@@ -24,39 +38,60 @@
     <div class="research-card fade-in" use:observeFadeIn>
       <div class="card-stripe"></div>
       <div class="card-body">
-        <span class="card-course">Master of IT applied research · Auckland Institute of Studies · 2026</span>
-        <h3 class="card-title">Reliability of RAGAS Metrics across LLM Judges</h3>
-        <p class="card-summary">
-          Companies test AI products with tools where one AI model marks another model's answers.
-          I checked whether the marker itself can be trusted. I gave the same answers to three
-          different AI markers and compared the marks they gave.
-        </p>
+        <span class="card-course">Master of IT research · Auckland Institute of Studies · 2026</span>
+        <h3 class="card-title">Testing the tool that tests AI</h3>
 
-        <p class="card-result">
-          <strong>The result:</strong> you can trust it to compare, but not for exact scores.
-        </p>
-
-        <ul class="finding-list">
-          {#each findings as f}
-            <li><strong>{f[0]}.</strong> {f[1]}</li>
-          {/each}
-        </ul>
-
-        <dl class="result-grid">
-          {#each numbers as n}
-            <div class="result">
-              <dt>{n.value}</dt>
-              <dd>{n.label}</dd>
+        <dl class="terms">
+          {#each terms as t}
+            <div class="term">
+              <dt>{t[0]}</dt>
+              <dd>{t[1]}</dd>
             </div>
           {/each}
         </dl>
 
-        <p class="card-summary">
-          Why it matters for testing: before you rely on an automated check, test the check itself.
+        <div class="story">
+          <div class="story-row">
+            <h4>The question</h4>
+            <p>If an AI is doing the marking, can we trust the marks? Would a different AI marker give the same score?</p>
+          </div>
+          <div class="story-row">
+            <h4>What I did</h4>
+            <p>
+              I took 50 questions with correct answers, then made three bad copies on purpose:
+              made-up answers, incomplete answers, and answers buried in irrelevant material.
+              I had three different AI markers (GPT-4o mini, Gemini and Llama) mark all of
+              them, 1,800 marks in total, and compared the results.
+            </p>
+          </div>
+        </div>
+
+        <p class="card-result">
+          <strong>The result:</strong> good enough to compare two versions, not good enough to trust the exact score.
         </p>
 
+        <div class="finding-grid">
+          {#each findings as f}
+            <div class="finding">
+              <div class="finding-number">{f.number}</div>
+              <div class="finding-unit">{f.unit}</div>
+              <h4>{f.title}</h4>
+              <p>{f.text}</p>
+            </div>
+          {/each}
+        </div>
+
+        <div class="story-row">
+          <h4>Why it matters</h4>
+          <p>
+            Before you rely on an automated check, test the check itself. Use these tools to
+            see whether a change made things better or worse, not as a pass mark, and pick
+            the check that actually catches the problem you care about.
+          </p>
+        </div>
+
         <div class="card-meta-bottom">
-          <a href="https://github.com/NPZlatu/RAGAS-LLM-Judge-Reliability-Study" target="_blank" rel="noopener noreferrer">Code and results on GitHub →</a>
+          <a href="https://github.com/NPZlatu/RAGAS-LLM-Judge-Reliability-Study" target="_blank" rel="noopener noreferrer">Full results on GitHub →</a>
           <span class="card-dot">·</span>
           <span>Supervisor: Dr. Shabana Ali</span>
         </div>
@@ -198,4 +233,18 @@
   .card-summary { flex: none; }
   @media (max-width: 768px) { .result-grid { grid-template-columns: 1fr; } }
 
+
+  .terms { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .term { background: var(--bg-code); border-radius: 4px; padding: 14px 16px; min-width: 0; }
+  .term dt { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: var(--accent); margin-bottom: 0.3rem; }
+  .term dd { margin: 0; font-size: 0.9rem; line-height: 1.6; }
+  .story { display: flex; flex-direction: column; gap: 1rem; }
+  .story-row h4, .finding h4 { font-family: var(--font-display); font-size: 0.98rem; font-weight: 700; margin: 0 0 0.3rem 0; }
+  .story-row p { margin: 0; font-size: 0.95rem; line-height: 1.7; max-width: 760px; }
+  .finding-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .finding { border-top: 2px solid var(--border); padding-top: 14px; min-width: 0; }
+  .finding-number { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .finding-unit { font-family: var(--font-mono); font-size: 0.7rem; opacity: 0.6; margin-bottom: 0.7rem; }
+  .finding p { margin: 0; font-size: 0.88rem; line-height: 1.6; opacity: 0.8; }
+  @media (max-width: 768px) { .terms, .finding-grid { grid-template-columns: 1fr; } }
 </style>

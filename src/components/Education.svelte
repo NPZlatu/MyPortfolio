@@ -44,7 +44,7 @@
         <div class="featured-tag">Currently Enrolled</div>
         <h3 class="featured-degree">Master of Information Technology</h3>
         <p class="featured-institution">Auckland Institute of Studies</p>
-        <p class="featured-location">Auckland, New Zealand &nbsp;·&nbsp; 2024 — Present</p>
+        <p class="featured-location">Auckland, New Zealand &nbsp;·&nbsp; 2024 — 2026</p>
         <p class="featured-note">
           This is where both academic research projects were developed, and where the Law Cyborg
           internship originated through the Intensive Internship Course. Supervised by Dr. Shabana Ali.

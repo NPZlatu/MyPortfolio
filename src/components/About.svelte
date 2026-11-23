@@ -5,9 +5,9 @@
     { label: 'Test automation', value: 'Playwright, Puppeteer, Selenium, Protractor, Cucumber (BDD), UI and REST API tests' },
     { label: 'Test frameworks', value: 'Vitest, Jest, Mocha, TestRail' },
     { label: 'Testing AI', value: 'LLM evaluation with RAGAS, RAG data validation, MCP tool testing across AI clients' },
-    { label: 'CI/CD', value: 'GitHub Actions, Jenkins, Docker' },
-    { label: 'Languages', value: 'TypeScript, JavaScript, Python, C#, SQL' },
-    { label: 'Data and cloud', value: 'PostgreSQL, vector databases, AWS, Datadog, CloudWatch' },
+    { label: 'CI/CD and infrastructure', value: 'GitHub Actions, Jenkins, Docker, Terraform' },
+    { label: 'Languages and runtime', value: 'TypeScript, JavaScript, Node.js, Python, C#, SQL' },
+    { label: 'Cloud and data', value: 'AWS (Lambda, SQS, S3, ECS), PostgreSQL, vector databases, Datadog, CloudWatch' },
   ];
 </script>
 
@@ -18,23 +18,25 @@
     </div>
     <div class="about-prose fade-in" use:observeFadeIn>
       <p>
-        I started in testing properly as an SDET on MyFonts.com, Monotype's online font store.
-        I wrote the browser automation, ran it in Jenkins on every build, and took the regression
-        cycle from one to two days of manual checking down to a twenty minute automated run.
+        I am a software engineer and an SDET, and test automation is where I am taking my career.
+        On MyFonts.com, Monotype's online font store, I worked as a full-time SDET: I wrote the
+        browser automation, ran it in Jenkins on every build, and took the regression cycle from
+        one to two days of manual checking down to a twenty minute automated run.
       </p>
       <p>
-        Before and after that I built software for ten years, including leading a team and running
-        the technical side of a start-up. That is why I read the code I am testing, review pull
+        Around that I have built software for ten years, including leading a team and running the
+        technical side of a start-up. That is why I read the code I am testing, review pull
         requests, and design a test framework the way I would design any other piece of software.
       </p>
       <p>
-        At Nylon, an AI research tool for tax and law, my work has been testing-centred inside the
-        data team: checking every new data source against the original, validating what feeds the
-        RAG system, and testing an MCP server against Claude, ChatGPT and Gemini before release.
-        My Master's research measured how far an automated LLM evaluation tool can be trusted.
+        At Nylon, an AI research tool for tax and law, I build and test end to end in an
+        AI-assisted workflow. I build data ingestion pipelines on Node.js and AWS and validate
+        what they produce, I built our MCP server and tested it against Claude, ChatGPT and
+        Gemini, and I wrote Playwright end to end tests and wired them into CI. Much of the work
+        is validation: is the data complete, is the answer right, did the release break anything.
       </p>
       <p>
-        I am looking for a test automation or quality engineering role in Auckland, or remote within New Zealand.
+        My Master's research measured how far an automated LLM evaluation tool can be trusted.
       </p>
       <a class="cv-link" href="/Niraj-Paudel-CV.pdf" target="_blank" rel="noopener">Download CV →</a>
     </div>

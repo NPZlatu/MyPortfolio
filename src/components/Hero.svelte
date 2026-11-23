@@ -2,7 +2,7 @@
   const facts = [
     { value: 'SDET', label: 'Two years of full-time test automation on Monotype’s MyFonts.com' },
     { value: '1–2 days → 20 min', label: 'Regression cycle after moving the suite into CI' },
-    { value: 'AI systems', label: 'Testing an MCP server, RAG data and LLM evaluation' },
+    { value: 'AI systems', label: 'Built and tested: an MCP server, RAG data pipelines and LLM evaluation' },
     { value: '10 years', label: 'Building software, so I read the code I test' },
   ];
 </script>
@@ -12,9 +12,9 @@
     <p class="hero-tagline">Test Automation Engineer &nbsp;·&nbsp; Quality Engineering</p>
     <h1 class="hero-name">Niraj Paudel</h1>
     <p class="hero-sub">
-      I build test automation and find where software breaks before users do.
-      SDET by training, software engineer by background, and for the last year and a half
-      the person checking what an AI product returns before it ships.
+      Software engineer and SDET. I build systems and the test automation that proves they work.
+      Ten years of building software, two of them as a full-time SDET, and most recently
+      building and testing AI data pipelines end to end. My focus is test automation and quality engineering.
     </p>
     <p class="hero-location">Auckland, New Zealand &nbsp;·&nbsp; NZ resident, full work rights</p>
 

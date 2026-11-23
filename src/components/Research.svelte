@@ -32,7 +32,7 @@
     <div class="research-card fade-in" use:observeFadeIn>
       <div class="card-stripe"></div>
       <div class="card-body">
-        <span class="card-course">Master of IT applied research · Auckland Institute of Studies</span>
+        <span class="card-course">Master of IT applied research · Auckland Institute of Studies · 2026</span>
         <h3 class="card-title">Reliability of RAGAS Metrics across LLM Judges</h3>
         <p class="card-summary">
           Teams that ship RAG products test them with tools like RAGAS, where one language model

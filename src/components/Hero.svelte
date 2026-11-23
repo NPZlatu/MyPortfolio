@@ -72,12 +72,14 @@
   }
 
   .hero-photo {
-    width: 280px;
-    height: 280px;
+    width: 232px;
+    height: 232px;
     object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid var(--border);
+    border-radius: 50%;
+    border: 4px solid var(--bg-card);
+    box-shadow: 0 0 0 1px var(--border);
     flex-shrink: 0;
+    margin-right: 24px;
   }
 
   .hero-quote {
@@ -212,8 +214,9 @@
     }
 
     .hero-photo {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
+      margin-right: 0;
     }
 
     .hero-facts {

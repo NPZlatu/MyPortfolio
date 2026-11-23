@@ -9,6 +9,8 @@
 
 <section id="hero-section" class="hero">
   <div class="hero-inner">
+    <div class="hero-top">
+      <div class="hero-text">
     <p class="hero-tagline">SDET &nbsp;·&nbsp; Test Automation Engineer &nbsp;·&nbsp; Software Engineering background</p>
     <h1 class="hero-name">Niraj Paudel</h1>
     <p class="hero-sub">
@@ -24,6 +26,10 @@
       <a class="btn" href="https://www.linkedin.com/in/itsmenirajpaudel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
 
+      </div>
+      <img class="hero-photo" src="/profile.jpg" alt="Niraj Paudel" width="280" height="280" />
+    </div>
+
     <dl class="hero-facts">
       {#each facts as fact}
         <div class="fact">
@@ -32,6 +38,15 @@
         </div>
       {/each}
     </dl>
+
+    <figure class="hero-quote">
+      <blockquote>
+        “He was instrumental in decreasing release cycle time from ‘weeks’ to ‘minutes’ by
+        leveraging his technical expertise and keen attention to detail for building first-class
+        test automation from the ground up.”
+      </blockquote>
+      <figcaption>James Minior, Product Owner at Monotype, on our work on MyFonts.com</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -43,6 +58,52 @@
   .hero-inner {
     max-width: var(--max-wide);
     margin: 0 auto;
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .hero-text {
+    min-width: 0;
+  }
+
+  .hero-photo {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .hero-quote {
+    margin: 2.5rem 0 0 0;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+  }
+
+  .hero-quote blockquote {
+    border: none;
+    padding: 0;
+    font-style: normal;
+    margin: 0 0 0.6rem 0;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    max-width: 820px;
+  }
+
+  .hero-quote figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    opacity: 0.65;
   }
 
   .hero-tagline {
@@ -82,7 +143,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0;
   }
 
   .btn {
@@ -121,7 +182,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    margin: 0;
+    margin: 2.5rem 0 0 0;
     border-top: 1px solid var(--border);
   }
 
@@ -144,6 +205,17 @@
   }
 
   @media (max-width: 900px) {
+    .hero-top {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .hero-photo {
+      width: 140px;
+      height: 140px;
+    }
+
     .hero-facts {
       grid-template-columns: 1fr 1fr;
     }

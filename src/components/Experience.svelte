@@ -121,7 +121,7 @@
 <style>
   .tier1-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
     margin-bottom: 3rem;
   }
@@ -220,9 +220,9 @@
     font-size: 0.65rem;
     padding: 3px 8px;
     border-radius: 2px;
-    background: rgba(58, 90, 64, 0.1);
+    background: var(--bg-code);
     color: var(--accent-green);
-    border: 1px solid rgba(58, 90, 64, 0.2);
+    border: 1px solid var(--border);
     letter-spacing: 0.03em;
   }
 
@@ -414,6 +414,7 @@
 
   .chapter-narrative { margin-bottom: 1rem; }
   .chapter-role { font-style: normal; font-weight: 600; opacity: 0.85; margin-bottom: 0.75rem; }
+  .chapter-narrative, .chapter-points { max-width: 820px; }
   .chapter-points { margin: 0 0 1.5rem 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.55rem; }
   .chapter-points li { font-size: 0.9rem; line-height: 1.6; }
   .chapter-points strong { font-weight: 600; }

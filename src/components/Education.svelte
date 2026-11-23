@@ -145,8 +145,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: rgba(58, 90, 64, 0.07);
-    border: 1px solid rgba(58, 90, 64, 0.25);
+    background: var(--bg-code);
+    border: 1px solid var(--border);
     border-radius: 4px;
     padding: 14px 18px;
     cursor: pointer;
@@ -157,7 +157,7 @@
   }
 
   .award-badge:hover {
-    background: rgba(58, 90, 64, 0.13);
+    background: var(--bg-code);
     border-color: var(--accent-green);
   }
 

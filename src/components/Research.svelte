@@ -165,9 +165,9 @@
     font-size: 0.62rem;
     padding: 3px 7px;
     border-radius: 2px;
-    background: rgba(58, 90, 64, 0.1);
+    background: var(--bg-code);
     color: var(--accent-green);
-    border: 1px solid rgba(58, 90, 64, 0.2);
+    border: 1px solid var(--border);
     letter-spacing: 0.02em;
   }
 

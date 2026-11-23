@@ -13,7 +13,7 @@
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
       <h2 class="section-title">Working in an AI-Native Team</h2>
-      <p class="section-subtitle">How my team at Nylon builds software every day, and why verification is the human job</p>
+      <p class="section-subtitle">The AI workflows we built as a team at Nylon and work in every day, and why verification is the human job</p>
     </div>
 
     <ol class="steps fade-in" use:observeFadeIn>

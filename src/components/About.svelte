@@ -28,10 +28,10 @@
       </p>
       <p>
         At Nylon, an AI research tool for tax and law, I work as a software engineer on the data
-        team. My main work is the knowledge base pipeline: scraping, ingesting and validating
-        legal data on Node.js and AWS, with the Datadog monitoring I set up for it. I also built
-        our MCP server and wrote Playwright end to end tests. We build and test end to end in an
-        AI-native workflow.
+        team. My work is half building and half verification, both with AI. I build the knowledge
+        base pipeline, scraping and ingesting legal data on Node.js and AWS, and I check what it
+        produces: weekly scraper runs, manual verification before production, and the Datadog
+        monitoring I set up for it. I also built our MCP server.
       </p>
       <p>
         Working that way changed what I think the job is. As AI writes more of the code, the

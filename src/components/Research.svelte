@@ -2,28 +2,29 @@
   import { observeFadeIn } from '$lib/utils/observer.js';
 
   const terms = [
-    ['RAG', 'An AI that looks things up before it answers. It finds the relevant documents first, then writes its answer from them, like an open-book exam.'],
-    ['RAGAS', 'A tool that marks those answers automatically. It uses a second AI as the marker and gives each answer a score from 0 to 1.'],
+    ['LLM', 'Large language model: the kind of AI behind ChatGPT, Claude and Gemini.'],
+    ['RAG', 'Retrieval-augmented generation: an LLM that looks up the relevant documents first, then answers from them, like an open-book exam.'],
+    ['RAGAS', 'A tool that scores RAG answers automatically. It uses a second LLM as the judge and gives each answer a score from 0 to 1.'],
   ];
 
   const findings = [
     {
-      title: 'The markers agreed on which answers were better',
-      text: 'When one marker ranked an answer high, the others did too.',
+      title: 'The LLM judges agreed on which answers were better',
+      text: 'When one judge ranked an answer high, the others did too.',
       number: '0.89',
       unit: 'agreement out of 1',
     },
     {
       title: 'They did not agree on the exact score',
-      text: 'The same answer got a different mark depending on which AI marked it.',
+      text: 'The same answer got a different score depending on which LLM judged it.',
       number: '±0.1',
-      unit: 'gap between markers',
+      unit: 'gap between judges',
     },
     {
-      title: 'One of the three checks missed made-up answers',
-      text: 'It scored invented answers 0.84 and correct ones 0.85. Another check caught them: 0.94 dropped to 0.40.',
+      title: 'One of the three metrics missed hallucinated answers',
+      text: 'Answer Relevancy scored hallucinated answers 0.84 and correct ones 0.85. Faithfulness caught them: 0.94 dropped to 0.40.',
       number: '0.84',
-      unit: 'for a made-up answer',
+      unit: 'for a hallucinated answer',
     },
   ];
 </script>
@@ -32,14 +33,14 @@
   <div class="section-container">
     <div class="fade-in" use:observeFadeIn>
       <h2 class="section-title">Research</h2>
-      <p class="section-subtitle">Can you trust an AI to mark another AI's answers?</p>
+      <p class="section-subtitle">Can you trust one LLM to judge another LLM's answers?</p>
     </div>
 
     <div class="research-card fade-in" use:observeFadeIn>
       <div class="card-stripe"></div>
       <div class="card-body">
         <span class="card-course">Master of IT research · Auckland Institute of Studies · 2026</span>
-        <h3 class="card-title">Testing the tool that tests AI</h3>
+        <h3 class="card-title">Testing the tool that tests LLMs</h3>
 
         <dl class="terms">
           {#each terms as t}
@@ -53,15 +54,15 @@
         <div class="story">
           <div class="story-row">
             <h4>The question</h4>
-            <p>If an AI is doing the marking, can we trust the marks? Would a different AI marker give the same score?</p>
+            <p>If an LLM is the judge, can we trust its scores? Would a different LLM judge give the same score?</p>
           </div>
           <div class="story-row">
             <h4>What I did</h4>
             <p>
               I took 50 questions with correct answers, then made three bad copies on purpose:
-              made-up answers, incomplete answers, and answers buried in irrelevant material.
-              I had three different AI markers (GPT-4o mini, Gemini and Llama) mark all of
-              them, 1,800 marks in total, and compared the results.
+              hallucinated answers, incomplete answers, and answers with irrelevant context added.
+              I had three different LLM judges (GPT-4o mini, Gemini and Llama) score all of
+              them, 1,800 scores in total, and compared the results.
             </p>
           </div>
         </div>
@@ -86,7 +87,7 @@
           <p>
             Before you rely on an automated check, test the check itself. Use these tools to
             see whether a change made things better or worse, not as a pass mark, and pick
-            the check that actually catches the problem you care about.
+            the metric that actually catches the problem you care about.
           </p>
         </div>
 
@@ -234,7 +235,7 @@
   @media (max-width: 768px) { .result-grid { grid-template-columns: 1fr; } }
 
 
-  .terms { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .terms { margin: 0; display: grid; grid-template-columns: 1fr 1.4fr 1.4fr; gap: 12px; }
   .term { background: var(--bg-code); border-radius: 4px; padding: 14px 16px; min-width: 0; }
   .term dt { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: var(--accent); margin-bottom: 0.3rem; }
   .term dd { margin: 0; font-size: 0.9rem; line-height: 1.6; }

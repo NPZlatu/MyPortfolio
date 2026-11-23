@@ -7,7 +7,7 @@
     { label: 'Testing AI', value: 'LLM evaluation with RAGAS, RAG data validation, MCP tool testing across AI clients' },
     { label: 'CI/CD and infrastructure', value: 'GitHub Actions, Jenkins, Docker, Terraform' },
     { label: 'Languages and runtime', value: 'TypeScript, JavaScript, Node.js, Python, C#, SQL' },
-    { label: 'Cloud and data', value: 'AWS (Lambda, SQS, S3, ECS), PostgreSQL, vector databases, Datadog, CloudWatch' },
+    { label: 'Cloud and data', value: 'AWS (Lambda, SQS, S3, ECS), PostgreSQL, Qdrant vector database, Datadog, CloudWatch' },
   ];
 </script>
 
